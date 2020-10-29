@@ -877,6 +877,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#profiling-skipper" title="Profiling skipper" class="md-nav__link">
+    Profiling skipper
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#profiling-example" title="Profiling example" class="md-nav__link">
+    Profiling example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -1423,6 +1443,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#profiling-skipper" title="Profiling skipper" class="md-nav__link">
+    Profiling skipper
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#profiling-example" title="Profiling example" class="md-nav__link">
+    Profiling example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -1946,9 +1986,29 @@ http handler, until we served the response to the client of the request.</p>
 <a href="https://golang.org/pkg/net/http/#Transport.DialContext">connect</a> (<code>dial_context</code>),
 <a href="https://golang.org/pkg/net/http/#Transport.RoundTrip">http roundtrip</a>
 (<code>http_roundtrip</code>), stream headers from backend to client
-(<code>stream_Headers</code>) and stream body from backend to client
-(<code>streamBody.byte</code>).</p>
+(<code>stream_Headers</code>), stream body from backend to client
+(<code>streamBody.byte</code>) and events by the <a href="https://golang.org/pkg/net/http/httptrace/#ClientTrace">Go runtime</a>.</p>
 <p><img alt="Proxy span with logs" src="../../img/skipper_opentracing_proxy_span_with_logs.png" /></p>
+<p>In addition to the manual instrumented proxy client logs, we use
+<code>net/http/httptrace.ClientTrace</code> to show events by the Go
+runtime. Full logs of the Proxy span:</p>
+<ul>
+<li><code>http_roundtrip: "start"</code>: just before <a href="https://golang.org/pkg/net/http/#Transport.RoundTrip">http roundtrip</a></li>
+<li><code>http_roundtrip: "end"</code>: just after <a href="https://golang.org/pkg/net/http/#Transport.RoundTrip">http roundtrip</a></li>
+<li><code>get_conn: "start"</code>: try to get a connection from the connection pool <a href="https://golang.org/pkg/net/http/httptrace/#ClientTrace">httptrace.ClientTrace</a></li>
+<li><code>get_conn: "end"</code>: got a connection from the connection pool <a href="https://golang.org/pkg/net/http/httptrace/#ClientTrace">httptrace.ClientTrace</a></li>
+<li><code>DNS: "start"</code>: try to resolve DNS <a href="https://golang.org/pkg/net/http/httptrace/#ClientTrace">httptrace.ClientTrace</a></li>
+<li><code>DNS: "end"</code>: got an IP <a href="https://golang.org/pkg/net/http/httptrace/#ClientTrace">httptrace.ClientTrace</a></li>
+<li><code>TLS: "start"</code>: start TLS connection <a href="https://golang.org/pkg/net/http/httptrace/#ClientTrace">httptrace.ClientTrace</a></li>
+<li><code>TLS: "end"</code>: established TLS connection <a href="https://golang.org/pkg/net/http/httptrace/#ClientTrace">httptrace.ClientTrace</a></li>
+<li><code>connect: "start"</code>: start to establish TCP/IP connection <a href="https://golang.org/pkg/net/http/httptrace/#ClientTrace">httptrace.ClientTrace</a></li>
+<li><code>connect: "end"</code>: established TCP/IP connection <a href="https://golang.org/pkg/net/http/httptrace/#ClientTrace">httptrace.ClientTrace</a></li>
+<li><code>wrote_headers: "done"</code>: wrote HTTP Headers into the socket <a href="https://golang.org/pkg/net/http/httptrace/#ClientTrace">httptrace.ClientTrace</a></li>
+<li><code>wrote_request: "done"</code>: wrote full HTTP Request into the socket <a href="https://golang.org/pkg/net/http/httptrace/#ClientTrace">httptrace.ClientTrace</a></li>
+<li><code>got_first_byte: "done"</code>: Got first byte of the HTTP response from
+  the backend <a href="https://golang.org/pkg/net/http/httptrace/#ClientTrace">httptrace.ClientTrace</a></li>
+</ul>
+<p><img alt="Proxy span logs" src="../../img/skipper_opentracing_proxy_span_logs.png" /></p>
 <h3 id="request-filters-span">Request filters span<a class="headerlink" href="#request-filters-span" title="Permanent link">&para;</a></h3>
 <p>The request filters span logs shows <code>start</code> and <code>end</code> values for each
 filter applied.</p>
@@ -2225,6 +2285,50 @@ predicates and filters involved in the route processing:</p>
   <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
+
+<h2 id="profiling-skipper">Profiling skipper<a class="headerlink" href="#profiling-skipper" title="Permanent link">&para;</a></h2>
+<p>Go profiling is explained in Go&rsquo;s
+<a href="https://golang.org/doc/diagnostics.html">diagnostics</a> documentation.</p>
+<p>To enable profiling in skipper you have to use <code>-enable-profile</code>. This
+will start a profiling route at <code>/debug/pprof/profile</code> on the support
+listener, which defaults to <code>:9911</code>.</p>
+<h3 id="profiling-example">Profiling example<a class="headerlink" href="#profiling-example" title="Permanent link">&para;</a></h3>
+<p>Start skipper with enabled profiling:</p>
+<div class="codehilite"><pre><span></span>skipper -inline-routes=&#39;r1: * -&gt; inlineContent(&quot;hello&quot;) -&gt; &lt;shunt&gt;&#39; -enable-profile
+</pre></div>
+
+<p>Use Go tool pprof to download profiling sample to analyze (sample is not from the example):</p>
+<div class="codehilite"><pre><span></span>go tool pprof http://127.0.0.1:9911
+Fetching profile over HTTP from http://127.0.0.1:9911/debug/pprof/profile
+Saved profile in /$HOME/pprof/pprof.skipper.samples.cpu.004.pb.gz
+File: skipper
+Build ID: 272c31a7bd60c9fabb637bdada37a3331a919b01
+Type: cpu
+Time: Oct 7, 2020 at 6:17pm (CEST)
+Duration: 30s, Total samples = 0
+No samples were found with the default sample value type.
+Try &quot;sample_index&quot; command to analyze different sample values.
+Entering interactive mode (type &quot;help&quot; for commands, &quot;o&quot; for options)
+(pprof) top
+Showing nodes accounting for 2140ms, 50.00% of 4280ms total
+Dropped 330 nodes (cum &lt;= 21.40ms)
+Showing top 10 nodes out of 303
+      flat  flat%   sum%        cum   cum%
+     560ms 13.08% 13.08%      640ms 14.95%  syscall.Syscall
+     420ms  9.81% 22.90%      430ms 10.05%  runtime.nanotime
+     410ms  9.58% 32.48%      410ms  9.58%  runtime.futex
+     170ms  3.97% 36.45%      450ms 10.51%  runtime.mallocgc
+     170ms  3.97% 40.42%      180ms  4.21%  runtime.walltime
+     160ms  3.74% 44.16%      220ms  5.14%  runtime.scanobject
+      80ms  1.87% 46.03%       80ms  1.87%  runtime.heapBitsSetType
+      70ms  1.64% 47.66%       70ms  1.64%  runtime.epollwait
+      50ms  1.17% 48.83%      120ms  2.80%  compress/flate.(*compressor).deflate
+      50ms  1.17% 50.00%       50ms  1.17%  encoding/json.stateInString
+(pprof) web
+--&gt; opens browser with SVG
+</pre></div>
+
+<p><img alt="pprof svg in web browser" src="../../img/skipper_pprof.svg" /></p>
                 
                   
                 

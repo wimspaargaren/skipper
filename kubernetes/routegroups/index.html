@@ -1733,7 +1733,7 @@ and backends without limitations. E.g where an ingress annotation&rsquo;s metada
     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">status(200)</span>
     <span class="l l-Scalar l-Scalar-Plain">backends</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">options200</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">backendName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">options200</span>
 </pre></div>
 
 <h3 id="zalandoorgratelimit">zalando.org/ratelimit<a class="headerlink" href="#zalandoorgratelimit" title="Permanent link">&para;</a></h3>
@@ -1741,7 +1741,7 @@ and backends without limitations. E.g where an ingress annotation&rsquo;s metada
 <h3 id="zalandoorgskipper-ingress-redirect-and-zalandoorgskipper-ingress-redirect-code">zalando.org/skipper-ingress-redirect and zalando.org/skipper-ingress-redirect-code<a class="headerlink" href="#zalandoorgskipper-ingress-redirect-and-zalandoorgskipper-ingress-redirect-code" title="Permanent link">&para;</a></h3>
 <p>Skipper ingress provides global HTTPS redirect, but it allows individual ingresses to override the global
 settings: enabling/disabling it and changing the default redirect code. With route groups, this override can be
-achieved by simply defining an addtional route, with the same matching rules, and therefore the override can be
+achieved by simply defining an additional route, with the same matching rules, and therefore the override can be
 controlled eventually on a route basis. E.g:</p>
 <div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">zalando.org/v1</span>
 <span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RouteGroup</span>
@@ -1765,7 +1765,7 @@ controlled eventually on a route basis. E.g:</p>
     <span class="l l-Scalar l-Scalar-Plain">filters</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">redirectTo(302, &quot;https:&quot;)</span>
     <span class="l l-Scalar l-Scalar-Plain">backends</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">redirectShunt</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">backendName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">redirectShunt</span>
 </pre></div>
 
 <h3 id="zalandoorgskipper-loadbalancer">zalando.org/skipper-loadbalancer<a class="headerlink" href="#zalandoorgskipper-loadbalancer" title="Permanent link">&para;</a></h3>

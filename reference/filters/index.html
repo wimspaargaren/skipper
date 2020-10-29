@@ -2647,12 +2647,15 @@ given key.</p>
 <p>Example:</p>
 <div class="codehilite"><pre><span></span>* -&gt; inlineContent(&quot;<span class="nt">&lt;h1&gt;</span>Hello<span class="nt">&lt;/h1&gt;</span>&quot;) -&gt; <span class="nt">&lt;shunt&gt;</span>
 * -&gt; inlineContent(&quot;[1,2,3]&quot;, &quot;application/json&quot;) -&gt; <span class="nt">&lt;shunt&gt;</span>
+* -&gt; status(418) -&gt; inlineContent(&quot;Would you like a cup of tea?&quot;) -&gt; <span class="nt">&lt;shunt&gt;</span>
 </pre></div>
 
-<p>Content type will be automatically detected when not provided.</p>
+<p>Content type will be automatically detected when not provided using <a href="https://mimesniff.spec.whatwg.org/#rules-for-identifying-an-unknown-mime-type">https://mimesniff.spec.whatwg.org/#rules-for-identifying-an-unknown-mime-type</a> algorithm.
+Note that content detection algorithm does not contain any rules for recognizing JSON.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>inlineContent</code> filter is special and must be the last in the filter chain.</p>
+<p><code>inlineContent</code> filter sets the response on request path and starts the response path immediately.
+The rest of the filter chain and backend are ignored and therefore <code>inlineContent</code> filter must be the last in the chain.</p>
 </div>
 <h2 id="inlinecontentifstatus">inlineContentIfStatus<a class="headerlink" href="#inlinecontentifstatus" title="Permanent link">&para;</a></h2>
 <p>Returns arbitrary content in the HTTP body, if the response has the specified status code.</p>

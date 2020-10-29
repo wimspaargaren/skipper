@@ -1029,7 +1029,7 @@ service. The Skipper routes yielded by a route group are handled atomically, mea
 detected during processing a route group, none of the generated routes from that group will be applied.</p>
 <h3 id="hosts">Hosts<a class="headerlink" href="#hosts" title="Permanent link">&para;</a></h3>
 <p>A list of allowed DNS host names that an incoming HTTP request should match in order to be handled by the route
-group. Hosts are optional.</p>
+group. Host list is mandatory.</p>
 <h3 id="backend">Backend<a class="headerlink" href="#backend" title="Permanent link">&para;</a></h3>
 <p>Typically a Kubernetes service, but not necessarily. The routes generated from route groups need to have a
 backend, therefore at least one backend is mandatory.</p>
@@ -1048,8 +1048,7 @@ predicates list field, it is possible to define and configure any predicate supp
 by Skipper is allowed to be used. See the <a href="../../reference/filters/">Filters</a>
 section of the reference.</p>
 <h2 id="routegroup-top-level-object">RouteGroup - top level object<a class="headerlink" href="#routegroup-top-level-object" title="Permanent link">&para;</a></h2>
-<p>The route group spec can or must contain the hosts, backends, default backends and routes. Mandatory fields are
-the backends, and either the defaultBackends or the routes.</p>
+<p>The route group spec must contain hosts, backends, routes and optional default backends.</p>
 <div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">zalando.org/v1</span>
 <span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RouteGroup</span>
 <span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
@@ -1070,7 +1069,7 @@ fields are the name and the type, while the rest of the fields may be required b
   <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;</span>
   <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;            one of &quot;service|shunt|loopback|dynamic|lb|network&quot;</span>
   <span class="l l-Scalar l-Scalar-Plain">address</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;         optional, required for type=network</span>
-  <span class="l l-Scalar l-Scalar-Plain">algorithm</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;       optional, valid for type=lb|service, values=roundRobin|random|consistentHash</span>
+  <span class="l l-Scalar l-Scalar-Plain">algorithm</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;       optional, valid for type=lb|service, values=roundRobin|random|consistentHash|powerOfRandomNChoices</span>
   <span class="l l-Scalar l-Scalar-Plain">endpoints</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;stringarray&gt;  optional, required for type=lb</span>
   <span class="l l-Scalar l-Scalar-Plain">serviceName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;string&gt;     optional, required for type=service</span>
   <span class="l l-Scalar l-Scalar-Plain">servicePort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;number&gt;     optional, required for type=service</span>

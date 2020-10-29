@@ -1137,6 +1137,7 @@ algorithm set by Skipper at start.</p>
 <li><code>roundRobin</code>: backend is chosen by the round robin algorithm, starting with a random selected backend to spread across all backends from the beginning</li>
 <li><code>random</code>: backend is chosen at random</li>
 <li><code>consistentHash</code>: backend is chosen by a consistent hashing algorithm with the client X-Forwarded-For header with remote IP as the fallback as input to the hash function</li>
+<li><code>powerOfRandomNChoices</code>: backend is chosen by powerOfRandomNChoices algorithm with selecting N random endpoints and picking the one with least outstanding requests from them. (<a href="http://www.eecs.harvard.edu/~michaelm/postscripts/handbook2001.pdf">http://www.eecs.harvard.edu/~michaelm/postscripts/handbook2001.pdf</a>)</li>
 <li><strong>TODO</strong>: <a href="https://github.com/zalando/skipper/issues/557">https://github.com/zalando/skipper/issues/557</a></li>
 </ul>
 <p>Route example with 2 backends and the <code>roundRobin</code> algorithm:
@@ -1147,6 +1148,9 @@ algorithm set by Skipper at start.</p>
 </pre></div></p>
 <p>Route example with 2 backends and the <code>consistentHash</code> algorithm:
 <div class="codehilite"><pre><span></span><span class="nt">r0</span><span class="o">:</span> <span class="o">*</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nt">consistentHash</span><span class="o">,</span> <span class="s2">&quot;http://127.0.0.1:9998&quot;</span><span class="o">,</span> <span class="s2">&quot;http://127.0.0.1:9997&quot;</span><span class="o">&gt;;</span>
+</pre></div></p>
+<p>Route example with 2 backends and the <code>powerOfRandomNChoices</code> algorithm:
+<div class="codehilite"><pre><span></span><span class="nt">r0</span><span class="o">:</span> <span class="o">*</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nt">powerOfRandomNChoices</span><span class="o">,</span> <span class="s2">&quot;http://127.0.0.1:9998&quot;</span><span class="o">,</span> <span class="s2">&quot;http://127.0.0.1:9997&quot;</span><span class="o">&gt;;</span>
 </pre></div></p>
 <p>Proxy with <code>roundRobin</code> loadbalancer and two backends:
 <div class="codehilite"><pre><span></span>$ ./bin/skipper -inline-routes <span class="s1">&#39;r0: *  -&gt; &lt;roundRobin, &quot;http://127.0.0.1:9998&quot;, &quot;http://127.0.0.1:9997&quot;&gt;;&#39;</span>
