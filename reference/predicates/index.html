@@ -582,6 +582,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#clientip" title="ClientIP" class="md-nav__link">
+    ClientIP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tee" title="Tee" class="md-nav__link">
     Tee
   </a>
@@ -1246,6 +1253,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#clientip" title="ClientIP" class="md-nav__link">
+    ClientIP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tee" title="Tee" class="md-nav__link">
     Tee
   </a>
@@ -1617,6 +1631,24 @@ put the client-IP as last part of the X-Forwarded-For headers.</p>
 </ul>
 <p>Examples:</p>
 <div class="codehilite"><pre><span></span>SourceFromLast(&quot;1.2.3.4&quot;, &quot;2.2.2.0/24&quot;)
+</pre></div>
+
+<h2 id="clientip">ClientIP<a class="headerlink" href="#clientip" title="Permanent link">&para;</a></h2>
+<p>ClientIP implements a custom predicate to match routes based on
+the client IP of a request.</p>
+<p>Parameters:</p>
+<ul>
+<li>ClientIP (string, ..) varargs with IPs or CIDR</li>
+</ul>
+<p>Examples:</p>
+<div class="codehilite"><pre><span></span>// only match requests from 1.2.3.4
+ClientIP(&quot;1.2.3.4&quot;)
+
+// only match requests from 1.2.3.0 - 1.2.3.255
+ClientIP(&quot;1.2.3.0/24&quot;)
+
+// only match requests from 1.2.3.4 and the 2.2.2.0/24 network
+ClientIP(&quot;1.2.3.4&quot;, &quot;2.2.2.0/24&quot;)
 </pre></div>
 
 <h2 id="tee">Tee<a class="headerlink" href="#tee" title="Permanent link">&para;</a></h2>

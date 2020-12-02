@@ -448,6 +448,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#copyrequestheader" title="copyRequestHeader" class="md-nav__link">
+    copyRequestHeader
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copyresponseheader" title="copyResponseHeader" class="md-nav__link">
+    copyResponseHeader
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#modpath" title="modPath" class="md-nav__link">
     modPath
   </a>
@@ -618,6 +632,13 @@
         <li class="md-nav__item">
   <a href="#absorb" title="absorb" class="md-nav__link">
     absorb
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#absorbsilent" title="absorbSilent" class="md-nav__link">
+    absorbSilent
   </a>
   
 </li>
@@ -1664,6 +1685,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#copyrequestheader" title="copyRequestHeader" class="md-nav__link">
+    copyRequestHeader
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copyresponseheader" title="copyResponseHeader" class="md-nav__link">
+    copyResponseHeader
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#modpath" title="modPath" class="md-nav__link">
     modPath
   </a>
@@ -1834,6 +1869,13 @@
         <li class="md-nav__item">
   <a href="#absorb" title="absorb" class="md-nav__link">
     absorb
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#absorbsilent" title="absorbSilent" class="md-nav__link">
+    absorbSilent
   </a>
   
 </li>
@@ -2477,6 +2519,19 @@ but appends the provided value to the already existing ones.</p>
 <p>Same as <a href="#setContextRequestHeader">setContextRequestHeader</a>, except for responses.</p>
 <h2 id="appendcontextresponseheader">appendContextResponseHeader<a class="headerlink" href="#appendcontextresponseheader" title="Permanent link">&para;</a></h2>
 <p>Same as <a href="#appendContextRequestHeader">appendContextRequestHeader</a>, except for responses.</p>
+<h2 id="copyrequestheader">copyRequestHeader<a class="headerlink" href="#copyrequestheader" title="Permanent link">&para;</a></h2>
+<p>Copies value of a given request header to another header.</p>
+<p>Parameters:</p>
+<ul>
+<li>source header name (string)</li>
+<li>target header name (string)</li>
+</ul>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><span class="nt">foo</span><span class="o">:</span> <span class="o">*</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="nt">copyRequestHeader</span><span class="o">(</span><span class="s2">&quot;X-Foo&quot;</span><span class="o">,</span> <span class="s2">&quot;X-Bar&quot;</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="s2">&quot;https://backend.example.org&quot;</span><span class="o">;</span>
+</pre></div>
+
+<h2 id="copyresponseheader">copyResponseHeader<a class="headerlink" href="#copyresponseheader" title="Permanent link">&para;</a></h2>
+<p>Same as <a href="#copyRequestHeader">copyRequestHeader</a>, except for responses.</p>
 <h2 id="modpath">modPath<a class="headerlink" href="#modpath" title="Permanent link">&para;</a></h2>
 <p>Replace all matched regex expressions in the path.</p>
 <p>Parameters:</p>
@@ -2756,6 +2811,9 @@ It logs with INFO level and a unique ID per request:</p>
 <li>the finishing event of the request</li>
 <li>any read errors other than EOF</li>
 </ul>
+<h2 id="absorbsilent">absorbSilent<a class="headerlink" href="#absorbsilent" title="Permanent link">&para;</a></h2>
+<p>The absorbSilent filter reads and discards the payload of the incoming requests. It only
+logs read errors other than EOF.</p>
 <h2 id="logheader">logHeader<a class="headerlink" href="#logheader" title="Permanent link">&para;</a></h2>
 <p>The logHeader filter prints the request line and the header, but not the body, to
 stderr. Note that this filter should be used only in diagnostics setup and with care,
@@ -3157,7 +3215,7 @@ forwardToken(&quot;X-Tokeninfo-Forward&quot;, &quot;access_token&quot;)
     It can be any value which is a subpath on which the filter is applied.</li>
 <li><strong>Scopes</strong> The OpenID scopes separated by spaces which need to be specified when requesting the token from the provider.</li>
 <li><strong>Claims</strong> The claims which should be present in the token returned by the provider.</li>
-<li><strong>Auth Code Options</strong> (optional) Passes key/value parameters to a provider&rsquo;s authorization endpoint.</li>
+<li><strong>Auth Code Options</strong> (optional) Passes key/value parameters to a provider&rsquo;s authorization endpoint. The value can be dynamically set by a query parameter with the same key name if the placeholder <code>skipper-request-query</code> is used.</li>
 <li><strong>Upstream Headers</strong> (optional) The upstream endpoint will receive these headers which values are parsed from the OIDC information. The header definition can be one or more header-query pairs, space delimited. The query syntax is <a href="https://github.com/tidwall/gjson/blob/master/SYNTAX.md">GJSON</a>.</li>
 </ul>
 <h2 id="oauthoidcanyclaims">oauthOidcAnyClaims<a class="headerlink" href="#oauthoidcanyclaims" title="Permanent link">&para;</a></h2>
@@ -3175,7 +3233,7 @@ forwardToken(&quot;X-Tokeninfo-Forward&quot;, &quot;access_token&quot;)
     It can be any value which is a subpath on which the filter is applied.</li>
 <li><strong>Scopes</strong> The OpenID scopes separated by spaces which need to be specified when requesting the token from the provider.</li>
 <li><strong>Claims</strong> Several claims can be specified and the request is allowed as long as at least one of them is present.</li>
-<li><strong>Auth Code Options</strong> (optional) Passes key/value parameters to a provider&rsquo;s authorization endpoint.</li>
+<li><strong>Auth Code Options</strong> (optional) Passes key/value parameters to a provider&rsquo;s authorization endpoint. The value can be dynamically set by a query parameter with the same key name if the placeholder <code>skipper-request-query</code> is used.</li>
 <li><strong>Upstream Headers</strong> (optional) The upstream endpoint will receive these headers which values are parsed from the OIDC information. The header definition can be one or more header-query pairs, space delimited. The query syntax is <a href="https://github.com/tidwall/gjson/blob/master/SYNTAX.md">GJSON</a>.</li>
 </ul>
 <h2 id="oauthoidcallclaims">oauthOidcAllClaims<a class="headerlink" href="#oauthoidcallclaims" title="Permanent link">&para;</a></h2>
@@ -3193,7 +3251,7 @@ forwardToken(&quot;X-Tokeninfo-Forward&quot;, &quot;access_token&quot;)
     It can be any value which is a subpath on which the filter is applied.</li>
 <li><strong>Scopes</strong> The OpenID scopes separated by spaces which need to be specified when requesting the token from the provider.</li>
 <li><strong>Claims</strong> Several claims can be specified and the request is allowed only when all claims are present.</li>
-<li><strong>Auth Code Options</strong> (optional) Passes key/value parameters to a provider&rsquo;s authorization endpoint.</li>
+<li><strong>Auth Code Options</strong> (optional) Passes key/value parameters to a provider&rsquo;s authorization endpoint. The value can be dynamically set by a query parameter with the same key name if the placeholder <code>skipper-request-query</code> is used.</li>
 <li><strong>Upstream Headers</strong> (optional) The upstream endpoint will receive these headers which values are parsed from the OIDC information. The header definition can be one or more header-query pairs, space delimited. The query syntax is <a href="https://github.com/tidwall/gjson/blob/master/SYNTAX.md">GJSON</a>.</li>
 </ul>
 <h2 id="requestcookie">requestCookie<a class="headerlink" href="#requestcookie" title="Permanent link">&para;</a></h2>
