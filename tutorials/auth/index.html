@@ -785,6 +785,74 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#oauth2-authorization-grant-flow" title="OAuth2 authorization grant flow" class="md-nav__link">
+    OAuth2 authorization grant flow
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#encrypted-cookie-tokens" title="Encrypted cookie tokens" class="md-nav__link">
+    Encrypted cookie tokens
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-refresh" title="Token refresh" class="md-nav__link">
+    Token refresh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instructions" title="Instructions" class="md-nav__link">
+    Instructions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-oauth2-credentials" title="Configure OAuth2 credentials" class="md-nav__link">
+    Configure OAuth2 credentials
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-grant-filters" title="Configure the grant filters" class="md-nav__link">
+    Configure the grant filters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-filters-to-your-routes" title="Add filters to your routes" class="md-nav__link">
+    Add filters to your routes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-authz-and-access-control" title="(Optional) AuthZ and access control" class="md-nav__link">
+    (Optional) AuthZ and access control
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -913,6 +981,74 @@
   <a href="#authz-and-access-control" title="AuthZ and access control" class="md-nav__link">
     AuthZ and access control
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oauth2-authorization-grant-flow" title="OAuth2 authorization grant flow" class="md-nav__link">
+    OAuth2 authorization grant flow
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#encrypted-cookie-tokens" title="Encrypted cookie tokens" class="md-nav__link">
+    Encrypted cookie tokens
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#token-refresh" title="Token refresh" class="md-nav__link">
+    Token refresh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instructions" title="Instructions" class="md-nav__link">
+    Instructions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-oauth2-credentials" title="Configure OAuth2 credentials" class="md-nav__link">
+    Configure OAuth2 credentials
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-grant-filters" title="Configure the grant filters" class="md-nav__link">
+    Configure the grant filters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-filters-to-your-routes" title="Add filters to your routes" class="md-nav__link">
+    Add filters to your routes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-authz-and-access-control" title="(Optional) AuthZ and access control" class="md-nav__link">
+    (Optional) AuthZ and access control
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1143,6 +1279,127 @@ because it is reread by Skipper. The path to this file can be passed with the fl
 <p>Access to path <code>/</code> would be granted to everyone in <code>example.org</code>, however path <code>/login</code> only to those being member of <code>group "appX-Tester"</code>:</p>
 <div class="codehilite"><pre><span></span>oauthOidcAnyClaims(...) -&gt; oidcClaimsQuery(&quot;/login:groups.#[==\&quot;appX-Tester\&quot;]&quot;, &quot;/:@_:email%\&quot;*@example.org\&quot;&quot;)
 </pre></div>
+
+<h2 id="oauth2-authorization-grant-flow">OAuth2 authorization grant flow<a class="headerlink" href="#oauth2-authorization-grant-flow" title="Permanent link">&para;</a></h2>
+<p><a href="https://tools.ietf.org/html/rfc6749#section-1.3">Authorization grant flow</a> is a mechanism
+to coordinate between a user-agent, a client, and an authorization server to obtain an OAuth2 
+access token for a user. Skipper supports the flow with the <code>oauthGrant()</code> filter. 
+It works as follows:</p>
+<ol>
+<li>A user makes a request to a route with <code>oauthGrant()</code>.</li>
+<li>The filter checks whether the request has a cookie called <code>oauth-grant</code><sup>1</sup>. If it does not, or
+   if the cookie and its tokens are invalid, it redirects the user to the OAuth2 provider&rsquo;s 
+   authorization endpoint.</li>
+<li>The user logs into the external OAuth2 provider, e.g. by providing a username and password.</li>
+<li>The provider redirects the user back to Skipper with an authorization code, using the 
+   callback URL parameter which was part of the previous redirect. The callback route must
+   have a <code>grantCallback()</code> filter defined. Skipper automatically adds this callback route for you
+   when the OAuth2 authorization grant flow feature is enabled.</li>
+<li>Skipper calls the provider&rsquo;s token URL with the authorization code, and receives a response 
+   with the access and refresh tokens.</li>
+<li>Skipper stores the tokens in an <code>oauth-grant</code><sup>1</sup> cookie which is stored in the user&rsquo;s browser.</li>
+<li>Subsequent calls to any route with an <code>oauthGrant()</code> filter will now pass as long as the
+   access token is valid.</li>
+</ol>
+<p>1: The name of this cookie can be changed by providing the <code>-oauth2-token-cookie-name</code> parameter.</p>
+<p>Please note that it is not currently possible to use multiple OAuth2 providers with Skipper.</p>
+<h3 id="encrypted-cookie-tokens">Encrypted cookie tokens<a class="headerlink" href="#encrypted-cookie-tokens" title="Permanent link">&para;</a></h3>
+<p>The cookie set by the <code>oauthGrant()</code> filter contains the OAuth2 access and refresh tokens in 
+encrypted form. This means Skipper does not need to persist any session information about users, 
+while also not exposing the tokens to users.</p>
+<h3 id="token-refresh">Token refresh<a class="headerlink" href="#token-refresh" title="Permanent link">&para;</a></h3>
+<p>The <code>oauthGrant()</code> filter also supports token refreshing. Once the access token expires and
+the user makes another request, the filter automatically refreshes the token and sets the
+updated cookie in the response.</p>
+<h3 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h3>
+<p>To use authorization grant flow, you need to:</p>
+<ol>
+<li><a href="#configure-oauth2-credentials">Configure OAuth2 credentials.</a></li>
+<li><a href="#configure-the-grant-filters">Configure the grant filters with OAuth2 URLs.</a></li>
+<li><a href="#add-filters-to-your-routes">Add the OAuth2 grant filters to routes.</a></li>
+</ol>
+<h4 id="configure-oauth2-credentials">Configure OAuth2 credentials<a class="headerlink" href="#configure-oauth2-credentials" title="Permanent link">&para;</a></h4>
+<p>Before you start, you need to register your application with the OAuth2 provider.
+If your provider asks you for the callback URL, provide the URL that you set 
+as the <code>-oauth2-callback-path</code> parameter. If you did not provide a value, use the default
+route : <code>/.well-known/oauth2-callback</code>. </p>
+<p>Skipper must be configured with the following credentials and secrets:
+1. OAuth2 client ID for authenticating with the OAuth2 provider.
+1. OAuth2 client secret for authenticating with the OAuth2 provider.
+1. Cookie encryption secret for encrypting and decrypting token cookies.</p>
+<p>You can load all of theses secrets from separate files, in which case they get automatically
+reloaded to support secret rotation. You can provide the paths to the files containing each 
+secret as follows:</p>
+<div class="codehilite"><pre><span></span>skipper -oauth2-client-id-file<span class="o">=</span>/path/to/client_id <span class="se">\</span>
+    -oauth2-client-secret-file<span class="o">=</span>/path/to/client_secret <span class="se">\</span>
+    -oauth2-secret-file<span class="o">=</span>/path/to/cookie_encryption_secret <span class="se">\</span>
+    -credentials-paths<span class="o">=</span>/path/to/ <span class="se">\</span>
+    -credentials-update-interval<span class="o">=</span>30s
+</pre></div>
+
+<p>You must set the <code>-credentials-paths</code> argument to the directory containing the secrets. You 
+can modify the secret update interval using the <code>-credentials-update-interval</code> argument. In
+example above, the interval is configured to reload the secrets from the files every 30
+seconds.</p>
+<p>If you prefer, you can provide the client ID and secret values directly as arguments to
+Skipper instead of loading them from files. In that case, call Skipper with:</p>
+<div class="codehilite"><pre><span></span>skipper -oauth2-client-id<span class="o">=</span>&lt;CLIENT_ID&gt; -oauth2-client-secret<span class="o">=</span>&lt;CLIENT_SECRET&gt;
+</pre></div>
+
+<h4 id="configure-the-grant-filters">Configure the grant filters<a class="headerlink" href="#configure-the-grant-filters" title="Permanent link">&para;</a></h4>
+<p>The grant filters need to be enabled and configured with your OAuth2 provider&rsquo;s
+authorization, token, and tokeninfo endpoints. This can be achieved by providing Skipper
+with the following arguments:</p>
+<div class="codehilite"><pre><span></span>skipper -enable-oauth2-grant-flow <span class="se">\</span>
+    -oauth2-auth-url<span class="o">=</span>&lt;OAUTH2_AUTHORIZE_ENDPOINT&gt; <span class="se">\</span>
+    -oauth2-token-url<span class="o">=</span>&lt;OAUTH2_TOKEN_ENDPOINT&gt; <span class="se">\</span>
+    -oauth2-tokeninfo-url<span class="o">=</span>&lt;OAUTH2_TOKENINFO_ENDPOINT&gt; <span class="se">\</span>
+    -oauth2-callback-path<span class="o">=</span>/oauth/callback
+</pre></div>
+
+<p>You can configure the <code>oauthGrant()</code> filter further for your needs. See the
+<a href="../../reference/filters/#oauthGrant">oauthGrant</a> filter reference for more details.</p>
+<h4 id="add-filters-to-your-routes">Add filters to your routes<a class="headerlink" href="#add-filters-to-your-routes" title="Permanent link">&para;</a></h4>
+<p>You can protect any number of routes with the <code>oauthGrant()</code> filter. Unauthenticated users
+will be refused access and redirected to log in.</p>
+<p>Skipper will automatically add a callback route for you with the <code>grantCallback</code> filter registered 
+on it. The path for this route can be configured with the <code>-oauth2-callback-path</code> parameter.
+If the parameter is not given, it will be <code>/.well-known/oauth2-callback</code></p>
+<div class="codehilite"><pre><span></span><span class="n">foo</span><span class="o">:</span>
+    <span class="n">Path</span><span class="o">(</span><span class="s2">&quot;/foo&quot;</span><span class="o">)</span>
+    <span class="o">-&gt;</span> <span class="n">oauthGrant</span><span class="o">()</span>
+    <span class="o">-&gt;</span> <span class="s2">&quot;http://localhost:9090&quot;</span><span class="o">;</span>
+</pre></div>
+
+<h4 id="optional-authz-and-access-control">(Optional) AuthZ and access control<a class="headerlink" href="#optional-authz-and-access-control" title="Permanent link">&para;</a></h4>
+<p>You can add a <a href="../../reference/filters/#grantClaimsQuery">grantClaimsQuery</a> filter
+after a <a href="../../reference/filters/#oauthGrant">oauthGrant</a> to control access based
+on any OAuth2 claim. A claim is any property returned by the tokeninfo endpoint.
+The filter works exactly like the <a href="../../reference/filters/#oidcClaimsQuery">oidcClaimsQuery</a>
+filter (it is actually just an alias for it).</p>
+<p>For example, if your tokeninfo endpoint returns the following JSON:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>you could limit the access to a given route only to users that have the <code>email</code>
+scope by doing the following:</p>
+<ol>
+<li>Append a <code>grantClaimsQuery</code> filter to the <code>oauthGrant</code> filter with the following
+   query:
+    <div class="codehilite"><pre><span></span>-&gt; oauthGrant() -&gt; grantClaimsQuery(&quot;/path:scope.#[==\&quot;email\&quot;]&quot;)
+</pre></div></li>
+<li>Provide the name of the claim that corresponds to the OAuth2 subject in the
+   tokeninfo payload as an argument to Skipper:
+   <div class="codehilite"><pre><span></span>skipper -oauth2-tokeninfo-subject-key<span class="o">=</span>username
+</pre></div></li>
+</ol>
+<blockquote>
+<p>The subject is the field that identifies the user and is often called <code>sub</code>, 
+especially in the context of OpenID Connect. In the example above, it is <code>username</code>.</p>
+</blockquote>
                 
                   
                 
