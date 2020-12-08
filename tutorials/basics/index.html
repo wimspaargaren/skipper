@@ -1401,10 +1401,10 @@ certain route was matched for a request instead of another.</p>
 <p>The current used CI flow to build the official docker container, you
 can see in <a href="https://github.com/zalando/skipper/blob/master/delivery.yaml">delivery.yaml</a>.
 Official release versions you will find at
-<code>registry.opensource.zalan.do/pathfinder/skipper:${RELEASE_VERSION}</code>,
+<code>registry.opensource.zalan.do/teapot/skipper:${RELEASE_VERSION}</code>,
 where <code>${RELEASE_VERSION}</code> is the git tag got by <code>$(git describe --tags --always --dirty)</code>.</p>
 <p>Test versions are released at
-<code>registry.opensource.zalan.do/pathfinder/skipper-test:${CDP_BUILD_VERSION}</code>
+<code>registry.opensource.zalan.do/teapot/skipper-test:${CDP_BUILD_VERSION}</code>
 for every pull request, limited to only repository members, because of
 compliance and security reasons.</p>
 <h2 id="testing-routes">Testing routes<a class="headerlink" href="#testing-routes" title="Permanent link">&para;</a></h2>

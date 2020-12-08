@@ -907,7 +907,7 @@ ratelimiting or just need to serve some json in your demo.</p>
 </pre></div>
 
 <p>Docker Example (Open your browser <a href="http://localhost:9090/">http://localhost:9090/</a>):</p>
-<div class="codehilite"><pre><span></span>docker run -p 9090:9090 -it registry.opensource.zalan.do/pathfinder/skipper:latest skipper -inline-routes &#39;* -&gt; inlineContent(&quot;Hello, world!&quot;) -&gt; &lt;shunt&gt;&#39;
+<div class="codehilite"><pre><span></span>docker run -p 9090:9090 -it registry.opensource.zalan.do/teapot/skipper:latest skipper -inline-routes &#39;* -&gt; inlineContent(&quot;Hello, world!&quot;) -&gt; &lt;shunt&gt;&#39;
 </pre></div>
 
 <h2 id="serve-html-with-css">Serve HTML with CSS<a class="headerlink" href="#serve-html-with-css" title="Permanent link">&para;</a></h2>
@@ -917,7 +917,7 @@ ratelimiting or just need to serve some json in your demo.</p>
 </pre></div>
 
 <p>Docker Example (Open your browser <a href="http://localhost:9090/">http://localhost:9090/</a>):</p>
-<div class="codehilite"><pre><span></span>docker run -p 9090:9090 -it registry.opensource.zalan.do/pathfinder/skipper:latest skipper -inline-routes &#39;* -&gt; inlineContent(&quot;<span class="nt">&lt;html&gt;&lt;body</span> <span class="na">style=</span><span class="s">\&quot;background-color:</span> <span class="err">orange;\&quot;</span><span class="nt">&gt;&lt;/body&gt;&lt;/html&gt;</span>&quot;) -&gt; <span class="nt">&lt;shunt&gt;</span>&#39;
+<div class="codehilite"><pre><span></span>docker run -p 9090:9090 -it registry.opensource.zalan.do/teapot/skipper:latest skipper -inline-routes &#39;* -&gt; inlineContent(&quot;<span class="nt">&lt;html&gt;&lt;body</span> <span class="na">style=</span><span class="s">\&quot;background-color:</span> <span class="err">orange;\&quot;</span><span class="nt">&gt;&lt;/body&gt;&lt;/html&gt;</span>&quot;) -&gt; <span class="nt">&lt;shunt&gt;</span>&#39;
 </pre></div>
 
 <h2 id="serve-json">Serve JSON<a class="headerlink" href="#serve-json" title="Permanent link">&para;</a></h2>
@@ -927,7 +927,7 @@ ratelimiting or just need to serve some json in your demo.</p>
 </pre></div>
 
 <p>Docker Example (Open your browser <a href="http://localhost:9090/">http://localhost:9090/</a>):</p>
-<div class="codehilite"><pre><span></span><span class="nt">docker</span> <span class="nt">run</span> <span class="nt">-p</span> <span class="nt">9090</span><span class="p">:</span><span class="nd">9090</span> <span class="nt">-it</span> <span class="nt">registry</span><span class="p">.</span><span class="nc">opensource</span><span class="p">.</span><span class="nc">zalan</span><span class="p">.</span><span class="nc">do</span><span class="o">/</span><span class="nt">pathfinder</span><span class="o">/</span><span class="nt">skipper</span><span class="p">:</span><span class="nd">latest</span> <span class="nt">skipper</span> <span class="nt">-inline-routes</span> <span class="s1">&#39;* -&gt; inlineContent(&quot;{\&quot;foo\&quot;: 3}&quot;, &quot;application/json; charset=utf-8&quot;) -&gt; &lt;shunt&gt;&#39;</span>
+<div class="codehilite"><pre><span></span><span class="nt">docker</span> <span class="nt">run</span> <span class="nt">-p</span> <span class="nt">9090</span><span class="p">:</span><span class="nd">9090</span> <span class="nt">-it</span> <span class="nt">registry</span><span class="p">.</span><span class="nc">opensource</span><span class="p">.</span><span class="nc">zalan</span><span class="p">.</span><span class="nc">do</span><span class="o">/</span><span class="nt">teapot</span><span class="o">/</span><span class="nt">skipper</span><span class="p">:</span><span class="nd">latest</span> <span class="nt">skipper</span> <span class="nt">-inline-routes</span> <span class="s1">&#39;* -&gt; inlineContent(&quot;{\&quot;foo\&quot;: 3}&quot;, &quot;application/json; charset=utf-8&quot;) -&gt; &lt;shunt&gt;&#39;</span>
 </pre></div>
 
 <h2 id="proxy-to-a-given-url">Proxy to a given URL<a class="headerlink" href="#proxy-to-a-given-url" title="Permanent link">&para;</a></h2>
