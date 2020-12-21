@@ -364,6 +364,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#template-placeholders" title="Template placeholders" class="md-nav__link">
+    Template placeholders
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#backendisproxy" title="backendIsProxy" class="md-nav__link">
     backendIsProxy
   </a>
@@ -583,6 +590,20 @@
         <li class="md-nav__item">
   <a href="#randomcontent" title="randomContent" class="md-nav__link">
     randomContent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repeatcontent" title="repeatContent" class="md-nav__link">
+    repeatContent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backendtimeout" title="backendTimeout" class="md-nav__link">
+    backendTimeout
   </a>
   
 </li>
@@ -1622,6 +1643,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#template-placeholders" title="Template placeholders" class="md-nav__link">
+    Template placeholders
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#backendisproxy" title="backendIsProxy" class="md-nav__link">
     backendIsProxy
   </a>
@@ -1841,6 +1869,20 @@
         <li class="md-nav__item">
   <a href="#randomcontent" title="randomContent" class="md-nav__link">
     randomContent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repeatcontent" title="repeatContent" class="md-nav__link">
+    repeatContent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backendtimeout" title="backendTimeout" class="md-nav__link">
+    backendTimeout
   </a>
   
 </li>
@@ -2456,6 +2498,25 @@ Filter can be chained using the arrow operator <code>-&gt;</code>.</p>
 <div class="codehilite"><pre><span></span><span class="nt">all</span><span class="o">:</span> <span class="o">*</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="nt">filter1</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="nt">filter2</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="s2">&quot;http://127.0.0.1:1234/&quot;</span><span class="o">;</span>
 </pre></div>
 
+<h2 id="template-placeholders">Template placeholders<a class="headerlink" href="#template-placeholders" title="Permanent link">&para;</a></h2>
+<p>Several filters support template placeholders (<code>${var}</code>) in string parameters.</p>
+<p>Template placeholder is replaced by the value that is looked up in the following sources:</p>
+<ul>
+<li>request url path (<code>${request.path}</code>)</li>
+<li>request url query (if starts with <code>request.query.</code> prefix, e.g <code>${request.query.q}</code> is replaced by <code>q</code> query parameter value)</li>
+<li>request headers (if starts with <code>request.header.</code> prefix, e.g <code>${request.header.Content-Type}</code> is replaced by <code>Content-Type</code> request header value)</li>
+<li>request cookies (if starts with <code>request.cookie.</code> prefix, e.g <code>${request.cookie.PHPSESSID}</code> is replaced by <code>PHPSESSID</code> request cookie value)</li>
+<li>response headers (if starts with <code>response.header.</code> prefix, e.g <code>${response.header.Location}</code> is replaced by <code>Location</code> response header value)</li>
+<li>filter context path parameters (e.g. <code>${id}</code> is replaced by <code>id</code> path parameter value)</li>
+</ul>
+<p>Missing value interpretation depends on the filter.</p>
+<p>Example route that rewrites path using template placeholder:</p>
+<div class="codehilite"><pre><span></span><span class="n">u1</span><span class="o">:</span> <span class="n">Path</span><span class="o">(</span><span class="s2">&quot;/user/:id&quot;</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">setPath</span><span class="o">(</span><span class="s2">&quot;/v2/user/${id}&quot;</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">&lt;</span><span class="n">loopback</span><span class="o">&gt;;</span>
+</pre></div>
+
+<p>Example route that creates header from query parameter:
+<div class="codehilite"><pre><span></span><span class="n">r</span><span class="o">:</span> <span class="n">Path</span><span class="o">(</span><span class="s2">&quot;/redirect&quot;</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">QueryParam</span><span class="o">(</span><span class="s2">&quot;to&quot;</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">status</span><span class="o">(</span><span class="mi">303</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">setResponseHeader</span><span class="o">(</span><span class="s2">&quot;Location&quot;</span><span class="o">,</span> <span class="s2">&quot;${request.query.to}&quot;</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">&lt;</span><span class="n">shunt</span><span class="o">&gt;;</span>
+</pre></div></p>
 <h2 id="backendisproxy">backendIsProxy<a class="headerlink" href="#backendisproxy" title="Permanent link">&para;</a></h2>
 <p>Notifies the proxy that the backend handling this request is also a
 proxy. The proxy type is based in the URL scheme which can be either
@@ -2496,8 +2557,8 @@ filter.</p>
 
 <h2 id="setrequestheader">setRequestHeader<a class="headerlink" href="#setrequestheader" title="Permanent link">&para;</a></h2>
 <p>Set headers for requests.</p>
-<p>Header value may contain template variables (<code>${var}</code>) resolved from filter context path params and state bag.
-If a template variable can&rsquo;t be found then filter does not set the header.</p>
+<p>Header value may contain <a href="#template-placeholders">template placeholders</a>.
+If a template placeholder can&rsquo;t be resolved then filter does not set the header.</p>
 <p>Parameters:</p>
 <ul>
 <li>header name (string)</li>
@@ -2507,8 +2568,8 @@ If a template variable can&rsquo;t be found then filter does not set the header.
 <div class="codehilite"><pre><span></span><span class="nt">foo</span><span class="o">:</span> <span class="o">*</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="nt">setRequestHeader</span><span class="o">(</span><span class="s2">&quot;X-Passed-Skipper&quot;</span><span class="o">,</span> <span class="s2">&quot;true&quot;</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="s2">&quot;https://backend.example.org&quot;</span><span class="o">;</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>// oauthTokeninfoAllScope checks whether request is authorized and stores the authenticated user with &quot;auth-user&quot; key in the context
-foo: * -&gt; oauthTokeninfoAllScope(&quot;address_service.all&quot;) -&gt; setRequestHeader(&quot;X-Uid&quot;, &quot;<span class="cp">${</span><span class="n">auth</span><span class="o">-</span><span class="n">user</span><span class="cp">}</span>&quot;) -&gt; &quot;https://backend.example.org&quot;;
+<div class="codehilite"><pre><span></span>// Ratelimit per resource
+Path(&quot;/resource/:id&quot;) -&gt; setRequestHeader(&quot;X-Resource-Id&quot;, &quot;<span class="cp">${</span><span class="nb">id</span><span class="cp">}</span>&quot;) -&gt; clusterClientRateLimit(&quot;resource&quot;, 10, &quot;1m&quot;, &quot;X-Resource-Id&quot;) -&gt; &quot;https://backend.example.org&quot;;
 </pre></div>
 
 <h2 id="appendrequestheader">appendRequestHeader<a class="headerlink" href="#appendrequestheader" title="Permanent link">&para;</a></h2>
@@ -2594,6 +2655,8 @@ but appends the provided value to the already existing ones.</p>
 <ul>
 <li>the replacement (string)</li>
 </ul>
+<p>The replacement may contain <a href="#template-placeholders">template placeholders</a>.
+If a template placeholder can&rsquo;t be resolved then empty value is used for it.</p>
 <h2 id="redirectto">redirectTo<a class="headerlink" href="#redirectto" title="Permanent link">&para;</a></h2>
 <p>Creates an HTTP redirect response.</p>
 <p>Parameters:</p>
@@ -2719,6 +2782,8 @@ transfer encoding, deletes the Content-Encoding and the Vary headers, if set.</p
 <li>key (string)</li>
 <li>value (string)</li>
 </ul>
+<p>Key and value may contain <a href="#template-placeholders">template placeholders</a>.
+If a template placeholder can&rsquo;t be resolved then empty value is used for it.</p>
 <p>Example:</p>
 <div class="codehilite"><pre><span></span>setQuery(&quot;k&quot;, &quot;v&quot;)
 </pre></div>
@@ -2730,6 +2795,8 @@ given key.</p>
 <ul>
 <li>key (string)</li>
 </ul>
+<p>Key may contain <a href="#template-placeholders">template placeholders</a>.
+If a template placeholder can&rsquo;t be resolved then empty value is used for it.</p>
 <p>Example:</p>
 <div class="codehilite"><pre><span></span>dropQuery(&quot;k&quot;)
 </pre></div>
@@ -2799,6 +2866,30 @@ approach of certain LB implementations.</p>
 </ul>
 <p>Example:</p>
 <div class="codehilite"><pre><span></span>* -&gt; randomContent(42) -&gt; &lt;shunt&gt;;
+</pre></div>
+
+<h2 id="repeatcontent">repeatContent<a class="headerlink" href="#repeatcontent" title="Permanent link">&para;</a></h2>
+<p>Generate response of specified size from repeated text.</p>
+<p>Parameters:</p>
+<ul>
+<li>text to repeat (string)</li>
+<li>size of response in bytes (int)</li>
+</ul>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span>* -&gt; repeatContent(&quot;I will not waste chalk. &quot;, 1000) -&gt; &lt;shunt&gt;;
+</pre></div>
+
+<h2 id="backendtimeout">backendTimeout<a class="headerlink" href="#backendtimeout" title="Permanent link">&para;</a></h2>
+<p>Configure backend timeout. Skipper responds with <code>504 Gateway Timeout</code> status if obtaining a connection,
+sending the request, and reading the backend response headers and body takes longer than the configured timeout.
+However, if response streaming has already started it will be terminated, i.e. client will receive backend response
+status and truncated response body.</p>
+<p>Parameters:</p>
+<ul>
+<li>timeout <a href="https://godoc.org/time#ParseDuration">(duration string)</a></li>
+</ul>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><span class="o">*</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="nt">backendTimeout</span><span class="o">(</span><span class="s2">&quot;10ms&quot;</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="s2">&quot;https://www.example.org&quot;</span><span class="o">;</span>
 </pre></div>
 
 <h2 id="latency">latency<a class="headerlink" href="#latency" title="Permanent link">&para;</a></h2>
