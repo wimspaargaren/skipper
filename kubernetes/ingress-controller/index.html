@@ -1,40 +1,18 @@
 
-
-
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
       
       
         <link rel="canonical" href="https://opensource.zalando.com/skipper/kubernetes/ingress-controller/">
       
-      
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.1, mkdocs-material-3.0.6">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
     
     
       
@@ -42,116 +20,110 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
-      
+      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
       
         
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
         
-        <meta name="theme-color" content="">
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
       
     
     
-      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
     
     
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
-      
-    
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
   </head>
   
-    
-    
-    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
-    viewBox="0 0 416 448" id="__github">
-  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
-        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
-        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
-        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
-        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
-        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
-        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
-        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
-        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
-        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
-        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
-        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
-        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
-        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
-        99.5z" />
-</svg>
-        
-      </defs>
-    </svg>
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+      
+  
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#skipper-ingress-controller" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://opensource.zalando.com/skipper/" title="Skipper" class="md-header-nav__button md-logo">
-          
-            <img src="../../favicon.ico" width="24" height="24">
-          
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#skipper-ingress-controller" class="md-skip">
+          Skip to content
         </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://opensource.zalando.com/skipper/" title="Skipper" class="md-header-nav__button md-logo" aria-label="Skipper">
+      
+  <img src="../../favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Skipper
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             
-              <span class="md-header-nav__topic">
-                Skipper
-              </span>
-              <span class="md-header-nav__topic">
-                Ingress Controller Deployment
-              </span>
+              Ingress Controller Deployment
             
-          
+          </span>
         </div>
       </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -159,141 +131,63 @@
     </div>
   </div>
 </div>
-          
+    
+    
+      <div class="md-header-nav__source">
         
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-
-  <a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
     
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
       </div>
     
-    <div class="md-source__repository">
-      GitHub
-    </div>
-  </a>
-
-          </div>
-        </div>
-      
-    </div>
   </nav>
 </header>
     
-    <div class="md-container">
-      
-        
+    <div class="md-container" data-md-component="container">
       
       
         
-
-  
-
-<nav class="md-tabs md-tabs--active" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
-    <ul class="md-tabs__list">
       
-        
-  <li class="md-tabs__item">
-    
-      <a href="../.." title="Introduction" class="md-tabs__link">
-        Introduction
-      </a>
-    
-  </li>
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../reference/filters/" title="Reference" class="md-tabs__link">
-          Reference
-        </a>
-      
-    </li>
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="./" title="Kubernetes" class="md-tabs__link md-tabs__link--active">
-          Kubernetes
-        </a>
-      
-    </li>
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../tutorials/basics/" title="Tutorials" class="md-tabs__link">
-          Tutorials
-        </a>
-      
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-      
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://opensource.zalando.com/skipper/" title="Skipper" class="md-nav__button md-logo">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://opensource.zalando.com/skipper/" title="Skipper" class="md-nav__button md-logo" aria-label="Skipper">
       
-        <img src="../../favicon.ico" width="48" height="48">
-      
+  <img src="../../favicon.ico" alt="logo">
+
     </a>
     Skipper
   </label>
   
     <div class="md-nav__source">
       
-
-
-  
-
-
-  <a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
     
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      GitHub
-    </div>
-  </a>
-
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -303,11 +197,15 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../.." title="Introduction" class="md-nav__link">
-      Introduction
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
 
     
       
@@ -315,323 +213,349 @@
       
 
 
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
-    
-    <label class="md-nav__link" for="nav-2">
-      Reference
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
         Reference
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/filters/" class="md-nav__link">
+        Filters
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/filters/" title="Filters" class="md-nav__link">
-      Filters
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/predicates/" class="md-nav__link">
+        Predicates
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/predicates/" title="Predicates" class="md-nav__link">
-      Predicates
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/backends/" class="md-nav__link">
+        Backends
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/backends/" title="Backends" class="md-nav__link">
-      Backends
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/egress/" class="md-nav__link">
+        Egress
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/egress/" title="Egress" class="md-nav__link">
-      Egress
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/scripts/" class="md-nav__link">
+        Scripts
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/scripts/" title="Scripts" class="md-nav__link">
-      Scripts
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/plugins/" class="md-nav__link">
+        Plugins
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/plugins/" title="Plugins" class="md-nav__link">
-      Plugins
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/architecture/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/architecture/" title="Architecture" class="md-nav__link">
-      Architecture
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/development/" class="md-nav__link">
+        Development
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/development/" title="Development" class="md-nav__link">
-      Development
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/video-howto-build/" class="md-nav__link">
+        Video - How to build
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/video-howto-build/" title="Video - How to build" class="md-nav__link">
-      Video - How to build
-    </a>
-  </li>
-
-        
           
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
+            
+  
+  
+  
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-10" type="checkbox" id="nav-2-10">
-    
-    <label class="md-nav__link" for="nav-2-10">
-      Data Clients
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-10">
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-10" type="checkbox" id="nav-2-10" >
+      
+      <label class="md-nav__link" for="nav-2-10">
         Data Clients
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Data Clients" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-10">
+          <span class="md-nav__icon md-icon"></span>
+          Data Clients
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../data-clients/eskip-file/" title="Eskip File" class="md-nav__link">
-      Eskip File
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../data-clients/etcd/" title="Etcd" class="md-nav__link">
-      Etcd
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../data-clients/kubernetes/" title="Kubernetes" class="md-nav__link">
-      Kubernetes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../data-clients/route-string/" title="Route String" class="md-nav__link">
-      Route String
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-11" type="checkbox" id="nav-2-11">
-    
-    <label class="md-nav__link" for="nav-2-11">
-      Operation
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-11">
-        Operation
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../operation/deployment/" title="Deployment" class="md-nav__link">
-      Deployment
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../operation/operation/" title="Operation" class="md-nav__link">
-      Operation
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-clients/eskip-file/" class="md-nav__link">
+        Eskip File
+      </a>
+    </li>
   
 
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-clients/etcd/" class="md-nav__link">
+        Etcd
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
-    
-    <label class="md-nav__link" for="nav-3">
-      Kubernetes
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-clients/kubernetes/" class="md-nav__link">
         Kubernetes
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
+      </a>
+    </li>
   
 
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-clients/route-string/" class="md-nav__link">
+        Route String
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item md-nav__item--active">
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-11" type="checkbox" id="nav-2-11" >
+      
+      <label class="md-nav__link" for="nav-2-11">
+        Operation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Operation" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-11">
+          <span class="md-nav__icon md-icon"></span>
+          Operation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operation/deployment/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operation/operation/" class="md-nav__link">
+        Operation
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
     
       
+      
+      
+
+
+  
+  
     
+  
+  
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      
+      <label class="md-nav__link" for="nav-3">
+        Kubernetes
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Ingress Controller Deployment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Ingress Controller Deployment
-      </label>
-    
-    <a href="./" title="Ingress Controller Deployment" class="md-nav__link md-nav__link--active">
-      Ingress Controller Deployment
-    </a>
-    
+      </a>
       
-<nav class="md-nav md-nav--secondary">
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-you-should-use-skipper-as-ingress-controller" title="Why you should use Skipper as ingress controller?" class="md-nav__link">
+  <a href="#why-you-should-use-skipper-as-ingress-controller" class="md-nav__link">
     Why you should use Skipper as ingress controller?
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Why you should use Skipper as ingress controller?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#comparison-with-other-ingress-controllers" title="Comparison with other Ingress Controllers" class="md-nav__link">
+  <a href="#comparison-with-other-ingress-controllers" class="md-nav__link">
     Comparison with other Ingress Controllers
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#comparison-with-service-mesh" title="Comparison with service mesh" class="md-nav__link">
+  <a href="#comparison-with-service-mesh" class="md-nav__link">
     Comparison with service mesh
   </a>
   
@@ -643,65 +567,65 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-an-ingress-controller" title="What is an Ingress-Controller?" class="md-nav__link">
+  <a href="#what-is-an-ingress-controller" class="md-nav__link">
     What is an Ingress-Controller?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-skipper-uses-endpoints-and-not-services" title="Why skipper uses endpoints and not services?" class="md-nav__link">
+  <a href="#why-skipper-uses-endpoints-and-not-services" class="md-nav__link">
     Why skipper uses endpoints and not services?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#aws-deployment" title="AWS deployment" class="md-nav__link">
+  <a href="#aws-deployment" class="md-nav__link">
     AWS deployment
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#baremetal-deployment" title="Baremetal deployment" class="md-nav__link">
+  <a href="#baremetal-deployment" class="md-nav__link">
     Baremetal deployment
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#requirements" title="Requirements" class="md-nav__link">
+  <a href="#requirements" class="md-nav__link">
     Requirements
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-skipper-as-ingress-controller" title="Install Skipper as ingress-controller" class="md-nav__link">
+  <a href="#install-skipper-as-ingress-controller" class="md-nav__link">
     Install Skipper as ingress-controller
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Install Skipper as ingress-controller">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#deployment-style" title="Deployment style" class="md-nav__link">
+  <a href="#deployment-style" class="md-nav__link">
     Deployment style
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Deployment style">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#daemonset" title="Daemonset" class="md-nav__link">
+  <a href="#daemonset" class="md-nav__link">
     Daemonset
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deployment" title="Deployment" class="md-nav__link">
+  <a href="#deployment" class="md-nav__link">
     Deployment
   </a>
   
@@ -718,57 +642,57 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#test-your-skipper-setup" title="Test your skipper setup" class="md-nav__link">
+  <a href="#test-your-skipper-setup" class="md-nav__link">
     Test your skipper setup
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#multiple-skipper-deployments" title="Multiple skipper deployments" class="md-nav__link">
+  <a href="#multiple-skipper-deployments" class="md-nav__link">
     Multiple skipper deployments
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#scoping-skipper-deployments-to-a-single-namespace" title="Scoping Skipper Deployments to a Single Namespace" class="md-nav__link">
+  <a href="#scoping-skipper-deployments-to-a-single-namespace" class="md-nav__link">
     Scoping Skipper Deployments to a Single Namespace
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#helm-based-deployment" title="Helm-based deployment" class="md-nav__link">
+  <a href="#helm-based-deployment" class="md-nav__link">
     Helm-based deployment
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-as-api-gateway-with-east-west-setup" title="Run as API Gateway with East-West setup" class="md-nav__link">
+  <a href="#run-as-api-gateway-with-east-west-setup" class="md-nav__link">
     Run as API Gateway with East-West setup
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Run as API Gateway with East-West setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#skipper" title="Skipper" class="md-nav__link">
+  <a href="#skipper" class="md-nav__link">
     Skipper
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#coredns" title="CoreDNS" class="md-nav__link">
+  <a href="#coredns" class="md-nav__link">
     CoreDNS
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#usage" title="Usage" class="md-nav__link">
+  <a href="#usage" class="md-nav__link">
     Usage
   </a>
   
@@ -780,22 +704,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-with-cluster-ratelimits" title="Running with Cluster Ratelimits" class="md-nav__link">
+  <a href="#running-with-cluster-ratelimits" class="md-nav__link">
     Running with Cluster Ratelimits
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Running with Cluster Ratelimits">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#redis-based" title="Redis based" class="md-nav__link">
+  <a href="#redis-based" class="md-nav__link">
     Redis based
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#swim-based" title="SWIM based" class="md-nav__link">
+  <a href="#swim-based" class="md-nav__link">
     SWIM based
   </a>
   
@@ -806,80 +730,90 @@
   
 </li>
       
-      
-      
-      
-      
     </ul>
   
 </nav>
-    
-  </li>
+      
+    </li>
+  
 
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ingress-usage/" class="md-nav__link">
+        Ingress Usage
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ingress-backends/" class="md-nav__link">
+        Ingress Backends
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../routegroups/" class="md-nav__link">
+        RouteGroups
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../ingress-usage/" title="Ingress Usage" class="md-nav__link">
-      Ingress Usage
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../routegroup-crd/" class="md-nav__link">
+        RouteGroup CRD Semantics
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../routegroup-validation/" class="md-nav__link">
+        RouteGroup Validation
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../east-west-usage/" class="md-nav__link">
+        East-West aka svc-to-svc
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../ingress-backends/" title="Ingress Backends" class="md-nav__link">
-      Ingress Backends
-    </a>
-  </li>
-
-        
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../routegroups/" title="RouteGroups" class="md-nav__link">
-      RouteGroups
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../routegroup-crd/" title="RouteGroup CRD Semantics" class="md-nav__link">
-      RouteGroup CRD Semantics
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../east-west-usage/" title="East-West aka svc-to-svc" class="md-nav__link">
-      East-West aka svc-to-svc
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
@@ -887,107 +821,115 @@
       
 
 
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
-    
-    <label class="md-nav__link" for="nav-4">
-      Tutorials
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+      
+      <label class="md-nav__link" for="nav-4">
         Tutorials
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/basics/" class="md-nav__link">
+        Basics
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/common-use-cases/" class="md-nav__link">
+        Common Use Cases
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/basics/" title="Basics" class="md-nav__link">
-      Basics
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/auth/" class="md-nav__link">
+        Authentication and Autorization
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/ratelimit/" class="md-nav__link">
+        Ratelimits
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/shadow-traffic/" class="md-nav__link">
+        Shadow Traffic
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/common-use-cases/" title="Common Use Cases" class="md-nav__link">
-      Common Use Cases
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/operations/" class="md-nav__link">
+        Operations
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/development/" class="md-nav__link">
+        Development
+      </a>
+    </li>
+  
+
           
-
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/auth/" title="Authentication and Autorization" class="md-nav__link">
-      Authentication and Autorization
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/ratelimit/" title="Ratelimits" class="md-nav__link">
-      Ratelimits
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/shadow-traffic/" title="Shadow Traffic" class="md-nav__link">
-      Shadow Traffic
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/operations/" title="Operations" class="md-nav__link">
-      Operations
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/development/" title="Development" class="md-nav__link">
-      Development
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
   </ul>
@@ -997,36 +939,40 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-you-should-use-skipper-as-ingress-controller" title="Why you should use Skipper as ingress controller?" class="md-nav__link">
+  <a href="#why-you-should-use-skipper-as-ingress-controller" class="md-nav__link">
     Why you should use Skipper as ingress controller?
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Why you should use Skipper as ingress controller?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#comparison-with-other-ingress-controllers" title="Comparison with other Ingress Controllers" class="md-nav__link">
+  <a href="#comparison-with-other-ingress-controllers" class="md-nav__link">
     Comparison with other Ingress Controllers
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#comparison-with-service-mesh" title="Comparison with service mesh" class="md-nav__link">
+  <a href="#comparison-with-service-mesh" class="md-nav__link">
     Comparison with service mesh
   </a>
   
@@ -1038,65 +984,65 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-an-ingress-controller" title="What is an Ingress-Controller?" class="md-nav__link">
+  <a href="#what-is-an-ingress-controller" class="md-nav__link">
     What is an Ingress-Controller?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-skipper-uses-endpoints-and-not-services" title="Why skipper uses endpoints and not services?" class="md-nav__link">
+  <a href="#why-skipper-uses-endpoints-and-not-services" class="md-nav__link">
     Why skipper uses endpoints and not services?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#aws-deployment" title="AWS deployment" class="md-nav__link">
+  <a href="#aws-deployment" class="md-nav__link">
     AWS deployment
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#baremetal-deployment" title="Baremetal deployment" class="md-nav__link">
+  <a href="#baremetal-deployment" class="md-nav__link">
     Baremetal deployment
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#requirements" title="Requirements" class="md-nav__link">
+  <a href="#requirements" class="md-nav__link">
     Requirements
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-skipper-as-ingress-controller" title="Install Skipper as ingress-controller" class="md-nav__link">
+  <a href="#install-skipper-as-ingress-controller" class="md-nav__link">
     Install Skipper as ingress-controller
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Install Skipper as ingress-controller">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#deployment-style" title="Deployment style" class="md-nav__link">
+  <a href="#deployment-style" class="md-nav__link">
     Deployment style
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Deployment style">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#daemonset" title="Daemonset" class="md-nav__link">
+  <a href="#daemonset" class="md-nav__link">
     Daemonset
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deployment" title="Deployment" class="md-nav__link">
+  <a href="#deployment" class="md-nav__link">
     Deployment
   </a>
   
@@ -1113,57 +1059,57 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#test-your-skipper-setup" title="Test your skipper setup" class="md-nav__link">
+  <a href="#test-your-skipper-setup" class="md-nav__link">
     Test your skipper setup
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#multiple-skipper-deployments" title="Multiple skipper deployments" class="md-nav__link">
+  <a href="#multiple-skipper-deployments" class="md-nav__link">
     Multiple skipper deployments
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#scoping-skipper-deployments-to-a-single-namespace" title="Scoping Skipper Deployments to a Single Namespace" class="md-nav__link">
+  <a href="#scoping-skipper-deployments-to-a-single-namespace" class="md-nav__link">
     Scoping Skipper Deployments to a Single Namespace
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#helm-based-deployment" title="Helm-based deployment" class="md-nav__link">
+  <a href="#helm-based-deployment" class="md-nav__link">
     Helm-based deployment
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-as-api-gateway-with-east-west-setup" title="Run as API Gateway with East-West setup" class="md-nav__link">
+  <a href="#run-as-api-gateway-with-east-west-setup" class="md-nav__link">
     Run as API Gateway with East-West setup
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Run as API Gateway with East-West setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#skipper" title="Skipper" class="md-nav__link">
+  <a href="#skipper" class="md-nav__link">
     Skipper
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#coredns" title="CoreDNS" class="md-nav__link">
+  <a href="#coredns" class="md-nav__link">
     CoreDNS
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#usage" title="Usage" class="md-nav__link">
+  <a href="#usage" class="md-nav__link">
     Usage
   </a>
   
@@ -1175,22 +1121,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-with-cluster-ratelimits" title="Running with Cluster Ratelimits" class="md-nav__link">
+  <a href="#running-with-cluster-ratelimits" class="md-nav__link">
     Running with Cluster Ratelimits
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Running with Cluster Ratelimits">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#redis-based" title="Redis based" class="md-nav__link">
+  <a href="#redis-based" class="md-nav__link">
     Redis based
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#swim-based" title="SWIM based" class="md-nav__link">
+  <a href="#swim-based" class="md-nav__link">
     SWIM based
   </a>
   
@@ -1200,10 +1146,6 @@
     </nav>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -1217,7 +1159,9 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zalando/skipper/edit/master/docs/kubernetes/ingress-controller.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/zalando/skipper/edit/master/docs/kubernetes/ingress-controller.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
                 
                 
                 <h1 id="skipper-ingress-controller">Skipper Ingress Controller<a class="headerlink" href="#skipper-ingress-controller" title="Permanent link">&para;</a></h1>
@@ -1425,51 +1369,50 @@ expose the TCP port 9999 on each Kubernetes worker node for incoming ingress
 traffic.</p>
 <p>To deploy all manifests required for the daemonset style, you can
 run:</p>
-<div class="codehilite"><pre><span></span>kubectl create -f docs/kubernetes/deploy/daemonset
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="c1"># cat docs/kubernetes/deploy/daemonset/daemonset.yaml</span>
-<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
-<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">DaemonSet</span>
-<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-  <span class="l l-Scalar l-Scalar-Plain">namespace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
-  <span class="l l-Scalar l-Scalar-Plain">labels</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-    <span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.10.180</span>
-    <span class="l l-Scalar l-Scalar-Plain">component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress</span>
-<span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">selector</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">matchLabels</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-  <span class="l l-Scalar l-Scalar-Plain">updateStrategy</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RollingUpdate</span>
-  <span class="l l-Scalar l-Scalar-Plain">template</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-      <span class="l l-Scalar l-Scalar-Plain">labels</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-        <span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.11.1</span>
-        <span class="l l-Scalar l-Scalar-Plain">component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress</span>
-    <span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">priorityClassName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">system-node-critical</span>
-      <span class="l l-Scalar l-Scalar-Plain">serviceAccountName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-      <span class="l l-Scalar l-Scalar-Plain">tolerations</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">dedicated</span>
-        <span class="l l-Scalar l-Scalar-Plain">operator</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Exists</span>
-      <span class="l l-Scalar l-Scalar-Plain">nodeSelector</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">kubernetes.io/role</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">worker</span>
-      <span class="l l-Scalar l-Scalar-Plain">hostNetwork</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-      <span class="l l-Scalar l-Scalar-Plain">containers</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-        <span class="l l-Scalar l-Scalar-Plain">image</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">registry.opensource.zalan.do/teapot/skipper:v0.12.0</span>
-        <span class="l l-Scalar l-Scalar-Plain">ports</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress-port</span>
-          <span class="l l-Scalar l-Scalar-Plain">containerPort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9999</span>
-          <span class="l l-Scalar l-Scalar-Plain">hostPort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9999</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">metrics-port</span>
-          <span class="l l-Scalar l-Scalar-Plain">containerPort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9911</span>
-        <span class="l l-Scalar l-Scalar-Plain">args</span><span class="p p-Indicator">:</span>
+<div class="highlight"><pre><span></span><code>kubectl create -f docs/kubernetes/deploy/daemonset
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># cat docs/kubernetes/deploy/daemonset/daemonset.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DaemonSet</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+    <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.10.180</span>
+    <span class="nt">component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">matchLabels</span><span class="p">:</span>
+      <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+  <span class="nt">updateStrategy</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RollingUpdate</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+      <span class="nt">labels</span><span class="p">:</span>
+        <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+        <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.11.1</span>
+        <span class="nt">component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress</span>
+    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">priorityClassName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">system-node-critical</span>
+      <span class="nt">serviceAccountName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+      <span class="nt">tolerations</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dedicated</span>
+        <span class="nt">operator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Exists</span>
+      <span class="nt">nodeSelector</span><span class="p">:</span>
+        <span class="nt">kubernetes.io/role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">worker</span>
+      <span class="nt">hostNetwork</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="nt">containers</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">registry.opensource.zalan.do/teapot/skipper:v0.12.0</span>
+        <span class="nt">ports</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress-port</span>
+          <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9999</span>
+          <span class="nt">hostPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9999</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">metrics-port</span>
+          <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9911</span>
+        <span class="nt">args</span><span class="p">:</span>
           <span class="p p-Indicator">-</span> <span class="s">&quot;skipper&quot;</span>
           <span class="p p-Indicator">-</span> <span class="s">&quot;-kubernetes&quot;</span>
           <span class="p p-Indicator">-</span> <span class="s">&quot;-kubernetes-in-cluster&quot;</span>
@@ -1487,184 +1430,184 @@ run:</p>
           <span class="p p-Indicator">-</span> <span class="s">&quot;-enable-connection-metrics&quot;</span>
           <span class="p p-Indicator">-</span> <span class="s">&quot;-max-audit-body=0&quot;</span>
           <span class="p p-Indicator">-</span> <span class="s">&quot;-histogram-metric-buckets=.01,.025,.05,.075,.1,.2,.3,.4,.5,.75,1,2,3,4,5,7,10,15,20,30,60,120,300,600&quot;</span>
-        <span class="l l-Scalar l-Scalar-Plain">resources</span><span class="p p-Indicator">:</span>
-          <span class="l l-Scalar l-Scalar-Plain">requests</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">cpu</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">150m</span>
-            <span class="l l-Scalar l-Scalar-Plain">memory</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">150Mi</span>
-        <span class="l l-Scalar l-Scalar-Plain">readinessProbe</span><span class="p p-Indicator">:</span>
-          <span class="l l-Scalar l-Scalar-Plain">httpGet</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/kube-system/healthz</span>
-            <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9999</span>
-          <span class="l l-Scalar l-Scalar-Plain">initialDelaySeconds</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-          <span class="l l-Scalar l-Scalar-Plain">timeoutSeconds</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-        <span class="l l-Scalar l-Scalar-Plain">securityContext</span><span class="p p-Indicator">:</span>
-          <span class="l l-Scalar l-Scalar-Plain">readOnlyRootFilesystem</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-          <span class="l l-Scalar l-Scalar-Plain">runAsNonRoot</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-          <span class="l l-Scalar l-Scalar-Plain">runAsUser</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
-</pre></div>
-
+        <span class="nt">resources</span><span class="p">:</span>
+          <span class="nt">requests</span><span class="p">:</span>
+            <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">150m</span>
+            <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">150Mi</span>
+        <span class="nt">readinessProbe</span><span class="p">:</span>
+          <span class="nt">httpGet</span><span class="p">:</span>
+            <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/kube-system/healthz</span>
+            <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9999</span>
+          <span class="nt">initialDelaySeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+          <span class="nt">timeoutSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+        <span class="nt">securityContext</span><span class="p">:</span>
+          <span class="nt">readOnlyRootFilesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+          <span class="nt">runAsNonRoot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+          <span class="nt">runAsUser</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+</code></pre></div>
 <p>Please check, that you are using the <a href="https://github.com/zalando/skipper/releases/latest">latest
-release</a>, we do
-not maintain the <strong>latest</strong> tag.</p>
+release</a>, and do
+not use <strong>latest</strong> tag in production. While skipper is quite stable as
+library and proxy, there is ongoing development to make skipper more
+safe, increase visibility, fix issues that lead to incidents and add
+features.</p>
 <h4 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h4>
 <p>We start to deploy skipper-ingress as a deployment with an HPA, use
 hostNetwork and expose the TCP port 9999 on each Kubernetes worker
 node for incoming ingress traffic.</p>
 <p>To deploy all manifests required for the deployment style, you can
 run:</p>
-<div class="codehilite"><pre><span></span>kubectl create -f docs/kubernetes/deploy/deployment
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>kubectl create -f docs/kubernetes/deploy/deployment
+</code></pre></div>
 <p>Now, let&rsquo;s see what we have just deployed.
 This will create serviceaccount, PodSecurityPolicy and RBAC rules such that
 skipper-ingress is allowed to listen on the hostnetwork.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># cat docs/kubernetes/deploy/deployment/rbac.yaml</span>
-<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">policy/v1beta1</span>
-<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">PodSecurityPolicy</span>
-<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">hostnetwork</span>
-<span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">hostNetwork</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-  <span class="l l-Scalar l-Scalar-Plain">hostPorts</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">max</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10000</span>
-    <span class="l l-Scalar l-Scalar-Plain">min</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
-  <span class="l l-Scalar l-Scalar-Plain">supplementalGroups</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">rule</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RunAsAny</span>
-  <span class="l l-Scalar l-Scalar-Plain">fsGroup</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">rule</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RunAsAny</span>
-  <span class="l l-Scalar l-Scalar-Plain">runAsUser</span><span class="p p-Indicator">:</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># cat docs/kubernetes/deploy/deployment/rbac.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">policy/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PodSecurityPolicy</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hostnetwork</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">hostNetwork</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">hostPorts</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">max</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10000</span>
+    <span class="nt">min</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
+  <span class="nt">supplementalGroups</span><span class="p">:</span>
+    <span class="nt">rule</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RunAsAny</span>
+  <span class="nt">fsGroup</span><span class="p">:</span>
+    <span class="nt">rule</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RunAsAny</span>
+  <span class="nt">runAsUser</span><span class="p">:</span>
     <span class="c1"># Require the container to run without root privileges.</span>
-    <span class="l l-Scalar l-Scalar-Plain">rule</span><span class="p p-Indicator">:</span> <span class="s">&#39;MustRunAsNonRoot&#39;</span>
-  <span class="l l-Scalar l-Scalar-Plain">seLinux</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">rule</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RunAsAny</span>
+    <span class="nt">rule</span><span class="p">:</span> <span class="s">&#39;MustRunAsNonRoot&#39;</span>
+  <span class="nt">seLinux</span><span class="p">:</span>
+    <span class="nt">rule</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RunAsAny</span>
 <span class="nn">---</span>
-<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io/v1</span>
-<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterRole</span>
-<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">hostnetwork-psp</span>
-<span class="l l-Scalar l-Scalar-Plain">rules</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">apiGroups</span><span class="p p-Indicator">:</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterRole</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hostnetwork-psp</span>
+<span class="nt">rules</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">apiGroups</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">extensions</span>
-  <span class="l l-Scalar l-Scalar-Plain">resourceNames</span><span class="p p-Indicator">:</span>
+  <span class="nt">resourceNames</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hostnetwork</span>
-  <span class="l l-Scalar l-Scalar-Plain">resources</span><span class="p p-Indicator">:</span>
+  <span class="nt">resources</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">podsecuritypolicies</span>
-  <span class="l l-Scalar l-Scalar-Plain">verbs</span><span class="p p-Indicator">:</span>
+  <span class="nt">verbs</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">use</span>
 <span class="nn">---</span>
-<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ServiceAccount</span>
-<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-  <span class="l l-Scalar l-Scalar-Plain">namespace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ServiceAccount</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
 <span class="nn">---</span>
-<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io/v1beta1</span>
-<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterRole</span>
-<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-<span class="l l-Scalar l-Scalar-Plain">rules</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">apiGroups</span><span class="p p-Indicator">:</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterRole</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+<span class="nt">rules</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">apiGroups</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">extensions</span>
-  <span class="l l-Scalar l-Scalar-Plain">resources</span><span class="p p-Indicator">:</span>
+  <span class="nt">resources</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ingresses</span>
-  <span class="l l-Scalar l-Scalar-Plain">verbs</span><span class="p p-Indicator">:</span>
+  <span class="nt">verbs</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">get</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">list</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">apiGroups</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;&quot;</span><span class="p p-Indicator">]</span>
-  <span class="l l-Scalar l-Scalar-Plain">resources</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">apiGroups</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;&quot;</span><span class="p p-Indicator">]</span>
+  <span class="nt">resources</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">namespaces</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">services</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">endpoints</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pods</span>
-  <span class="l l-Scalar l-Scalar-Plain">verbs</span><span class="p p-Indicator">:</span>
+  <span class="nt">verbs</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">get</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">list</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">apiGroups</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">apiGroups</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">zalando.org</span>
-  <span class="l l-Scalar l-Scalar-Plain">resources</span><span class="p p-Indicator">:</span>
+  <span class="nt">resources</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">routegroups</span>
-  <span class="l l-Scalar l-Scalar-Plain">verbs</span><span class="p p-Indicator">:</span>
+  <span class="nt">verbs</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">get</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">list</span>
 <span class="nn">---</span>
-<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io/v1beta1</span>
-<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterRoleBinding</span>
-<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-<span class="l l-Scalar l-Scalar-Plain">roleRef</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">apiGroup</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io</span>
-  <span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterRole</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-<span class="l l-Scalar l-Scalar-Plain">subjects</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ServiceAccount</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-  <span class="l l-Scalar l-Scalar-Plain">namespace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterRoleBinding</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+<span class="nt">roleRef</span><span class="p">:</span>
+  <span class="nt">apiGroup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io</span>
+  <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterRole</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+<span class="nt">subjects</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ServiceAccount</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
 <span class="nn">---</span>
-<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io/v1beta1</span>
-<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">RoleBinding</span>
-<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress-hostnetwork-psp</span>
-  <span class="l l-Scalar l-Scalar-Plain">namespace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
-<span class="l l-Scalar l-Scalar-Plain">roleRef</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">apiGroup</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io</span>
-  <span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterRole</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">hostnetwork-psp</span>
-<span class="l l-Scalar l-Scalar-Plain">subjects</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ServiceAccount</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-  <span class="l l-Scalar l-Scalar-Plain">namespace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
-</pre></div>
-
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RoleBinding</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress-hostnetwork-psp</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+<span class="nt">roleRef</span><span class="p">:</span>
+  <span class="nt">apiGroup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">rbac.authorization.k8s.io</span>
+  <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterRole</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">hostnetwork-psp</span>
+<span class="nt">subjects</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ServiceAccount</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+</code></pre></div>
 <p>The next file creates deployment with all options passed to
 skipper, that you should care in a basic production setup.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># cat docs/kubernetes/deploy/deployment/deployment.yaml</span>
-<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
-<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
-<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-  <span class="l l-Scalar l-Scalar-Plain">namespace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
-  <span class="l l-Scalar l-Scalar-Plain">labels</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-    <span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.11.40</span>
-    <span class="l l-Scalar l-Scalar-Plain">component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress</span>
-<span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">strategy</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">rollingUpdate</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">maxSurge</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-  <span class="l l-Scalar l-Scalar-Plain">selector</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">matchLabels</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-  <span class="l l-Scalar l-Scalar-Plain">template</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">labels</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-        <span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.11.40</span>
-        <span class="l l-Scalar l-Scalar-Plain">component</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress</span>
-    <span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">affinity</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">podAntiAffinity</span><span class="p p-Indicator">:</span>
-          <span class="l l-Scalar l-Scalar-Plain">requiredDuringSchedulingIgnoredDuringExecution</span><span class="p p-Indicator">:</span>
-            <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">labelSelector</span><span class="p p-Indicator">:</span>
-                <span class="l l-Scalar l-Scalar-Plain">matchExpressions</span><span class="p p-Indicator">:</span>
-                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">application</span>
-                  <span class="l l-Scalar l-Scalar-Plain">operator</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">In</span>
-                  <span class="l l-Scalar l-Scalar-Plain">values</span><span class="p p-Indicator">:</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># cat docs/kubernetes/deploy/deployment/deployment.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+    <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.11.40</span>
+    <span class="nt">component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">strategy</span><span class="p">:</span>
+    <span class="nt">rollingUpdate</span><span class="p">:</span>
+      <span class="nt">maxSurge</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">matchLabels</span><span class="p">:</span>
+      <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+      <span class="nt">labels</span><span class="p">:</span>
+        <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+        <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v0.11.40</span>
+        <span class="nt">component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress</span>
+    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">affinity</span><span class="p">:</span>
+        <span class="nt">podAntiAffinity</span><span class="p">:</span>
+          <span class="nt">requiredDuringSchedulingIgnoredDuringExecution</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">labelSelector</span><span class="p">:</span>
+                <span class="nt">matchExpressions</span><span class="p">:</span>
+                <span class="p p-Indicator">-</span> <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">application</span>
+                  <span class="nt">operator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">In</span>
+                  <span class="nt">values</span><span class="p">:</span>
                   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-              <span class="l l-Scalar l-Scalar-Plain">topologyKey</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">kubernetes.io/hostname</span>
-      <span class="l l-Scalar l-Scalar-Plain">priorityClassName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">system-cluster-critical</span>
-      <span class="l l-Scalar l-Scalar-Plain">serviceAccountName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-      <span class="l l-Scalar l-Scalar-Plain">nodeSelector</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">kubernetes.io/role</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">worker</span>
-      <span class="l l-Scalar l-Scalar-Plain">dnsPolicy</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterFirstWithHostNet</span>
-      <span class="l l-Scalar l-Scalar-Plain">hostNetwork</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-      <span class="l l-Scalar l-Scalar-Plain">containers</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-        <span class="l l-Scalar l-Scalar-Plain">image</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">registry.opensource.zalan.do/teapot/skipper:v0.12.0</span>
-        <span class="l l-Scalar l-Scalar-Plain">ports</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress-port</span>
-          <span class="l l-Scalar l-Scalar-Plain">containerPort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9999</span>
-          <span class="l l-Scalar l-Scalar-Plain">hostPort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9999</span>
-        <span class="l l-Scalar l-Scalar-Plain">args</span><span class="p p-Indicator">:</span>
+              <span class="nt">topologyKey</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kubernetes.io/hostname</span>
+      <span class="nt">priorityClassName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">system-cluster-critical</span>
+      <span class="nt">serviceAccountName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+      <span class="nt">nodeSelector</span><span class="p">:</span>
+        <span class="nt">kubernetes.io/role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">worker</span>
+      <span class="nt">dnsPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterFirstWithHostNet</span>
+      <span class="nt">hostNetwork</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="nt">containers</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">registry.opensource.zalan.do/teapot/skipper:v0.12.0</span>
+        <span class="nt">ports</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ingress-port</span>
+          <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9999</span>
+          <span class="nt">hostPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9999</span>
+        <span class="nt">args</span><span class="p">:</span>
           <span class="p p-Indicator">-</span> <span class="s">&quot;skipper&quot;</span>
           <span class="p p-Indicator">-</span> <span class="s">&quot;-kubernetes&quot;</span>
           <span class="p p-Indicator">-</span> <span class="s">&quot;-kubernetes-in-cluster&quot;</span>
@@ -1695,128 +1638,122 @@ skipper, that you should care in a basic production setup.</p>
           <span class="p p-Indicator">-</span> <span class="s">&quot;-read-timeout-server=5m&quot;</span>
           <span class="p p-Indicator">-</span> <span class="s">&quot;-write-timeout-server=60s&quot;</span>
           <span class="p p-Indicator">-</span> <span class="s">&#39;-default-filters-prepend=enableAccessLog(4,5)</span><span class="nv"> </span><span class="s">-&gt;</span><span class="nv"> </span><span class="s">lifo(2000,20000,&quot;3s&quot;)&#39;</span>
-        <span class="l l-Scalar l-Scalar-Plain">resources</span><span class="p p-Indicator">:</span>
-          <span class="l l-Scalar l-Scalar-Plain">limits</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">cpu</span><span class="p p-Indicator">:</span> <span class="s">&quot;4&quot;</span>
-            <span class="l l-Scalar l-Scalar-Plain">memory</span><span class="p p-Indicator">:</span> <span class="s">&quot;1Gi&quot;</span>
-          <span class="l l-Scalar l-Scalar-Plain">requests</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">cpu</span><span class="p p-Indicator">:</span> <span class="s">&quot;4&quot;</span>
-            <span class="l l-Scalar l-Scalar-Plain">memory</span><span class="p p-Indicator">:</span> <span class="s">&quot;1Gi&quot;</span>
-        <span class="l l-Scalar l-Scalar-Plain">readinessProbe</span><span class="p p-Indicator">:</span>
-          <span class="l l-Scalar l-Scalar-Plain">httpGet</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/kube-system/healthz</span>
-            <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9999</span>
-          <span class="l l-Scalar l-Scalar-Plain">initialDelaySeconds</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
-          <span class="l l-Scalar l-Scalar-Plain">timeoutSeconds</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-        <span class="l l-Scalar l-Scalar-Plain">securityContext</span><span class="p p-Indicator">:</span>
-          <span class="l l-Scalar l-Scalar-Plain">readOnlyRootFilesystem</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-          <span class="l l-Scalar l-Scalar-Plain">runAsNonRoot</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-          <span class="l l-Scalar l-Scalar-Plain">runAsUser</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
-</pre></div>
-
+        <span class="nt">resources</span><span class="p">:</span>
+          <span class="nt">limits</span><span class="p">:</span>
+            <span class="nt">cpu</span><span class="p">:</span> <span class="s">&quot;4&quot;</span>
+            <span class="nt">memory</span><span class="p">:</span> <span class="s">&quot;1Gi&quot;</span>
+          <span class="nt">requests</span><span class="p">:</span>
+            <span class="nt">cpu</span><span class="p">:</span> <span class="s">&quot;4&quot;</span>
+            <span class="nt">memory</span><span class="p">:</span> <span class="s">&quot;1Gi&quot;</span>
+        <span class="nt">readinessProbe</span><span class="p">:</span>
+          <span class="nt">httpGet</span><span class="p">:</span>
+            <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/kube-system/healthz</span>
+            <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9999</span>
+          <span class="nt">initialDelaySeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
+          <span class="nt">timeoutSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+        <span class="nt">securityContext</span><span class="p">:</span>
+          <span class="nt">readOnlyRootFilesystem</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+          <span class="nt">runAsNonRoot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+          <span class="nt">runAsUser</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+</code></pre></div>
 <p>This will deploy a HorizontalPodAutoscaler to scale skipper-ingress
 based on load.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># cat docs/kubernetes/deploy/deployment/hpa.yaml</span>
-<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">autoscaling/v2beta1</span>
-<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">HorizontalPodAutoscaler</span>
-<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-  <span class="l l-Scalar l-Scalar-Plain">namespace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
-  <span class="l l-Scalar l-Scalar-Plain">labels</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-<span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">scaleTargetRef</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
-    <span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
-    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-  <span class="l l-Scalar l-Scalar-Plain">minReplicas</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
-  <span class="l l-Scalar l-Scalar-Plain">maxReplicas</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
-  <span class="l l-Scalar l-Scalar-Plain">metrics</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Resource</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">cpu</span>
-      <span class="l l-Scalar l-Scalar-Plain">targetAverageUtilization</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">70</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Resource</span>
-    <span class="l l-Scalar l-Scalar-Plain">resource</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">memory</span>
-      <span class="l l-Scalar l-Scalar-Plain">targetAverageUtilization</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">70</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="c1"># cat docs/kubernetes/deploy/deployment/hpa.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">autoscaling/v2beta1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">HorizontalPodAutoscaler</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">scaleTargetRef</span><span class="p">:</span>
+    <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+    <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+  <span class="nt">minReplicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+  <span class="nt">maxReplicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50</span>
+  <span class="nt">metrics</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Resource</span>
+    <span class="nt">resource</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cpu</span>
+      <span class="nt">targetAverageUtilization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">70</span>
+  <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Resource</span>
+    <span class="nt">resource</span><span class="p">:</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">memory</span>
+      <span class="nt">targetAverageUtilization</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">70</span>
+</code></pre></div>
 <p>The next file will group skipper-ingress with a service, such that internal
 clients can access skipper via Kubernetes service.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># cat docs/kubernetes/deploy/deployment/service.yaml</span>
-<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
-<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-  <span class="l l-Scalar l-Scalar-Plain">namespace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
-  <span class="l l-Scalar l-Scalar-Plain">labels</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-  <span class="l l-Scalar l-Scalar-Plain">annotations</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">prometheus.io/path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
-    <span class="l l-Scalar l-Scalar-Plain">prometheus.io/port</span><span class="p p-Indicator">:</span> <span class="s">&quot;9911&quot;</span>
-    <span class="l l-Scalar l-Scalar-Plain">prometheus.io/scrape</span><span class="p p-Indicator">:</span> <span class="s">&quot;true&quot;</span>
-<span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterIP</span>
-  <span class="l l-Scalar l-Scalar-Plain">ports</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
-      <span class="l l-Scalar l-Scalar-Plain">targetPort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9999</span>
-      <span class="l l-Scalar l-Scalar-Plain">protocol</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
-  <span class="l l-Scalar l-Scalar-Plain">selector</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="c1"># cat docs/kubernetes/deploy/deployment/service.yaml</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+  <span class="nt">annotations</span><span class="p">:</span>
+    <span class="nt">prometheus.io/path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/metrics</span>
+    <span class="nt">prometheus.io/port</span><span class="p">:</span> <span class="s">&quot;9911&quot;</span>
+    <span class="nt">prometheus.io/scrape</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterIP</span>
+  <span class="nt">ports</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
+      <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9999</span>
+      <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-ingress</span>
+</code></pre></div>
 <h2 id="test-your-skipper-setup">Test your skipper setup<a class="headerlink" href="#test-your-skipper-setup" title="Permanent link">&para;</a></h2>
 <p>We now deploy a simple demo application serving html:</p>
-<div class="codehilite"><pre><span></span><span class="c1"># cat docs/kubernetes/deploy/demo/deployment.yaml</span>
-<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
-<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
-<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-demo</span>
-<span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">replicas</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
-  <span class="l l-Scalar l-Scalar-Plain">selector</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">matchLabels</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-demo</span>
-  <span class="l l-Scalar l-Scalar-Plain">template</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">labels</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-demo</span>
-    <span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">containers</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-demo</span>
-        <span class="l l-Scalar l-Scalar-Plain">image</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">registry.opensource.zalan.do/teapot/skipper:v0.12.0</span>
-        <span class="l l-Scalar l-Scalar-Plain">args</span><span class="p p-Indicator">:</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># cat docs/kubernetes/deploy/demo/deployment.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-demo</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">matchLabels</span><span class="p">:</span>
+      <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-demo</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+      <span class="nt">labels</span><span class="p">:</span>
+        <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-demo</span>
+    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">containers</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-demo</span>
+        <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">registry.opensource.zalan.do/teapot/skipper:v0.12.0</span>
+        <span class="nt">args</span><span class="p">:</span>
           <span class="p p-Indicator">-</span> <span class="s">&quot;skipper&quot;</span>
           <span class="p p-Indicator">-</span> <span class="s">&quot;-inline-routes&quot;</span>
           <span class="p p-Indicator">-</span> <span class="s">&quot;*</span><span class="nv"> </span><span class="s">-&gt;</span><span class="nv"> </span><span class="s">inlineContent(\&quot;&lt;body</span><span class="nv"> </span><span class="s">style=&#39;color:</span><span class="nv"> </span><span class="s">white;</span><span class="nv"> </span><span class="s">background-color:</span><span class="nv"> </span><span class="s">green;&#39;&gt;&lt;h1&gt;Hello!&lt;/h1&gt;\&quot;)</span><span class="nv"> </span><span class="s">-&gt;</span><span class="nv"> </span><span class="s">&lt;shunt&gt;&quot;</span>
-        <span class="l l-Scalar l-Scalar-Plain">ports</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">containerPort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9090</span>
-</pre></div>
-
+        <span class="nt">ports</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9090</span>
+</code></pre></div>
 <p>We deploy a service type ClusterIP that we will select from ingress:</p>
-<div class="codehilite"><pre><span></span><span class="c1"># cat docs/kubernetes/deploy/demo/svc.yaml</span>
-<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
-<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-demo</span>
-  <span class="l l-Scalar l-Scalar-Plain">labels</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-demo</span>
-<span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterIP</span>
-  <span class="l l-Scalar l-Scalar-Plain">ports</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
-      <span class="l l-Scalar l-Scalar-Plain">protocol</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
-      <span class="l l-Scalar l-Scalar-Plain">targetPort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9090</span>
-      <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">external</span>
-  <span class="l l-Scalar l-Scalar-Plain">selector</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-demo</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="c1"># cat docs/kubernetes/deploy/demo/svc.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-demo</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-demo</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterIP</span>
+  <span class="nt">ports</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
+      <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
+      <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9090</span>
+      <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">external</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-demo</span>
+</code></pre></div>
 <p>To deploy the demo application, you have to run:</p>
-<div class="codehilite"><pre><span></span>kubectl create -f docs/kubernetes/deploy/demo/
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>kubectl create -f docs/kubernetes/deploy/demo/
+</code></pre></div>
 <p>Now we have a skipper-ingress running as daemonset or deployment
 exposing the TCP port 9999 on each worker nodes, which has a running
 skipper-ingress instance, a backend application running with 2
@@ -1824,7 +1761,7 @@ replicas that serves some html on TCP port 9090, and we expose a
 cluster service on TCP port 80. Besides skipper-ingress, deployment
 and service can not be reached from outside the cluster. Now we expose
 the application with Ingress to the external network:</p>
-<div class="codehilite"><pre><span></span><span class="c1"># cat demo-ing.yaml</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># cat demo-ing.yaml</span>
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -1837,16 +1774,13 @@ spec:
       - backend:
           serviceName: skipper-demo
           servicePort: <span class="m">80</span>
-</pre></div>
-
+</code></pre></div>
 <p>To deploy this ingress, you have to run:</p>
-<div class="codehilite"><pre><span></span>kubectl create -f demo-ing.yaml
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>kubectl create -f demo-ing.yaml
+</code></pre></div>
 <p>Skipper will configure itself for the given ingress, such that you can test doing:</p>
-<div class="codehilite"><pre><span></span>curl -v -H<span class="s2">&quot;Host: skipper-demo.&lt;mydomain.org&gt;&quot;</span> http://&lt;nodeip&gt;:9999/
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>curl -v -H<span class="s2">&quot;Host: skipper-demo.&lt;mydomain.org&gt;&quot;</span> http://&lt;nodeip&gt;:9999/
+</code></pre></div>
 <p>The next question you may ask is: how to expose this to your customers?</p>
 <p>The answer depends on your setup and complexity requirements. In the
 simplest case you could add one A record in your DNS <code>*.&lt;mydomain.org&gt;</code>
@@ -1871,22 +1805,21 @@ your ingress objects with the annotation
 <code>kubernetes.io/ingress.class: skipper</code> to make sure only skipper will
 serve the traffic.</p>
 <p>Example ingress:</p>
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
-<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Ingress</span>
-<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">annotations</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">kubernetes.io/ingress.class</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">app</span>
-<span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">rules</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">host</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">app-default.example.org</span>
-    <span class="l l-Scalar l-Scalar-Plain">http</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">paths</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">backend</span><span class="p p-Indicator">:</span>
-          <span class="l l-Scalar l-Scalar-Plain">serviceName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">app-svc</span>
-          <span class="l l-Scalar l-Scalar-Plain">servicePort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">extensions/v1beta1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ingress</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">annotations</span><span class="p">:</span>
+    <span class="nt">kubernetes.io/ingress.class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">app</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">rules</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">app-default.example.org</span>
+    <span class="nt">http</span><span class="p">:</span>
+      <span class="nt">paths</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">backend</span><span class="p">:</span>
+          <span class="nt">serviceName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">app-svc</span>
+          <span class="nt">servicePort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
+</code></pre></div>
 <h2 id="scoping-skipper-deployments-to-a-single-namespace">Scoping Skipper Deployments to a Single Namespace<a class="headerlink" href="#scoping-skipper-deployments-to-a-single-namespace" title="Permanent link">&para;</a></h2>
 <p>In some instances you might want skipper to only watch for ingress objects
 created in a single namespace. This can be achieved by using
@@ -1914,23 +1847,21 @@ Check the GitHub repository for all details.</p>
 </ul>
 <p>If your environment is setup correctly you should be able to run <code>helm version --client</code> and <code>helm registry version quay.io</code> and get some information about your tooling without any error.</p>
 <p>It is possible to deploy the chart without any further configuration like this:</p>
-<div class="codehilite"><pre><span></span>helm registry upgrade quay.io/baez/skipper -- \
-    --install \
-    --wait \
-    &quot;your release name e.g. skipper&quot;
-</pre></div>
-
+<div class="codehilite"><pre><span></span><code><span class="err">helm registry upgrade quay.io/baez/skipper -- \</span>
+<span class="err">    --install \</span>
+<span class="err">    --wait \</span>
+<span class="err">    &quot;your release name e.g. skipper&quot;</span>
+</code></pre></div>
 
 <p>The <code>--wait</code> switch can be omitted as it only takes care that Helm is waiting until the chart is completely deployed (meaning all resources are created).</p>
 <p>To update the deployment to a newer version the same command can be used.</p>
 <p>If you have RBAC enabled in your Kubernetes instance you don&rsquo;t have to create all the previously described resources on your own but you can let Helm create them by simply adding one more switch:</p>
-<div class="codehilite"><pre><span></span>helm registry upgrade quay.io/baez/skipper -- \
-    --install \
-    --wait \
-    --set rbac.create=true \
-    &quot;your release name e.g. skipper&quot;
-</pre></div>
-
+<div class="codehilite"><pre><span></span><code><span class="err">helm registry upgrade quay.io/baez/skipper -- \</span>
+<span class="err">    --install \</span>
+<span class="err">    --wait \</span>
+<span class="err">    --set rbac.create=true \</span>
+<span class="err">    &quot;your release name e.g. skipper&quot;</span>
+</code></pre></div>
 
 <p>There are some more options available for customization of the chart.
 Check the repository if you need more configuration possibilities.</p>
@@ -1949,50 +1880,48 @@ down the IP (p.e. <code>10.3.11.28</code>), which you will need in CoreDNS setup
 <h3 id="coredns">CoreDNS<a class="headerlink" href="#coredns" title="Permanent link">&para;</a></h3>
 <p>You can create the DNS records with the <code>template</code> plugin from CoreDNS.</p>
 <p>Corefile example:
-<div class="codehilite"><pre><span></span><span class="x">.:53 {</span>
-<span class="x">    errors</span>
-<span class="x">    health</span>
-<span class="x">    kubernetes cluster.local in-addr.arpa ip6.arpa {</span>
-<span class="x">        pods insecure</span>
-<span class="x">        upstream</span>
-<span class="x">        fallthrough in-addr.arpa ip6.arpa</span>
-<span class="x">    }</span>
-<span class="x">    template IN A skipper.cluster.local  {</span>
-<span class="x">      match &quot;^.*[.]skipper[.]cluster[.]local&quot;</span>
-<span class="x">      answer &quot;</span><span class="cp">{{</span> <span class="nv">.Name</span> <span class="cp">}}</span><span class="x"> 60 IN A 10.3.11.28&quot;</span>
-<span class="x">      fallthrough</span>
-<span class="x">    }</span>
-<span class="x">    prometheus :9153</span>
-<span class="x">    proxy . /etc/resolv.conf</span>
-<span class="x">    cache 30</span>
-<span class="x">    reload</span>
-<span class="x">}</span>
-</pre></div></p>
+<div class="highlight"><pre><span></span><code>.:53 {
+    errors
+    health
+    kubernetes cluster.local in-addr.arpa ip6.arpa {
+        pods insecure
+        upstream
+        fallthrough in-addr.arpa ip6.arpa
+    }
+    template IN A skipper.cluster.local  {
+      match &quot;^.*[.]skipper[.]cluster[.]local&quot;
+      answer &quot;{{ .Name }} 60 IN A 10.3.11.28&quot;
+      fallthrough
+    }
+    prometheus :9153
+    proxy . /etc/resolv.conf
+    cache 30
+    reload
+}
+</code></pre></div></p>
 <h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h3>
 <p>If the setup was done correctly, the following ingress example will
 create an internal route with
 <code>Host(/^demo[.]default[.]skipper[.]cluster[.]local)</code> predicate:</p>
-<div class="codehilite"><pre><span></span><span class="n">apiVersion</span><span class="o">:</span> <span class="n">extensions</span><span class="o">/</span><span class="n">v1beta1</span>
-<span class="n">kind</span><span class="o">:</span> <span class="n">Ingress</span>
-<span class="n">metadata</span><span class="o">:</span>
-  <span class="n">name</span><span class="o">:</span> <span class="n">demo</span>
-  <span class="kd">namespace</span><span class="o">:</span> <span class="k">default</span>
-<span class="n">spec</span><span class="o">:</span>
-  <span class="n">rules</span><span class="o">:</span>
-  <span class="o">-</span> <span class="n">host</span><span class="o">:</span> <span class="n">demo</span><span class="o">.</span><span class="na">example</span><span class="o">.</span><span class="na">org</span>
-    <span class="n">http</span><span class="o">:</span>
-      <span class="n">paths</span><span class="o">:</span>
-      <span class="o">-</span> <span class="n">backend</span><span class="o">:</span>
-          <span class="n">serviceName</span><span class="o">:</span> <span class="n">example</span>
-          <span class="n">servicePort</span><span class="o">:</span> <span class="mi">80</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: demo
+  namespace: default
+spec:
+  rules:
+  - host: demo.example.org
+    http:
+      paths:
+      - backend:
+          serviceName: example
+          servicePort: 80
+</code></pre></div>
 <p>Your clients inside the cluster should call this example with
 <code>demo.default.skipper.cluster.local</code> in their host header. Example
 from inside a container:</p>
-<div class="codehilite"><pre><span></span>curl demo.default.skipper.cluster.local
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>curl demo.default.skipper.cluster.local
+</code></pre></div>
 <h2 id="running-with-cluster-ratelimits">Running with Cluster Ratelimits<a class="headerlink" href="#running-with-cluster-ratelimits" title="Permanent link">&para;</a></h2>
 <p>Cluster ratelimits require a communication exchange method to build a
 skipper swarm to have a shared knowledge about the requests passing
@@ -2013,68 +1942,67 @@ have <code>dnsPolicy: ClusterFirstWithHostNet</code> in it&rsquo;s Pod spec, see
 <p>This setup is considered experimental and should be carefully tested
 before running it in production.</p>
 <p>Example redis statefulset with headless service:</p>
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
-<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">StatefulSet</span>
-<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">labels</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
-    <span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v4.0.9</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
-  <span class="l l-Scalar l-Scalar-Plain">namespace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
-<span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">replicas</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
-  <span class="l l-Scalar l-Scalar-Plain">selector</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">matchLabels</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
-  <span class="l l-Scalar l-Scalar-Plain">serviceName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
-  <span class="l l-Scalar l-Scalar-Plain">template</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">labels</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
-        <span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v4.0.9</span>
-    <span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">containers</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">image</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">registry.opensource.zalan.do/zmon/redis:4.0.9-master-6</span>
-        <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
-        <span class="l l-Scalar l-Scalar-Plain">ports</span><span class="p p-Indicator">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">containerPort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">6379</span>
-          <span class="l l-Scalar l-Scalar-Plain">protocol</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
-        <span class="l l-Scalar l-Scalar-Plain">readinessProbe</span><span class="p p-Indicator">:</span>
-          <span class="l l-Scalar l-Scalar-Plain">exec</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">command</span><span class="p p-Indicator">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">StatefulSet</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
+    <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v4.0.9</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">matchLabels</span><span class="p">:</span>
+      <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
+  <span class="nt">serviceName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+      <span class="nt">labels</span><span class="p">:</span>
+        <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
+        <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v4.0.9</span>
+    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">containers</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">registry.opensource.zalan.do/zmon/redis:4.0.9-master-6</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
+        <span class="nt">ports</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6379</span>
+          <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
+        <span class="nt">readinessProbe</span><span class="p">:</span>
+          <span class="nt">exec</span><span class="p">:</span>
+            <span class="nt">command</span><span class="p">:</span>
             <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">redis-cli</span>
             <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ping</span>
-          <span class="l l-Scalar l-Scalar-Plain">failureThreshold</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
-          <span class="l l-Scalar l-Scalar-Plain">initialDelaySeconds</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-          <span class="l l-Scalar l-Scalar-Plain">periodSeconds</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
-          <span class="l l-Scalar l-Scalar-Plain">successThreshold</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-          <span class="l l-Scalar l-Scalar-Plain">timeoutSeconds</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-        <span class="l l-Scalar l-Scalar-Plain">resources</span><span class="p p-Indicator">:</span>
-          <span class="l l-Scalar l-Scalar-Plain">limits</span><span class="p p-Indicator">:</span>
-            <span class="l l-Scalar l-Scalar-Plain">cpu</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100m</span>
-            <span class="l l-Scalar l-Scalar-Plain">memory</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">100Mi</span>
-      <span class="l l-Scalar l-Scalar-Plain">dnsPolicy</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterFirst</span>
-      <span class="l l-Scalar l-Scalar-Plain">restartPolicy</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Always</span>
-      <span class="l l-Scalar l-Scalar-Plain">schedulerName</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">default-scheduler</span>
+          <span class="nt">failureThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+          <span class="nt">initialDelaySeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+          <span class="nt">periodSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">60</span>
+          <span class="nt">successThreshold</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+          <span class="nt">timeoutSeconds</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+        <span class="nt">resources</span><span class="p">:</span>
+          <span class="nt">limits</span><span class="p">:</span>
+            <span class="nt">cpu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100m</span>
+            <span class="nt">memory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100Mi</span>
+      <span class="nt">dnsPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterFirst</span>
+      <span class="nt">restartPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Always</span>
+      <span class="nt">schedulerName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default-scheduler</span>
 <span class="nn">---</span>
-<span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
-<span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">labels</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
-  <span class="l l-Scalar l-Scalar-Plain">namespace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
-<span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">clusterIP</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
-  <span class="l l-Scalar l-Scalar-Plain">ports</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">port</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">6379</span>
-    <span class="l l-Scalar l-Scalar-Plain">protocol</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
-    <span class="l l-Scalar l-Scalar-Plain">targetPort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">6379</span>
-  <span class="l l-Scalar l-Scalar-Plain">selector</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">application</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
-  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterIP</span>
-</pre></div>
-
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kube-system</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">clusterIP</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">None</span>
+  <span class="nt">ports</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6379</span>
+    <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
+    <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6379</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">application</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">skipper-redis</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ClusterIP</span>
+</code></pre></div>
 <h3 id="swim-based">SWIM based<a class="headerlink" href="#swim-based" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.cs.cornell.edu/projects/Quicksilver/public_pdfs/SWIM.pdf">SWIM</a>
 is a &ldquo;Scalable Weakly-consistent Infection-style Process Group
@@ -2083,23 +2011,20 @@ cluster ratelimits. This setup is not considered stable enough to run
 production, yet.</p>
 <p>Additionally you have to add the following command line flags to
 skipper&rsquo;s container spec <code>args:</code>:</p>
-<div class="codehilite"><pre><span></span>-swarm-port=9990
+<div class="highlight"><pre><span></span><code>-swarm-port=9990
 -swarm-label-selector-key=application
 -swarm-label-selector-value=skipper-ingress
 -swarm-leave-timeout=5s
 -swarm-max-msg-buffer=4194304
 -swarm-namespace=kube-system
-</pre></div>
-
+</code></pre></div>
 <p>and open another port in Kubernetes and your Firewall settings to make
 the communication work with TCP and UDP to the specified <code>swarm-port</code>:</p>
-<div class="codehilite"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">containerPort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9990</span>
-  <span class="l l-Scalar l-Scalar-Plain">hostPort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">9990</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">swarm-port</span>
-  <span class="l l-Scalar l-Scalar-Plain">protocol</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
-</pre></div>
-                
-                  
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9990</span>
+  <span class="nt">hostPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">9990</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">swarm-port</span>
+  <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
+</code></pre></div>
                 
               
               
@@ -2116,34 +2041,34 @@ the communication work with TCP and UDP to the specified <code>swarm-port</code>
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../../operation/operation/" title="Operation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../../operation/operation/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
                 Operation
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../ingress-usage/" title="Ingress Usage" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../ingress-usage/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
                 Ingress Usage
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -2154,14 +2079,11 @@ the communication work with TCP and UDP to the specified <code>swarm-port</code>
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
       </div>
-      
-        
       
     </div>
   </div>
@@ -2169,12 +2091,18 @@ the communication work with TCP and UDP to the specified <code>swarm-port</code>
       
     </div>
     
-      <script src="../../assets/javascripts/application.5e60981f.js"></script>
+      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
-      <script>app.initialize({version:"1.0.1",url:{base:"../.."}})</script>
-      
-    
-    
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
   </body>

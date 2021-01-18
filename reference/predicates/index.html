@@ -1,40 +1,18 @@
 
-
-
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
       
       
         <link rel="canonical" href="https://opensource.zalando.com/skipper/reference/predicates/">
       
-      
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.1, mkdocs-material-3.0.6">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
     
     
       
@@ -42,116 +20,110 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
-      
+      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
       
         
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
         
-        <meta name="theme-color" content="">
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
       
     
     
-      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
     
     
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
-      
-    
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
   </head>
   
-    
-    
-    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
-    viewBox="0 0 416 448" id="__github">
-  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
-        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
-        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
-        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
-        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
-        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
-        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
-        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
-        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
-        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
-        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
-        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
-        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
-        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
-        99.5z" />
-</svg>
-        
-      </defs>
-    </svg>
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+      
+  
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#skipper-predicates" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://opensource.zalando.com/skipper/" title="Skipper" class="md-header-nav__button md-logo">
-          
-            <img src="../../favicon.ico" width="24" height="24">
-          
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#skipper-predicates" class="md-skip">
+          Skip to content
         </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://opensource.zalando.com/skipper/" title="Skipper" class="md-header-nav__button md-logo" aria-label="Skipper">
+      
+  <img src="../../favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Skipper
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             
-              <span class="md-header-nav__topic">
-                Skipper
-              </span>
-              <span class="md-header-nav__topic">
-                Predicates
-              </span>
+              Predicates
             
-          
+          </span>
         </div>
       </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -159,141 +131,63 @@
     </div>
   </div>
 </div>
-          
+    
+    
+      <div class="md-header-nav__source">
         
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-
-  <a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
     
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
       </div>
     
-    <div class="md-source__repository">
-      GitHub
-    </div>
-  </a>
-
-          </div>
-        </div>
-      
-    </div>
   </nav>
 </header>
     
-    <div class="md-container">
-      
-        
+    <div class="md-container" data-md-component="container">
       
       
         
-
-  
-
-<nav class="md-tabs md-tabs--active" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
-    <ul class="md-tabs__list">
       
-        
-  <li class="md-tabs__item">
-    
-      <a href="../.." title="Introduction" class="md-tabs__link">
-        Introduction
-      </a>
-    
-  </li>
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../filters/" title="Reference" class="md-tabs__link md-tabs__link--active">
-          Reference
-        </a>
-      
-    </li>
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../kubernetes/ingress-controller/" title="Kubernetes" class="md-tabs__link">
-          Kubernetes
-        </a>
-      
-    </li>
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../tutorials/basics/" title="Tutorials" class="md-tabs__link">
-          Tutorials
-        </a>
-      
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-      
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://opensource.zalando.com/skipper/" title="Skipper" class="md-nav__button md-logo">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://opensource.zalando.com/skipper/" title="Skipper" class="md-nav__button md-logo" aria-label="Skipper">
       
-        <img src="../../favicon.ico" width="48" height="48">
-      
+  <img src="../../favicon.ico" alt="logo">
+
     </a>
     Skipper
   </label>
   
     <div class="md-nav__source">
       
-
-
-  
-
-
-  <a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
     
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      GitHub
-    </div>
-  </a>
-
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -303,109 +197,123 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../.." title="Introduction" class="md-nav__link">
-      Introduction
-    </a>
-  </li>
-
-    
-      
-      
-      
-
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
   
 
+    
+      
+      
+      
 
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+
+  
+  
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+  
+  
     
-    <label class="md-nav__link" for="nav-2">
-      Reference
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      
+      <label class="md-nav__link" for="nav-2">
         Reference
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
-          
-
-
-  <li class="md-nav__item">
-    <a href="../filters/" title="Filters" class="md-nav__link">
-      Filters
-    </a>
-  </li>
-
-        
-          
-          
-          
-
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../filters/" class="md-nav__link">
+        Filters
+      </a>
+    </li>
   
 
-
-  <li class="md-nav__item md-nav__item--active">
+          
+            
+  
+  
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
       
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Predicates
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Predicates
-      </label>
-    
-    <a href="./" title="Predicates" class="md-nav__link md-nav__link--active">
-      Predicates
-    </a>
-    
+      </a>
       
-<nav class="md-nav md-nav--secondary">
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#predicate-arguments" title="Predicate arguments" class="md-nav__link">
+  <a href="#predicate-arguments" class="md-nav__link">
     Predicate arguments
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-path-tree" title="The path tree" class="md-nav__link">
+  <a href="#the-path-tree" class="md-nav__link">
     The path tree
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="The path tree">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#path" title="Path" class="md-nav__link">
+  <a href="#path" class="md-nav__link">
     Path
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pathsubtree" title="PathSubtree" class="md-nav__link">
+  <a href="#pathsubtree" class="md-nav__link">
     PathSubtree
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pathregexp" title="PathRegexp" class="md-nav__link">
+  <a href="#pathregexp" class="md-nav__link">
     PathRegexp
   </a>
   
@@ -417,92 +325,92 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#host" title="Host" class="md-nav__link">
+  <a href="#host" class="md-nav__link">
     Host
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#weight-priority" title="Weight (priority)" class="md-nav__link">
+  <a href="#weight-priority" class="md-nav__link">
     Weight (priority)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#true" title="True" class="md-nav__link">
+  <a href="#true" class="md-nav__link">
     True
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#false" title="False" class="md-nav__link">
+  <a href="#false" class="md-nav__link">
     False
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#method" title="Method" class="md-nav__link">
+  <a href="#method" class="md-nav__link">
     Method
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#methods" title="Methods" class="md-nav__link">
+  <a href="#methods" class="md-nav__link">
     Methods
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#header" title="Header" class="md-nav__link">
+  <a href="#header" class="md-nav__link">
     Header
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#headerregexp" title="HeaderRegexp" class="md-nav__link">
+  <a href="#headerregexp" class="md-nav__link">
     HeaderRegexp
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cookie" title="Cookie" class="md-nav__link">
+  <a href="#cookie" class="md-nav__link">
     Cookie
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth" title="Auth" class="md-nav__link">
+  <a href="#auth" class="md-nav__link">
     Auth
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Auth">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#jwtpayloadanykv" title="JWTPayloadAnyKV" class="md-nav__link">
+  <a href="#jwtpayloadanykv" class="md-nav__link">
     JWTPayloadAnyKV
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#jwtpayloadallkv" title="JWTPayloadAllKV" class="md-nav__link">
+  <a href="#jwtpayloadallkv" class="md-nav__link">
     JWTPayloadAllKV
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#jwtpayloadanykvregexp-jwtpayloadallkvregexp" title="JWTPayloadAnyKVRegexp, JWTPayloadAllKVRegexp" class="md-nav__link">
+  <a href="#jwtpayloadanykvregexp-jwtpayloadallkvregexp" class="md-nav__link">
     JWTPayloadAnyKVRegexp, JWTPayloadAllKVRegexp
   </a>
   
@@ -514,29 +422,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interval" title="Interval" class="md-nav__link">
+  <a href="#interval" class="md-nav__link">
     Interval
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Interval">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#after" title="After" class="md-nav__link">
+  <a href="#after" class="md-nav__link">
     After
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#before" title="Before" class="md-nav__link">
+  <a href="#before" class="md-nav__link">
     Before
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#between" title="Between" class="md-nav__link">
+  <a href="#between" class="md-nav__link">
     Between
   </a>
   
@@ -548,29 +456,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cron" title="Cron" class="md-nav__link">
+  <a href="#cron" class="md-nav__link">
     Cron
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#queryparam" title="QueryParam" class="md-nav__link">
+  <a href="#queryparam" class="md-nav__link">
     QueryParam
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#source" title="Source" class="md-nav__link">
+  <a href="#source" class="md-nav__link">
     Source
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Source">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sourcefromlast" title="SourceFromLast" class="md-nav__link">
+  <a href="#sourcefromlast" class="md-nav__link">
     SourceFromLast
   </a>
   
@@ -582,340 +490,250 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#clientip" title="ClientIP" class="md-nav__link">
+  <a href="#clientip" class="md-nav__link">
     ClientIP
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tee" title="Tee" class="md-nav__link">
+  <a href="#tee" class="md-nav__link">
     Tee
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#traffic" title="Traffic" class="md-nav__link">
+  <a href="#traffic" class="md-nav__link">
     Traffic
   </a>
   
 </li>
       
-      
-      
-      
-      
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backends/" class="md-nav__link">
+        Backends
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../egress/" class="md-nav__link">
+        Egress
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/" class="md-nav__link">
+        Scripts
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/" class="md-nav__link">
+        Plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        Development
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/video-howto-build/" class="md-nav__link">
+        Video - How to build
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../backends/" title="Backends" class="md-nav__link">
-      Backends
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../egress/" title="Egress" class="md-nav__link">
-      Egress
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../scripts/" title="Scripts" class="md-nav__link">
-      Scripts
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../plugins/" title="Plugins" class="md-nav__link">
-      Plugins
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../architecture/" title="Architecture" class="md-nav__link">
-      Architecture
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../development/" title="Development" class="md-nav__link">
-      Development
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/video-howto-build/" title="Video - How to build" class="md-nav__link">
-      Video - How to build
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-10" type="checkbox" id="nav-2-10">
-    
-    <label class="md-nav__link" for="nav-2-10">
-      Data Clients
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-10">
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-10" type="checkbox" id="nav-2-10" >
+      
+      <label class="md-nav__link" for="nav-2-10">
         Data Clients
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Data Clients" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-10">
+          <span class="md-nav__icon md-icon"></span>
+          Data Clients
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-clients/eskip-file/" class="md-nav__link">
+        Eskip File
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-clients/etcd/" class="md-nav__link">
+        Etcd
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../data-clients/eskip-file/" title="Eskip File" class="md-nav__link">
-      Eskip File
-    </a>
-  </li>
-
-        
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../data-clients/etcd/" title="Etcd" class="md-nav__link">
-      Etcd
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../data-clients/kubernetes/" title="Kubernetes" class="md-nav__link">
-      Kubernetes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../data-clients/route-string/" title="Route String" class="md-nav__link">
-      Route String
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-11" type="checkbox" id="nav-2-11">
-    
-    <label class="md-nav__link" for="nav-2-11">
-      Operation
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-11">
-        Operation
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../operation/deployment/" title="Deployment" class="md-nav__link">
-      Deployment
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../operation/operation/" title="Operation" class="md-nav__link">
-      Operation
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
-    
-    <label class="md-nav__link" for="nav-3">
-      Kubernetes
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-clients/kubernetes/" class="md-nav__link">
         Kubernetes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-clients/route-string/" class="md-nav__link">
+        Route String
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-11" type="checkbox" id="nav-2-11" >
+      
+      <label class="md-nav__link" for="nav-2-11">
+        Operation
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Operation" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-11">
+          <span class="md-nav__icon md-icon"></span>
+          Operation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operation/deployment/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operation/operation/" class="md-nav__link">
+        Operation
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../kubernetes/ingress-controller/" title="Ingress Controller Deployment" class="md-nav__link">
-      Ingress Controller Deployment
-    </a>
-  </li>
-
-        
           
+        </ul>
+      </nav>
+    </li>
+  
+
           
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../kubernetes/ingress-usage/" title="Ingress Usage" class="md-nav__link">
-      Ingress Usage
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../kubernetes/ingress-backends/" title="Ingress Backends" class="md-nav__link">
-      Ingress Backends
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../kubernetes/routegroups/" title="RouteGroups" class="md-nav__link">
-      RouteGroups
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../kubernetes/routegroup-crd/" title="RouteGroup CRD Semantics" class="md-nav__link">
-      RouteGroup CRD Semantics
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../kubernetes/east-west-usage/" title="East-West aka svc-to-svc" class="md-nav__link">
-      East-West aka svc-to-svc
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
       
@@ -923,107 +741,231 @@
       
 
 
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
+        Kubernetes
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/ingress-controller/" class="md-nav__link">
+        Ingress Controller Deployment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/ingress-usage/" class="md-nav__link">
+        Ingress Usage
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/ingress-backends/" class="md-nav__link">
+        Ingress Backends
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/routegroups/" class="md-nav__link">
+        RouteGroups
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/routegroup-crd/" class="md-nav__link">
+        RouteGroup CRD Semantics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/routegroup-validation/" class="md-nav__link">
+        RouteGroup Validation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/east-west-usage/" class="md-nav__link">
+        East-West aka svc-to-svc
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
     
-    <label class="md-nav__link" for="nav-4">
-      Tutorials
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      
+      
+      
+
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+      
+      <label class="md-nav__link" for="nav-4">
         Tutorials
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/basics/" class="md-nav__link">
+        Basics
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/common-use-cases/" class="md-nav__link">
+        Common Use Cases
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/basics/" title="Basics" class="md-nav__link">
-      Basics
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/auth/" class="md-nav__link">
+        Authentication and Autorization
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/ratelimit/" class="md-nav__link">
+        Ratelimits
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/shadow-traffic/" class="md-nav__link">
+        Shadow Traffic
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/common-use-cases/" title="Common Use Cases" class="md-nav__link">
-      Common Use Cases
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/operations/" class="md-nav__link">
+        Operations
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/development/" class="md-nav__link">
+        Development
+      </a>
+    </li>
+  
+
           
-
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/auth/" title="Authentication and Autorization" class="md-nav__link">
-      Authentication and Autorization
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/ratelimit/" title="Ratelimits" class="md-nav__link">
-      Ratelimits
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/shadow-traffic/" title="Shadow Traffic" class="md-nav__link">
-      Shadow Traffic
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/operations/" title="Operations" class="md-nav__link">
-      Operations
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../tutorials/development/" title="Development" class="md-nav__link">
-      Development
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
   </ul>
@@ -1033,50 +975,54 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#predicate-arguments" title="Predicate arguments" class="md-nav__link">
+  <a href="#predicate-arguments" class="md-nav__link">
     Predicate arguments
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-path-tree" title="The path tree" class="md-nav__link">
+  <a href="#the-path-tree" class="md-nav__link">
     The path tree
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="The path tree">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#path" title="Path" class="md-nav__link">
+  <a href="#path" class="md-nav__link">
     Path
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pathsubtree" title="PathSubtree" class="md-nav__link">
+  <a href="#pathsubtree" class="md-nav__link">
     PathSubtree
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#pathregexp" title="PathRegexp" class="md-nav__link">
+  <a href="#pathregexp" class="md-nav__link">
     PathRegexp
   </a>
   
@@ -1088,92 +1034,92 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#host" title="Host" class="md-nav__link">
+  <a href="#host" class="md-nav__link">
     Host
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#weight-priority" title="Weight (priority)" class="md-nav__link">
+  <a href="#weight-priority" class="md-nav__link">
     Weight (priority)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#true" title="True" class="md-nav__link">
+  <a href="#true" class="md-nav__link">
     True
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#false" title="False" class="md-nav__link">
+  <a href="#false" class="md-nav__link">
     False
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#method" title="Method" class="md-nav__link">
+  <a href="#method" class="md-nav__link">
     Method
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#methods" title="Methods" class="md-nav__link">
+  <a href="#methods" class="md-nav__link">
     Methods
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#header" title="Header" class="md-nav__link">
+  <a href="#header" class="md-nav__link">
     Header
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#headerregexp" title="HeaderRegexp" class="md-nav__link">
+  <a href="#headerregexp" class="md-nav__link">
     HeaderRegexp
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cookie" title="Cookie" class="md-nav__link">
+  <a href="#cookie" class="md-nav__link">
     Cookie
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#auth" title="Auth" class="md-nav__link">
+  <a href="#auth" class="md-nav__link">
     Auth
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Auth">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#jwtpayloadanykv" title="JWTPayloadAnyKV" class="md-nav__link">
+  <a href="#jwtpayloadanykv" class="md-nav__link">
     JWTPayloadAnyKV
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#jwtpayloadallkv" title="JWTPayloadAllKV" class="md-nav__link">
+  <a href="#jwtpayloadallkv" class="md-nav__link">
     JWTPayloadAllKV
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#jwtpayloadanykvregexp-jwtpayloadallkvregexp" title="JWTPayloadAnyKVRegexp, JWTPayloadAllKVRegexp" class="md-nav__link">
+  <a href="#jwtpayloadanykvregexp-jwtpayloadallkvregexp" class="md-nav__link">
     JWTPayloadAnyKVRegexp, JWTPayloadAllKVRegexp
   </a>
   
@@ -1185,29 +1131,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interval" title="Interval" class="md-nav__link">
+  <a href="#interval" class="md-nav__link">
     Interval
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Interval">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#after" title="After" class="md-nav__link">
+  <a href="#after" class="md-nav__link">
     After
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#before" title="Before" class="md-nav__link">
+  <a href="#before" class="md-nav__link">
     Before
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#between" title="Between" class="md-nav__link">
+  <a href="#between" class="md-nav__link">
     Between
   </a>
   
@@ -1219,29 +1165,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cron" title="Cron" class="md-nav__link">
+  <a href="#cron" class="md-nav__link">
     Cron
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#queryparam" title="QueryParam" class="md-nav__link">
+  <a href="#queryparam" class="md-nav__link">
     QueryParam
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#source" title="Source" class="md-nav__link">
+  <a href="#source" class="md-nav__link">
     Source
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Source">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sourcefromlast" title="SourceFromLast" class="md-nav__link">
+  <a href="#sourcefromlast" class="md-nav__link">
     SourceFromLast
   </a>
   
@@ -1253,29 +1199,25 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#clientip" title="ClientIP" class="md-nav__link">
+  <a href="#clientip" class="md-nav__link">
     ClientIP
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tee" title="Tee" class="md-nav__link">
+  <a href="#tee" class="md-nav__link">
     Tee
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#traffic" title="Traffic" class="md-nav__link">
+  <a href="#traffic" class="md-nav__link">
     Traffic
   </a>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -1289,7 +1231,9 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zalando/skipper/edit/master/docs/reference/predicates.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/zalando/skipper/edit/master/docs/reference/predicates.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
                 
                 
                 <h1 id="skipper-predicates">Skipper Predicates<a class="headerlink" href="#skipper-predicates" title="Permanent link">&para;</a></h1>
@@ -1297,9 +1241,8 @@
 predicates. A request will match a route only if all the predicates of the route match. See the description of
 the route matching mechanism here: <a href="../../tutorials/basics/#route-matching">Route matching</a>.</p>
 <p>Example route with a Host, Method and Path match predicates and a backend:</p>
-<div class="codehilite"><pre><span></span><span class="n">all</span><span class="o">:</span> <span class="n">Host</span><span class="o">(/^</span><span class="n">my</span><span class="o">-</span><span class="n">host</span><span class="o">-</span><span class="n">header</span><span class="o">\.</span><span class="n">example</span><span class="o">\.</span><span class="n">org$</span><span class="sr">/) &amp;&amp; Method(&quot;GET&quot;) &amp;&amp; Path(&quot;/hello&quot;) -&gt; &quot;http://127.0.0.1:1234/</span><span class="err">&quot;</span><span class="o">;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>all: Host(/^my-host-header\.example\.org$/) &amp;&amp; Method(&quot;GET&quot;) &amp;&amp; Path(&quot;/hello&quot;) -&gt; &quot;http://127.0.0.1:1234/&quot;;
+</code></pre></div>
 <h2 id="predicate-arguments">Predicate arguments<a class="headerlink" href="#predicate-arguments" title="Permanent link">&para;</a></h2>
 <p>The predicate arguments can be strings, regular expressions or numbers (float64, int). In the eskip syntax
 representation:</p>
@@ -1335,14 +1278,13 @@ these routes, resulting in undefined behavior.</p>
 <p>By default, <code>Path("/foo")</code> and <code>Path("/foo/")</code> are not equivalent. Ignoring the trailing slash can be toggled
 with the <code>-ignore-trailing-slash</code> command line flag.</p>
 <p><strong>Examples:</strong></p>
-<div class="codehilite"><pre><span></span>Path(&quot;/foo/bar&quot;)     //   /foo/bar
+<div class="highlight"><pre><span></span><code>Path(&quot;/foo/bar&quot;)     //   /foo/bar
 Path(&quot;/foo/bar/&quot;)    //   /foo/bar/, unless started with -ignore-trailing-slash
 Path(&quot;/foo/:id&quot;)     //   /foo/_anything
 Path(&quot;/foo/:id/baz&quot;) //   /foo/_anything/baz
 Path(&quot;/foo/*rest&quot;)   //   /foo/bar/baz
 Path(&quot;/foo/**&quot;)      //   /foo/bar/baz
-</pre></div>
-
+</code></pre></div>
 <h3 id="pathsubtree">PathSubtree<a class="headerlink" href="#pathsubtree" title="Permanent link">&para;</a></h3>
 <p>The path subtree predicate behaves similar to the path predicate, but it matches the exact path in the
 definition and any sub path below it. The subpath is automatically provided among the path parameters with the
@@ -1351,11 +1293,10 @@ wildcard name is used instead of <code>*</code>. The simple wildcards behave sim
 difference between <code>PathSubtree("/foo")</code> and <code>Path("/foo/**")</code> is that the PathSubtree predicate always ignores
 the trailing slashes.</p>
 <p><strong>Examples:</strong></p>
-<div class="codehilite"><pre><span></span>PathSubtree(&quot;/foo/bar&quot;)
+<div class="highlight"><pre><span></span><code>PathSubtree(&quot;/foo/bar&quot;)
 PathSubtree(&quot;/&quot;)
 PathSubtree(&quot;/foo/*rest&quot;)
-</pre></div>
-
+</code></pre></div>
 <h3 id="pathregexp">PathRegexp<a class="headerlink" href="#pathregexp" title="Permanent link">&para;</a></h3>
 <p>Regular expressions to match the path. It uses Go&rsquo;s standard library
 regexp package to match, which is based on
@@ -1366,18 +1307,16 @@ regexp package to match, which is based on
 </ul>
 <p>A route can contain more than one PathRegexp predicates. It can be also used in combination with the Path
 predicate.</p>
-<div class="codehilite"><pre><span></span>Path(&quot;/colors/:name/rgb-value&quot;) &amp;&amp; PathRegexp(&quot;^/colors/(red|green|blue|cyan|magenta|pink|yellow)/&quot;)
+<div class="highlight"><pre><span></span><code>Path(&quot;/colors/:name/rgb-value&quot;) &amp;&amp; PathRegexp(&quot;^/colors/(red|green|blue|cyan|magenta|pink|yellow)/&quot;)
 -&gt; returnRGB()
 -&gt; &lt;shunt&gt;
-</pre></div>
-
+</code></pre></div>
 <p>Further examples:</p>
-<div class="codehilite"><pre><span></span>PathRegexp(&quot;^/foo/bar&quot;)
+<div class="highlight"><pre><span></span><code>PathRegexp(&quot;^/foo/bar&quot;)
 PathRegexp(&quot;/foo/bar$&quot;)
 PathRegexp(&quot;/foo/bar/&quot;)
 PathRegexp(&quot;^/foo/(bar|qux)&quot;)
-</pre></div>
-
+</code></pre></div>
 <h2 id="host">Host<a class="headerlink" href="#host" title="Permanent link">&para;</a></h2>
 <p>Regular expressions that the host header in the request must match.</p>
 <p>Parameters:</p>
@@ -1385,10 +1324,9 @@ PathRegexp(&quot;^/foo/(bar|qux)&quot;)
 <li>Host (regex)</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>Host(/^my-host-header\.example\.org$/)
+<div class="highlight"><pre><span></span><code>Host(/^my-host-header\.example\.org$/)
 Host(/header\.example\.org$/)
-</pre></div>
-
+</code></pre></div>
 <h2 id="weight-priority">Weight (priority)<a class="headerlink" href="#weight-priority" title="Permanent link">&para;</a></h2>
 <p>By default, the weight (priority) of a route is determined by the number of defined predicates.</p>
 <p>If you want to give a route more priority, you can give it more weight.</p>
@@ -1397,29 +1335,25 @@ Host(/header\.example\.org$/)
 <li>Weight (int)</li>
 </ul>
 <p>Example where <code>route2</code> has more priority because it has more predicates:</p>
-<div class="codehilite"><pre><span></span><span class="n">route1</span><span class="o">:</span> <span class="n">Path</span><span class="o">(</span><span class="s2">&quot;/test&quot;</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;http://www.zalando.de&quot;</span><span class="o">;</span>
-<span class="n">route2</span><span class="o">:</span> <span class="n">Path</span><span class="o">(</span><span class="s2">&quot;/test&quot;</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">True</span><span class="o">()</span> <span class="o">-&gt;</span> <span class="s2">&quot;http://www.zalando.de&quot;</span><span class="o">;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>route1: Path(&quot;/test&quot;) -&gt; &quot;http://www.zalando.de&quot;;
+route2: Path(&quot;/test&quot;) &amp;&amp; True() -&gt; &quot;http://www.zalando.de&quot;;
+</code></pre></div>
 <p>Example where <code>route1</code> has more priority because it has more weight:</p>
-<div class="codehilite"><pre><span></span><span class="n">route1</span><span class="o">:</span> <span class="n">Path</span><span class="o">(</span><span class="s2">&quot;/test&quot;</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">Weight</span><span class="o">(</span><span class="mi">100</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;http://www.zalando.de&quot;</span><span class="o">;</span>
-<span class="n">route2</span><span class="o">:</span> <span class="n">Path</span><span class="o">(</span><span class="s2">&quot;/test&quot;</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">True</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">True</span><span class="o">()</span> <span class="o">-&gt;</span> <span class="s2">&quot;http://www.zalando.de&quot;</span><span class="o">;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>route1: Path(&quot;/test&quot;) &amp;&amp; Weight(100) -&gt; &quot;http://www.zalando.de&quot;;
+route2: Path(&quot;/test&quot;) &amp;&amp; True() &amp;&amp; True() -&gt; &quot;http://www.zalando.de&quot;;
+</code></pre></div>
 <h2 id="true">True<a class="headerlink" href="#true" title="Permanent link">&para;</a></h2>
 <p>Does always match. Before <code>Weight</code> predicate existed this was used to give a route more weight.</p>
 <p>Example where <code>route2</code> has more weight.</p>
-<div class="codehilite"><pre><span></span><span class="n">route1</span><span class="o">:</span> <span class="n">Path</span><span class="o">(</span><span class="s2">&quot;/test&quot;</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;http://www.zalando.de&quot;</span><span class="o">;</span>
-<span class="n">route2</span><span class="o">:</span> <span class="n">Path</span><span class="o">(</span><span class="s2">&quot;/test&quot;</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">True</span><span class="o">()</span> <span class="o">-&gt;</span> <span class="s2">&quot;http://www.github.com&quot;</span><span class="o">;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>route1: Path(&quot;/test&quot;) -&gt; &quot;http://www.zalando.de&quot;;
+route2: Path(&quot;/test&quot;) &amp;&amp; True() -&gt; &quot;http://www.github.com&quot;;
+</code></pre></div>
 <h2 id="false">False<a class="headerlink" href="#false" title="Permanent link">&para;</a></h2>
 <p>Does not match. Can be used to disable certain routes.</p>
 <p>Example where <code>route2</code> is disabled.</p>
-<div class="codehilite"><pre><span></span><span class="n">route1</span><span class="o">:</span> <span class="n">Path</span><span class="o">(</span><span class="s2">&quot;/test&quot;</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;http://www.zalando.de&quot;</span><span class="o">;</span>
-<span class="n">route2</span><span class="o">:</span> <span class="n">Path</span><span class="o">(</span><span class="s2">&quot;/test&quot;</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">False</span><span class="o">()</span> <span class="o">-&gt;</span> <span class="s2">&quot;http://www.github.com&quot;</span><span class="o">;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>route1: Path(&quot;/test&quot;) -&gt; &quot;http://www.zalando.de&quot;;
+route2: Path(&quot;/test&quot;) &amp;&amp; False() -&gt; &quot;http://www.github.com&quot;;
+</code></pre></div>
 <h2 id="method">Method<a class="headerlink" href="#method" title="Permanent link">&para;</a></h2>
 <p>The HTTP method that the request must match. HTTP methods are one of
 GET, HEAD, PATCH, POST, PUT, DELETE, OPTIONS, CONNECT.</p>
@@ -1428,10 +1362,9 @@ GET, HEAD, PATCH, POST, PUT, DELETE, OPTIONS, CONNECT.</p>
 <li>Method (string)</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>Method(&quot;GET&quot;)
+<div class="highlight"><pre><span></span><code>Method(&quot;GET&quot;)
 Method(&quot;OPTIONS&quot;)
-</pre></div>
-
+</code></pre></div>
 <h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h2>
 <p>The HTTP method that the request must match. HTTP methods are one of
 GET, HEAD, PATCH, POST, PUT, DELETE, OPTIONS, CONNECT, TRACE.</p>
@@ -1440,11 +1373,10 @@ GET, HEAD, PATCH, POST, PUT, DELETE, OPTIONS, CONNECT, TRACE.</p>
 <li>Method (&hellip;string) methods names</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>Methods(&quot;GET&quot;)
+<div class="highlight"><pre><span></span><code>Methods(&quot;GET&quot;)
 Methods(&quot;OPTIONS&quot;, &quot;POST&quot;)
 Methods(&quot;OPTIONS&quot;, &quot;POST&quot;, &quot;patch&quot;)
-</pre></div>
-
+</code></pre></div>
 <h2 id="header">Header<a class="headerlink" href="#header" title="Permanent link">&para;</a></h2>
 <p>A header key and exact value that must be present in the request. Note
 that Header(&ldquo;Key&rdquo;, &ldquo;Value&rdquo;) is equivalent to HeaderRegexp(&ldquo;Key&rdquo;, &ldquo;^Value$&rdquo;).</p>
@@ -1453,10 +1385,9 @@ that Header(&ldquo;Key&rdquo;, &ldquo;Value&rdquo;) is equivalent to HeaderRegex
 <li>Header (string, string)</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>Header(&quot;X-Forwarded-For&quot;, &quot;192.168.0.2&quot;)
+<div class="highlight"><pre><span></span><code>Header(&quot;X-Forwarded-For&quot;, &quot;192.168.0.2&quot;)
 Header(&quot;Accept&quot;, &quot;application/json&quot;)
-</pre></div>
-
+</code></pre></div>
 <h2 id="headerregexp">HeaderRegexp<a class="headerlink" href="#headerregexp" title="Permanent link">&para;</a></h2>
 <p>A header key and a regular expression, where the key must be present
 in the request and one of the associated values must match the
@@ -1466,10 +1397,9 @@ expression.</p>
 <li>HeaderRegexp (string, regex)</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>HeaderRegexp(&quot;X-Forwarded-For&quot;, &quot;^192\.168\.0\.[0-2]?[0-9]?[0-9] &quot;)
+<div class="highlight"><pre><span></span><code>HeaderRegexp(&quot;X-Forwarded-For&quot;, &quot;^192\.168\.0\.[0-2]?[0-9]?[0-9] &quot;)
 HeaderRegexp(&quot;Accept&quot;, &quot;application/(json|xml)&quot;)
-</pre></div>
-
+</code></pre></div>
 <h2 id="cookie">Cookie<a class="headerlink" href="#cookie" title="Permanent link">&para;</a></h2>
 <p>Matches if the specified cookie is set in the request.</p>
 <p>Parameters:</p>
@@ -1477,9 +1407,8 @@ HeaderRegexp(&quot;Accept&quot;, &quot;application/(json|xml)&quot;)
 <li>Cookie (string, regex) name and value match</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>Cookie(&quot;alpha&quot;, /^enabled$/)
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>Cookie(&quot;alpha&quot;, /^enabled$/)
+</code></pre></div>
 <h2 id="auth">Auth<a class="headerlink" href="#auth" title="Permanent link">&para;</a></h2>
 <p>Authorization header based match.</p>
 <h3 id="jwtpayloadanykv">JWTPayloadAnyKV<a class="headerlink" href="#jwtpayloadanykv" title="Permanent link">&para;</a></h3>
@@ -1491,10 +1420,9 @@ matches the key value configuration.</p>
   content and even index is the value of the JWT content</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>JWTPayloadAnyKV(&quot;iss&quot;, &quot;https://accounts.google.com&quot;)
+<div class="highlight"><pre><span></span><code>JWTPayloadAnyKV(&quot;iss&quot;, &quot;https://accounts.google.com&quot;)
 JWTPayloadAnyKV(&quot;iss&quot;, &quot;https://accounts.google.com&quot;, &quot;email&quot;, &quot;skipper-router@googlegroups.com&quot;)
-</pre></div>
-
+</code></pre></div>
 <h3 id="jwtpayloadallkv">JWTPayloadAllKV<a class="headerlink" href="#jwtpayloadallkv" title="Permanent link">&para;</a></h3>
 <p>Match the route if all of the base64 decoded JWT content
 matches the key value configuration.</p>
@@ -1504,19 +1432,17 @@ matches the key value configuration.</p>
   content and even index is the value of the JWT content</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>JWTPayloadAllKV(&quot;iss&quot;, &quot;https://accounts.google.com&quot;)
+<div class="highlight"><pre><span></span><code>JWTPayloadAllKV(&quot;iss&quot;, &quot;https://accounts.google.com&quot;)
 JWTPayloadAllKV(&quot;iss&quot;, &quot;https://accounts.google.com&quot;, &quot;email&quot;, &quot;skipper-router@googlegroups.com&quot;)
-</pre></div>
-
+</code></pre></div>
 <h3 id="jwtpayloadanykvregexp-jwtpayloadallkvregexp">JWTPayloadAnyKVRegexp, JWTPayloadAllKVRegexp<a class="headerlink" href="#jwtpayloadanykvregexp-jwtpayloadallkvregexp" title="Permanent link">&para;</a></h3>
 <p>Behaves exactly the same as <code>JWTPayloadAnyKV</code>, <code>JWTPayloadAllKV</code>,
 but the expected values are regular expressions that will be matched
 against the JWT value.</p>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>JWTPayloadAllKVRegexp(&quot;iss&quot;, &quot;^https://&quot;)
+<div class="highlight"><pre><span></span><code>JWTPayloadAllKVRegexp(&quot;iss&quot;, &quot;^https://&quot;)
 JWTPayloadAnyKVRegexp(&quot;iss&quot;, &quot;^https://&quot;)
-</pre></div>
-
+</code></pre></div>
 <h2 id="interval">Interval<a class="headerlink" href="#interval" title="Permanent link">&para;</a></h2>
 <p>An interval implements custom predicates to match routes only during some period of time.</p>
 <p>There are three predicates: Between, Before and After. All
@@ -1531,10 +1457,9 @@ or float64 number. float64 number will be converted into int64 number.</p>
 <li>After (int) unixtime</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>After(&quot;2016-01-01T12:00:00+02:00&quot;)
+<div class="highlight"><pre><span></span><code>After(&quot;2016-01-01T12:00:00+02:00&quot;)
 After(1451642400)
-</pre></div>
-
+</code></pre></div>
 <h3 id="before">Before<a class="headerlink" href="#before" title="Permanent link">&para;</a></h3>
 <p>Matches if the request is before the specified time</p>
 <p>Parameters:</p>
@@ -1543,10 +1468,9 @@ After(1451642400)
 <li>Before (int) unixtime</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>Before(&quot;2016-01-01T12:00:00+02:00&quot;)
+<div class="highlight"><pre><span></span><code>Before(&quot;2016-01-01T12:00:00+02:00&quot;)
 Before(1451642400)
-</pre></div>
-
+</code></pre></div>
 <h3 id="between">Between<a class="headerlink" href="#between" title="Permanent link">&para;</a></h3>
 <p>Matches if the request is between the specified timeframe</p>
 <p>Parameters:</p>
@@ -1555,10 +1479,9 @@ Before(1451642400)
 <li>Between (int, int) unixtime, from - till</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>Between(&quot;2016-01-01T12:00:00+02:00&quot;, &quot;2016-02-01T12:00:00+02:00&quot;)
+<div class="highlight"><pre><span></span><code>Between(&quot;2016-01-01T12:00:00+02:00&quot;, &quot;2016-02-01T12:00:00+02:00&quot;)
 Between(1451642400, 1454320800)
-</pre></div>
-
+</code></pre></div>
 <h2 id="cron">Cron<a class="headerlink" href="#cron" title="Permanent link">&para;</a></h2>
 <p>Matches routes when the given cron-like expression matches the system time.</p>
 <p>Parameters:</p>
@@ -1566,7 +1489,7 @@ Between(1451642400, 1454320800)
 <li><a href="https://en.wikipedia.org/wiki/Cron#CRON_expression">Cron</a>-like expression. See <a href="https://godoc.org/github.com/sarslanhan/cronmask#New">the package documentation</a> for supported &amp; unsupported features. Expressions are expected to be in the same time zone as the system that generates the <code>time.Time</code> instances.</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>// match everything
+<div class="highlight"><pre><span></span><code>// match everything
 Cron(&quot;* * * * *&quot;)
 // match only when the hour is between 5-7 (inclusive)
 Cron(&quot;* 5-7, * * *&quot;)
@@ -1576,8 +1499,7 @@ Cron(&quot;* 5-7,8,12-15 * * *&quot;)
 Cron(&quot;* * * * 1-5&quot;)
 // match only when it is weekdays &amp; working hours
 Cron(&quot;* 7-18 * * 1-5&quot;)
-</pre></div>
-
+</code></pre></div>
 <h2 id="queryparam">QueryParam<a class="headerlink" href="#queryparam" title="Permanent link">&para;</a></h2>
 <p>Match request based on the Query Params in URL</p>
 <p>Parameters:</p>
@@ -1586,7 +1508,7 @@ Cron(&quot;* 7-18 * * 1-5&quot;)
 <li>QueryParam (string, regex) name and value match</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>// matches http://example.org?bb=a&amp;query=withvalue
+<div class="highlight"><pre><span></span><code>// matches http://example.org?bb=a&amp;query=withvalue
 QueryParam(&quot;query&quot;)
 
 // Even a query param without a value
@@ -1600,8 +1522,7 @@ QueryParam(&quot;query&quot;, &quot;^example$&quot;)
 // matches with regexp and multiple values of query param
 // matches http://example.org?bb=a&amp;query=testing&amp;query=example
 QueryParam(&quot;query&quot;, &quot;^example$&quot;)
-</pre></div>
-
+</code></pre></div>
 <h2 id="source">Source<a class="headerlink" href="#source" title="Permanent link">&para;</a></h2>
 <p>Source implements a custom predicate to match routes based on
 the source IP or X-Forwarded-For header of a request.</p>
@@ -1610,7 +1531,7 @@ the source IP or X-Forwarded-For header of a request.</p>
 <li>Source (string, ..) varargs with IPs or CIDR</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>// only match requests from 1.2.3.4
+<div class="highlight"><pre><span></span><code>// only match requests from 1.2.3.4
 Source(&quot;1.2.3.4&quot;)
 
 // only match requests from 1.2.3.0 - 1.2.3.255
@@ -1618,8 +1539,7 @@ Source(&quot;1.2.3.0/24&quot;)
 
 // only match requests from 1.2.3.4 and the 2.2.2.0/24 network
 Source(&quot;1.2.3.4&quot;, &quot;2.2.2.0/24&quot;)
-</pre></div>
-
+</code></pre></div>
 <h3 id="sourcefromlast">SourceFromLast<a class="headerlink" href="#sourcefromlast" title="Permanent link">&para;</a></h3>
 <p>The same as <a href="#Source">Source</a>, but use the last part of the
 X-Forwarded-For header to match the network. This seems to be only
@@ -1630,9 +1550,8 @@ put the client-IP as last part of the X-Forwarded-For headers.</p>
 <li>SourceFromLast (string, ..) varargs with IPs or CIDR</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>SourceFromLast(&quot;1.2.3.4&quot;, &quot;2.2.2.0/24&quot;)
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>SourceFromLast(&quot;1.2.3.4&quot;, &quot;2.2.2.0/24&quot;)
+</code></pre></div>
 <h2 id="clientip">ClientIP<a class="headerlink" href="#clientip" title="Permanent link">&para;</a></h2>
 <p>ClientIP implements a custom predicate to match routes based on
 the client IP of a request.</p>
@@ -1641,7 +1560,7 @@ the client IP of a request.</p>
 <li>ClientIP (string, ..) varargs with IPs or CIDR</li>
 </ul>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span>// only match requests from 1.2.3.4
+<div class="highlight"><pre><span></span><code>// only match requests from 1.2.3.4
 ClientIP(&quot;1.2.3.4&quot;)
 
 // only match requests from 1.2.3.0 - 1.2.3.255
@@ -1649,8 +1568,7 @@ ClientIP(&quot;1.2.3.0/24&quot;)
 
 // only match requests from 1.2.3.4 and the 2.2.2.0/24 network
 ClientIP(&quot;1.2.3.4&quot;, &quot;2.2.2.0/24&quot;)
-</pre></div>
-
+</code></pre></div>
 <h2 id="tee">Tee<a class="headerlink" href="#tee" title="Permanent link">&para;</a></h2>
 <p>The Tee predicate matches a route when a request is spawn from the
 <a href="../filters/#teeloopback">teeLoopback</a> filter as a tee request, using
@@ -1685,50 +1603,47 @@ ignoring the chance argument.</p>
 </ul>
 <p>Examples:</p>
 <p>non-sticky:</p>
-<div class="codehilite"><pre><span></span><span class="o">//</span> <span class="nt">hit</span> <span class="nt">by</span> <span class="nt">10</span><span class="o">%</span> <span class="nt">percent</span> <span class="nt">chance</span>
-<span class="nt">v2</span><span class="o">:</span>
-    <span class="nt">Traffic</span><span class="o">(</span><span class="p">.</span><span class="nc">1</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span>
-    <span class="s2">&quot;https://api-test-green&quot;</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code>// hit by 10% percent chance
+v2:
+    Traffic(.1) -&gt;
+    &quot;https://api-test-green&quot;;
 
-<span class="o">//</span> <span class="nt">hit</span> <span class="nt">by</span> <span class="nt">remaining</span> <span class="nt">chance</span>
-<span class="nt">v1</span><span class="o">:</span>
-    <span class="o">*</span> <span class="nt">-</span><span class="o">&gt;</span>
-    <span class="s2">&quot;https://api-test-blue&quot;</span><span class="o">;</span>
-</pre></div>
-
+// hit by remaining chance
+v1:
+    * -&gt;
+    &quot;https://api-test-blue&quot;;
+</code></pre></div>
 <p>stickyness:</p>
-<div class="codehilite"><pre><span></span><span class="o">//</span> <span class="nt">hit</span> <span class="nt">by</span> <span class="nt">5</span><span class="o">%</span> <span class="nt">percent</span> <span class="nt">chance</span>
-<span class="nt">cartTest</span><span class="o">:</span>
-    <span class="nt">Traffic</span><span class="o">(</span><span class="p">.</span><span class="nc">05</span><span class="o">,</span> <span class="s2">&quot;cart-test&quot;</span><span class="o">,</span> <span class="s2">&quot;test&quot;</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="nt">Path</span><span class="o">(</span><span class="s2">&quot;/cart&quot;</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span>
-    <span class="nt">responseCookie</span><span class="o">(</span><span class="s2">&quot;cart-test&quot;</span><span class="o">,</span> <span class="s2">&quot;test&quot;</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span>
-    <span class="s2">&quot;https://cart-test&quot;</span><span class="o">;</span>
+<div class="highlight"><pre><span></span><code>// hit by 5% percent chance
+cartTest:
+    Traffic(.05, &quot;cart-test&quot;, &quot;test&quot;) &amp;&amp; Path(&quot;/cart&quot;) -&gt;
+    responseCookie(&quot;cart-test&quot;, &quot;test&quot;) -&gt;
+    &quot;https://cart-test&quot;;
 
-<span class="o">//</span> <span class="nt">hit</span> <span class="nt">by</span> <span class="nt">remaining</span> <span class="nt">chance</span>
-<span class="nt">cart</span><span class="o">:</span>
-    <span class="nt">Path</span><span class="o">(</span><span class="s2">&quot;/cart&quot;</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span>
-    <span class="nt">responseCookie</span><span class="o">(</span><span class="s2">&quot;cart-test&quot;</span><span class="o">,</span> <span class="s2">&quot;default&quot;</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span>
-    <span class="s2">&quot;https://cart&quot;</span><span class="o">;</span>
+// hit by remaining chance
+cart:
+    Path(&quot;/cart&quot;) -&gt;
+    responseCookie(&quot;cart-test&quot;, &quot;default&quot;) -&gt;
+    &quot;https://cart&quot;;
 
-<span class="o">//</span> <span class="nt">hit</span> <span class="nt">by</span> <span class="nt">15</span><span class="o">%</span> <span class="nt">percent</span> <span class="nt">chance</span>
-<span class="nt">catalogTestA</span><span class="o">:</span>
-    <span class="nt">Traffic</span><span class="o">(</span><span class="p">.</span><span class="nc">15</span><span class="o">,</span> <span class="s2">&quot;catalog-test&quot;</span><span class="o">,</span> <span class="s2">&quot;A&quot;</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span>
-    <span class="nt">responseCookie</span><span class="o">(</span><span class="s2">&quot;catalog-test&quot;</span><span class="o">,</span> <span class="s2">&quot;A&quot;</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span>
-    <span class="s2">&quot;https://catalog-test-a&quot;</span><span class="o">;</span>
+// hit by 15% percent chance
+catalogTestA:
+    Traffic(.15, &quot;catalog-test&quot;, &quot;A&quot;) -&gt;
+    responseCookie(&quot;catalog-test&quot;, &quot;A&quot;) -&gt;
+    &quot;https://catalog-test-a&quot;;
 
-<span class="o">//</span> <span class="nt">hit</span> <span class="nt">by</span> <span class="nt">30</span><span class="o">%</span> <span class="nt">percent</span> <span class="nt">chance</span>
-<span class="nt">catalogTestB</span><span class="o">:</span>
-    <span class="nt">Traffic</span><span class="o">(</span><span class="p">.</span><span class="nc">3</span><span class="o">,</span> <span class="s2">&quot;catalog-test&quot;</span><span class="o">,</span> <span class="s2">&quot;B&quot;</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span>
-    <span class="nt">responseCookie</span><span class="o">(</span><span class="s2">&quot;catalog-test&quot;</span><span class="o">,</span> <span class="s2">&quot;B&quot;</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span>
-    <span class="s2">&quot;https://catalog-test-b&quot;</span><span class="o">;</span>
+// hit by 30% percent chance
+catalogTestB:
+    Traffic(.3, &quot;catalog-test&quot;, &quot;B&quot;) -&gt;
+    responseCookie(&quot;catalog-test&quot;, &quot;B&quot;) -&gt;
+    &quot;https://catalog-test-b&quot;;
 
-<span class="o">//</span> <span class="nt">hit</span> <span class="nt">by</span> <span class="nt">remaining</span> <span class="nt">chance</span>
-<span class="nt">catalog</span><span class="o">:</span>
-    <span class="o">*</span> <span class="nt">-</span><span class="o">&gt;</span>
-    <span class="nt">responseCookie</span><span class="o">(</span><span class="s2">&quot;catalog-test&quot;</span><span class="o">,</span> <span class="s2">&quot;default&quot;</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span>
-    <span class="s2">&quot;https://catalog&quot;</span><span class="o">;</span>
-</pre></div>
-                
-                  
+// hit by remaining chance
+catalog:
+    * -&gt;
+    responseCookie(&quot;catalog-test&quot;, &quot;default&quot;) -&gt;
+    &quot;https://catalog&quot;;
+</code></pre></div>
                 
               
               
@@ -1745,34 +1660,34 @@ ignoring the chance argument.</p>
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../filters/" title="Filters" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../filters/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
                 Filters
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../backends/" title="Backends" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../backends/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
                 Backends
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -1783,14 +1698,11 @@ ignoring the chance argument.</p>
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
       </div>
-      
-        
       
     </div>
   </div>
@@ -1798,12 +1710,18 @@ ignoring the chance argument.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application.5e60981f.js"></script>
+      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
-      <script>app.initialize({version:"1.0.1",url:{base:"../.."}})</script>
-      
-    
-    
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
   </body>

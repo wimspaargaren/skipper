@@ -1,40 +1,18 @@
 
-
-
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
       
       
         <link rel="canonical" href="https://opensource.zalando.com/skipper/tutorials/auth/">
       
-      
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
       <link rel="shortcut icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.1, mkdocs-material-3.0.6">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
     
     
       
@@ -42,116 +20,110 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
-      
+      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
       
         
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
         
-        <meta name="theme-color" content="">
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
       
     
     
-      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
     
     
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
-      
-    
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
   </head>
   
-    
-    
-    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="">
   
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
-    viewBox="0 0 416 448" id="__github">
-  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
-        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
-        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
-        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
-        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
-        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
-        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
-        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
-        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
-        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
-        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
-        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
-        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
-        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
-        99.5z" />
-</svg>
-        
-      </defs>
-    </svg>
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+      
+  
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#basic-auth" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="https://opensource.zalando.com/skipper/" title="Skipper" class="md-header-nav__button md-logo">
-          
-            <img src="../../favicon.ico" width="24" height="24">
-          
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#basic-auth" class="md-skip">
+          Skip to content
         </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://opensource.zalando.com/skipper/" title="Skipper" class="md-header-nav__button md-logo" aria-label="Skipper">
+      
+  <img src="../../favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Skipper
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             
-              <span class="md-header-nav__topic">
-                Skipper
-              </span>
-              <span class="md-header-nav__topic">
-                Authentication and Autorization
-              </span>
+              Authentication and Autorization
             
-          
+          </span>
         </div>
       </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Type to start searching
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -159,141 +131,63 @@
     </div>
   </div>
 </div>
-          
+    
+    
+      <div class="md-header-nav__source">
         
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-
-  <a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
     
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
       </div>
     
-    <div class="md-source__repository">
-      GitHub
-    </div>
-  </a>
-
-          </div>
-        </div>
-      
-    </div>
   </nav>
 </header>
     
-    <div class="md-container">
-      
-        
+    <div class="md-container" data-md-component="container">
       
       
         
-
-  
-
-<nav class="md-tabs md-tabs--active" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
-    <ul class="md-tabs__list">
       
-        
-  <li class="md-tabs__item">
-    
-      <a href="../.." title="Introduction" class="md-tabs__link">
-        Introduction
-      </a>
-    
-  </li>
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../reference/filters/" title="Reference" class="md-tabs__link">
-          Reference
-        </a>
-      
-    </li>
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../kubernetes/ingress-controller/" title="Kubernetes" class="md-tabs__link">
-          Kubernetes
-        </a>
-      
-    </li>
-  
-
-      
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../basics/" title="Tutorials" class="md-tabs__link md-tabs__link--active">
-          Tutorials
-        </a>
-      
-    </li>
-  
-
-      
-    </ul>
-  </div>
-</nav>
-      
-      <main class="md-main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="https://opensource.zalando.com/skipper/" title="Skipper" class="md-nav__button md-logo">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://opensource.zalando.com/skipper/" title="Skipper" class="md-nav__button md-logo" aria-label="Skipper">
       
-        <img src="../../favicon.ico" width="48" height="48">
-      
+  <img src="../../favicon.ico" alt="logo">
+
     </a>
     Skipper
   </label>
   
     <div class="md-nav__source">
       
-
-
-  
-
-
-  <a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source" data-md-source="github">
+<a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
     
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      GitHub
-    </div>
-  </a>
-
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -303,11 +197,15 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../.." title="Introduction" class="md-nav__link">
-      Introduction
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
 
     
       
@@ -315,446 +213,492 @@
       
 
 
-  <li class="md-nav__item md-nav__item--nested">
+  
+  
+  
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
-    
-    <label class="md-nav__link" for="nav-2">
-      Reference
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
         Reference
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/filters/" class="md-nav__link">
+        Filters
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/filters/" title="Filters" class="md-nav__link">
-      Filters
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/predicates/" class="md-nav__link">
+        Predicates
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/predicates/" title="Predicates" class="md-nav__link">
-      Predicates
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/backends/" class="md-nav__link">
+        Backends
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/backends/" title="Backends" class="md-nav__link">
-      Backends
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/egress/" class="md-nav__link">
+        Egress
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/egress/" title="Egress" class="md-nav__link">
-      Egress
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/scripts/" class="md-nav__link">
+        Scripts
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/scripts/" title="Scripts" class="md-nav__link">
-      Scripts
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/plugins/" class="md-nav__link">
+        Plugins
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/plugins/" title="Plugins" class="md-nav__link">
-      Plugins
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/architecture/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/architecture/" title="Architecture" class="md-nav__link">
-      Architecture
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/development/" class="md-nav__link">
+        Development
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../reference/development/" title="Development" class="md-nav__link">
-      Development
-    </a>
-  </li>
-
-        
           
-          
-          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../video-howto-build/" class="md-nav__link">
+        Video - How to build
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../video-howto-build/" title="Video - How to build" class="md-nav__link">
-      Video - How to build
-    </a>
-  </li>
-
-        
           
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
+            
+  
+  
+  
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-10" type="checkbox" id="nav-2-10">
-    
-    <label class="md-nav__link" for="nav-2-10">
-      Data Clients
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-10">
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-10" type="checkbox" id="nav-2-10" >
+      
+      <label class="md-nav__link" for="nav-2-10">
         Data Clients
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Data Clients" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-10">
+          <span class="md-nav__icon md-icon"></span>
+          Data Clients
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-clients/eskip-file/" class="md-nav__link">
+        Eskip File
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-clients/etcd/" class="md-nav__link">
+        Etcd
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../../data-clients/eskip-file/" title="Eskip File" class="md-nav__link">
-      Eskip File
-    </a>
-  </li>
-
-        
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../data-clients/etcd/" title="Etcd" class="md-nav__link">
-      Etcd
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../data-clients/kubernetes/" title="Kubernetes" class="md-nav__link">
-      Kubernetes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../data-clients/route-string/" title="Route String" class="md-nav__link">
-      Route String
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-11" type="checkbox" id="nav-2-11">
-    
-    <label class="md-nav__link" for="nav-2-11">
-      Operation
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-11">
-        Operation
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../operation/deployment/" title="Deployment" class="md-nav__link">
-      Deployment
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../operation/operation/" title="Operation" class="md-nav__link">
-      Operation
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
-    
-    <label class="md-nav__link" for="nav-3">
-      Kubernetes
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-clients/kubernetes/" class="md-nav__link">
         Kubernetes
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../kubernetes/ingress-controller/" title="Ingress Controller Deployment" class="md-nav__link">
-      Ingress Controller Deployment
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../kubernetes/ingress-usage/" title="Ingress Usage" class="md-nav__link">
-      Ingress Usage
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../kubernetes/ingress-backends/" title="Ingress Backends" class="md-nav__link">
-      Ingress Backends
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../kubernetes/routegroups/" title="RouteGroups" class="md-nav__link">
-      RouteGroups
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../kubernetes/routegroup-crd/" title="RouteGroup CRD Semantics" class="md-nav__link">
-      RouteGroup CRD Semantics
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../kubernetes/east-west-usage/" title="East-West aka svc-to-svc" class="md-nav__link">
-      East-West aka svc-to-svc
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
+      </a>
+    </li>
   
 
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-clients/route-string/" class="md-nav__link">
+        Route String
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-11" type="checkbox" id="nav-2-11" >
+      
+      <label class="md-nav__link" for="nav-2-11">
+        Operation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Operation" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-11">
+          <span class="md-nav__icon md-icon"></span>
+          Operation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operation/deployment/" class="md-nav__link">
+        Deployment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../operation/operation/" class="md-nav__link">
+        Operation
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
     
-    <label class="md-nav__link" for="nav-4">
-      Tutorials
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      
+      
+      
+
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
+        Kubernetes
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/ingress-controller/" class="md-nav__link">
+        Ingress Controller Deployment
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/ingress-usage/" class="md-nav__link">
+        Ingress Usage
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/ingress-backends/" class="md-nav__link">
+        Ingress Backends
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/routegroups/" class="md-nav__link">
+        RouteGroups
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/routegroup-crd/" class="md-nav__link">
+        RouteGroup CRD Semantics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/routegroup-validation/" class="md-nav__link">
+        RouteGroup Validation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/east-west-usage/" class="md-nav__link">
+        East-West aka svc-to-svc
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      
+      <label class="md-nav__link" for="nav-4">
         Tutorials
+        <span class="md-nav__icon md-icon"></span>
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
           
-          
-
-
-  <li class="md-nav__item">
-    <a href="../basics/" title="Basics" class="md-nav__link">
-      Basics
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../common-use-cases/" title="Common Use Cases" class="md-nav__link">
-      Common Use Cases
-    </a>
-  </li>
-
-        
-          
-          
-          
-
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basics/" class="md-nav__link">
+        Basics
+      </a>
+    </li>
   
 
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common-use-cases/" class="md-nav__link">
+        Common Use Cases
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item md-nav__item--active">
+          
+            
+  
+  
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Authentication and Autorization
-      </label>
-    
-    <a href="./" title="Authentication and Autorization" class="md-nav__link md-nav__link--active">
-      Authentication and Autorization
-    </a>
-    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
       
-<nav class="md-nav md-nav--secondary">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Authentication and Autorization
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Authentication and Autorization
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#basic-auth" title="Basic auth" class="md-nav__link">
+  <a href="#basic-auth" class="md-nav__link">
     Basic auth
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#token-service-to-service" title="Token service-to-service" class="md-nav__link">
+  <a href="#token-service-to-service" class="md-nav__link">
     Token service-to-service
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Token service-to-service">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tokeninfo" title="Tokeninfo" class="md-nav__link">
+  <a href="#tokeninfo" class="md-nav__link">
     Tokeninfo
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#tokenintrospection-rfc7662" title="Tokenintrospection RFC7662" class="md-nav__link">
+  <a href="#tokenintrospection-rfc7662" class="md-nav__link">
     Tokenintrospection RFC7662
   </a>
   
@@ -766,15 +710,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#openid-connect" title="OpenID Connect" class="md-nav__link">
+  <a href="#openid-connect" class="md-nav__link">
     OpenID Connect
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="OpenID Connect">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#authz-and-access-control" title="AuthZ and access control" class="md-nav__link">
+  <a href="#authz-and-access-control" class="md-nav__link">
     AuthZ and access control
   </a>
   
@@ -786,58 +730,58 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oauth2-authorization-grant-flow" title="OAuth2 authorization grant flow" class="md-nav__link">
+  <a href="#oauth2-authorization-grant-flow" class="md-nav__link">
     OAuth2 authorization grant flow
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="OAuth2 authorization grant flow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#encrypted-cookie-tokens" title="Encrypted cookie tokens" class="md-nav__link">
+  <a href="#encrypted-cookie-tokens" class="md-nav__link">
     Encrypted cookie tokens
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#token-refresh" title="Token refresh" class="md-nav__link">
+  <a href="#token-refresh" class="md-nav__link">
     Token refresh
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#instructions" title="Instructions" class="md-nav__link">
+  <a href="#instructions" class="md-nav__link">
     Instructions
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Instructions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configure-oauth2-credentials" title="Configure OAuth2 credentials" class="md-nav__link">
+  <a href="#configure-oauth2-credentials" class="md-nav__link">
     Configure OAuth2 credentials
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-the-grant-filters" title="Configure the grant filters" class="md-nav__link">
+  <a href="#configure-the-grant-filters" class="md-nav__link">
     Configure the grant filters
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#add-filters-to-your-routes" title="Add filters to your routes" class="md-nav__link">
+  <a href="#add-filters-to-your-routes" class="md-nav__link">
     Add filters to your routes
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#optional-authz-and-access-control" title="(Optional) AuthZ and access control" class="md-nav__link">
+  <a href="#optional-authz-and-access-control" class="md-nav__link">
     (Optional) AuthZ and access control
   </a>
   
@@ -853,68 +797,66 @@
   
 </li>
       
-      
-      
-      
-      
     </ul>
   
 </nav>
-    
-  </li>
+      
+    </li>
+  
 
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ratelimit/" class="md-nav__link">
+        Ratelimits
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shadow-traffic/" class="md-nav__link">
+        Shadow Traffic
+      </a>
+    </li>
+  
+
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operations/" class="md-nav__link">
+        Operations
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../ratelimit/" title="Ratelimits" class="md-nav__link">
-      Ratelimits
-    </a>
-  </li>
-
-        
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        Development
+      </a>
+    </li>
+  
+
           
-          
-
-
-  <li class="md-nav__item">
-    <a href="../shadow-traffic/" title="Shadow Traffic" class="md-nav__link">
-      Shadow Traffic
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../operations/" title="Operations" class="md-nav__link">
-      Operations
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../development/" title="Development" class="md-nav__link">
-      Development
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
   </ul>
@@ -924,41 +866,45 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
-<nav class="md-nav md-nav--secondary">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#basic-auth" title="Basic auth" class="md-nav__link">
+  <a href="#basic-auth" class="md-nav__link">
     Basic auth
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#token-service-to-service" title="Token service-to-service" class="md-nav__link">
+  <a href="#token-service-to-service" class="md-nav__link">
     Token service-to-service
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Token service-to-service">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tokeninfo" title="Tokeninfo" class="md-nav__link">
+  <a href="#tokeninfo" class="md-nav__link">
     Tokeninfo
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#tokenintrospection-rfc7662" title="Tokenintrospection RFC7662" class="md-nav__link">
+  <a href="#tokenintrospection-rfc7662" class="md-nav__link">
     Tokenintrospection RFC7662
   </a>
   
@@ -970,15 +916,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#openid-connect" title="OpenID Connect" class="md-nav__link">
+  <a href="#openid-connect" class="md-nav__link">
     OpenID Connect
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="OpenID Connect">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#authz-and-access-control" title="AuthZ and access control" class="md-nav__link">
+  <a href="#authz-and-access-control" class="md-nav__link">
     AuthZ and access control
   </a>
   
@@ -990,58 +936,58 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#oauth2-authorization-grant-flow" title="OAuth2 authorization grant flow" class="md-nav__link">
+  <a href="#oauth2-authorization-grant-flow" class="md-nav__link">
     OAuth2 authorization grant flow
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="OAuth2 authorization grant flow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#encrypted-cookie-tokens" title="Encrypted cookie tokens" class="md-nav__link">
+  <a href="#encrypted-cookie-tokens" class="md-nav__link">
     Encrypted cookie tokens
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#token-refresh" title="Token refresh" class="md-nav__link">
+  <a href="#token-refresh" class="md-nav__link">
     Token refresh
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#instructions" title="Instructions" class="md-nav__link">
+  <a href="#instructions" class="md-nav__link">
     Instructions
   </a>
   
-    <nav class="md-nav">
+    <nav class="md-nav" aria-label="Instructions">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configure-oauth2-credentials" title="Configure OAuth2 credentials" class="md-nav__link">
+  <a href="#configure-oauth2-credentials" class="md-nav__link">
     Configure OAuth2 credentials
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-the-grant-filters" title="Configure the grant filters" class="md-nav__link">
+  <a href="#configure-the-grant-filters" class="md-nav__link">
     Configure the grant filters
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#add-filters-to-your-routes" title="Add filters to your routes" class="md-nav__link">
+  <a href="#add-filters-to-your-routes" class="md-nav__link">
     Add filters to your routes
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#optional-authz-and-access-control" title="(Optional) AuthZ and access control" class="md-nav__link">
+  <a href="#optional-authz-and-access-control" class="md-nav__link">
     (Optional) AuthZ and access control
   </a>
   
@@ -1056,10 +1002,6 @@
     </nav>
   
 </li>
-      
-      
-      
-      
       
     </ul>
   
@@ -1073,7 +1015,9 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/zalando/skipper/edit/master/docs/tutorials/auth.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/zalando/skipper/edit/master/docs/tutorials/auth.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
                 
                 
                   <h1>Authentication and Autorization</h1>
@@ -1083,55 +1027,50 @@
 <p>Install htpasswd command line tool, we assume Debian based
 system. Please refer the documentation of your Operating System or
 package management vendor how to install <code>htpasswd</code>:</p>
-<div class="codehilite"><pre><span></span>apt-get install apache2-utils
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>apt-get install apache2-utils
+</code></pre></div>
 <p>Create a htpasswd file <code>foo.passwd</code> and use <code>captain</code> with password <code>apassword</code>:</p>
-<div class="codehilite"><pre><span></span>htpasswd -bcB foo.passwd captain apassword
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>htpasswd -bcB foo.passwd captain apassword
+</code></pre></div>
 <p>Start skipper with a <code>basicAuth</code> filter referencing the just created
 htpasswd file:</p>
-<div class="codehilite"><pre><span></span>./bin/skipper -address :8080 -inline-routes &#39;r: * -&gt; basicAuth(&quot;foo.passwd&quot;) -&gt; status(200) -&gt; &lt;shunt&gt;&#39;
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>./bin/skipper -address :8080 -inline-routes &#39;r: * -&gt; basicAuth(&quot;foo.passwd&quot;) -&gt; status(200) -&gt; &lt;shunt&gt;&#39;
+</code></pre></div>
 <p>A client request without login credentials or wrong credentials:</p>
-<div class="codehilite"><pre><span></span><span class="c">% curl localhost:8080/ -v</span>
-<span class="o">*</span>   <span class="n">Trying</span> <span class="p">::</span><span class="mf">1.</span><span class="p">..</span>
-<span class="o">*</span> <span class="n">Connected</span> <span class="n">to</span> <span class="n">localhost</span> <span class="p">(::</span><span class="mi">1</span><span class="p">)</span> <span class="n">port</span> <span class="mi">8080</span> <span class="p">(</span>#<span class="mi">0</span><span class="p">)</span>
-<span class="o">&gt;</span> <span class="n">GET</span> <span class="o">/</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
-<span class="o">&gt;</span> <span class="n">Host</span><span class="p">:</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span>
-<span class="o">&gt;</span> <span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">curl</span><span class="o">/</span><span class="mf">7.49</span><span class="p">.</span><span class="mi">0</span>
-<span class="o">&gt;</span> <span class="n">Accept</span><span class="p">:</span> <span class="o">*/*</span>
-<span class="o">&gt;</span>
-<span class="o">&lt;</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">401</span> <span class="n">Unauthorized</span>
-<span class="o">&lt;</span> <span class="n">Server</span><span class="p">:</span> <span class="n">Skipper</span>
-<span class="o">&lt;</span> <span class="n">Www</span><span class="o">-</span><span class="n">Authenticate</span><span class="p">:</span> <span class="n">Basic</span> <span class="n">realm</span><span class="p">=</span>&quot;<span class="n">Basic</span> <span class="n">Realm</span>&quot;
-<span class="o">&lt;</span> <span class="n">Date</span><span class="p">:</span> <span class="n">Thu</span><span class="p">,</span> <span class="mi">01</span> <span class="n">Nov</span> <span class="mi">2018</span> <span class="mi">21</span><span class="p">:</span><span class="mi">27</span><span class="p">:</span><span class="mi">18</span> <span class="n">GMT</span>
-<span class="o">&lt;</span> <span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">0</span>
-<span class="o">&lt;</span>
-<span class="o">*</span> <span class="n">Connection</span> #<span class="mi">0</span> <span class="n">to</span> <span class="n">host</span> <span class="n">localhost</span> <span class="n">left</span> <span class="n">intact</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>% curl localhost:8080/ -v
+*   Trying ::1...
+* Connected to localhost (::1) port 8080 (#0)
+&gt; GET / HTTP/1.1
+&gt; Host: localhost:8080
+&gt; User-Agent: curl/7.49.0
+&gt; Accept: */*
+&gt;
+&lt; HTTP/1.1 401 Unauthorized
+&lt; Server: Skipper
+&lt; Www-Authenticate: Basic realm=&quot;Basic Realm&quot;
+&lt; Date: Thu, 01 Nov 2018 21:27:18 GMT
+&lt; Content-Length: 0
+&lt;
+* Connection #0 to host localhost left intact
+</code></pre></div>
 <p>A client request with the correct credentials:</p>
-<div class="codehilite"><pre><span></span><span class="c">% curl captain:apassword@localhost:8080/ -v</span>
-<span class="o">*</span>   <span class="n">Trying</span> <span class="p">::</span><span class="mf">1.</span><span class="p">..</span>
-<span class="o">*</span> <span class="n">Connected</span> <span class="n">to</span> <span class="n">localhost</span> <span class="p">(::</span><span class="mi">1</span><span class="p">)</span> <span class="n">port</span> <span class="mi">8080</span> <span class="p">(</span>#<span class="mi">0</span><span class="p">)</span>
-<span class="o">*</span> <span class="n">Server</span> <span class="n">auth</span> <span class="n">using</span> <span class="n">Basic</span> <span class="n">with</span> <span class="n">user</span> <span class="s">&#39;captain&#39;</span>
-<span class="o">&gt;</span> <span class="n">GET</span> <span class="o">/</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
-<span class="o">&gt;</span> <span class="n">Host</span><span class="p">:</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span>
-<span class="o">&gt;</span> <span class="n">Authorization</span><span class="p">:</span> <span class="n">Basic</span> <span class="n">Y2FwdGFpbjphcGFzc3dvcmQ</span><span class="p">=</span>
-<span class="o">&gt;</span> <span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">curl</span><span class="o">/</span><span class="mf">7.49</span><span class="p">.</span><span class="mi">0</span>
-<span class="o">&gt;</span> <span class="n">Accept</span><span class="p">:</span> <span class="o">*/*</span>
-<span class="o">&gt;</span>
-<span class="o">&lt;</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
-<span class="o">&lt;</span> <span class="n">Server</span><span class="p">:</span> <span class="n">Skipper</span>
-<span class="o">&lt;</span> <span class="n">Date</span><span class="p">:</span> <span class="n">Thu</span><span class="p">,</span> <span class="mi">01</span> <span class="n">Nov</span> <span class="mi">2018</span> <span class="mi">21</span><span class="p">:</span><span class="mi">29</span><span class="p">:</span><span class="mi">21</span> <span class="n">GMT</span>
-<span class="o">&lt;</span> <span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">0</span>
-<span class="o">&lt;</span>
-<span class="o">*</span> <span class="n">Connection</span> #<span class="mi">0</span> <span class="n">to</span> <span class="n">host</span> <span class="n">localhost</span> <span class="n">left</span> <span class="n">intact</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>% curl captain:apassword@localhost:8080/ -v
+*   Trying ::1...
+* Connected to localhost (::1) port 8080 (#0)
+* Server auth using Basic with user &#39;captain&#39;
+&gt; GET / HTTP/1.1
+&gt; Host: localhost:8080
+&gt; Authorization: Basic Y2FwdGFpbjphcGFzc3dvcmQ=
+&gt; User-Agent: curl/7.49.0
+&gt; Accept: */*
+&gt;
+&lt; HTTP/1.1 200 OK
+&lt; Server: Skipper
+&lt; Date: Thu, 01 Nov 2018 21:29:21 GMT
+&lt; Content-Length: 0
+&lt;
+* Connection #0 to host localhost left intact
+</code></pre></div>
 <h2 id="token-service-to-service">Token service-to-service<a class="headerlink" href="#token-service-to-service" title="Permanent link">&para;</a></h2>
 <p>Service to service authentication and authorization is often done by
 using the HTTP Authorization header with the content prefix &ldquo;Bearer &ldquo;,
@@ -1150,11 +1089,10 @@ and validate tokens with their custom tokeninfo endpoint. In case of
 JWT the access token is signed and can be validated without a central
 tokeninfo endpoint.</p>
 <p>Example route:</p>
-<div class="codehilite"><pre><span></span><span class="n">all</span><span class="o">:</span> <span class="n">Path</span><span class="o">(</span><span class="s2">&quot;/&quot;</span><span class="o">)</span>
-     <span class="o">-&gt;</span> <span class="n">oauthTokeninfoAnyScope</span><span class="o">(</span><span class="s2">&quot;read-X&quot;</span><span class="o">,</span> <span class="s2">&quot;readwrite-X&quot;</span><span class="o">)</span>
-     <span class="o">-&gt;</span> <span class="s2">&quot;http://localhost:9090/&quot;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>all: Path(&quot;/&quot;)
+     -&gt; oauthTokeninfoAnyScope(&quot;read-X&quot;, &quot;readwrite-X&quot;)
+     -&gt; &quot;http://localhost:9090/&quot;
+</code></pre></div>
 <p>The access token should be passed from the client as Bearer token in
 the Authorization header. Skipper will send this token unchanged as
 Bearer token in the Authorization header to the Tokeninfo endpoint.
@@ -1168,11 +1106,10 @@ Skipper uses <a href="https://tools.ietf.org/html/draft-ietf-oauth-discovery-06"
 configuration</a>,
 to find the <code>introspection_endpoint</code>.</p>
 <p>Example route:</p>
-<div class="codehilite"><pre><span></span><span class="nt">all</span><span class="o">:</span> <span class="o">*</span>
-        <span class="nt">-</span><span class="o">&gt;</span> <span class="nt">oauthTokenintrospectionAnyKV</span><span class="o">(</span><span class="s2">&quot;https://identity.example.com/managed-id&quot;</span><span class="o">,</span> <span class="s2">&quot;jdoe&quot;</span><span class="o">)</span>
-        <span class="nt">-</span><span class="o">&gt;</span> <span class="s2">&quot;http://localhost:9090/&quot;</span><span class="o">;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>all: *
+        -&gt; oauthTokenintrospectionAnyKV(&quot;https://identity.example.com/managed-id&quot;, &quot;jdoe&quot;)
+        -&gt; &quot;http://localhost:9090/&quot;;
+</code></pre></div>
 <p>The access token should be passed from the client as Bearer token in
 the Authorization header. Skipper will send this token as
 defined in <a href="https://tools.ietf.org/html/rfc7662#section-2.1">RFC7662</a>
@@ -1211,22 +1148,20 @@ passes subsequent requests to the backend server.</p>
     which is encrypted and redirects the user to the originally requested URL.</li>
 </ol>
 <p>To use OpenID define a filter for a backend which needs to be covered by OpenID Connection authentication.</p>
-<div class="codehilite"><pre><span></span><span class="nt">oauthOidcAllClaims</span><span class="o">(</span><span class="s2">&quot;https://accounts.identity-provider.com&quot;</span><span class="o">,</span> <span class="s2">&quot;some-client-id&quot;</span><span class="o">,</span>
-    <span class="s2">&quot;some-client-secret&quot;</span><span class="o">,</span> <span class="s2">&quot;http://callback.com/auth/provider/callback&quot;</span><span class="o">,</span> <span class="s2">&quot;scope1 scope2&quot;</span><span class="o">,</span>
-    <span class="s2">&quot;claim1 claim2&quot;</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="s2">&quot;https://internal.example.org&quot;</span><span class="o">;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>oauthOidcAllClaims(&quot;https://accounts.identity-provider.com&quot;, &quot;some-client-id&quot;,
+    &quot;some-client-secret&quot;, &quot;http://callback.com/auth/provider/callback&quot;, &quot;scope1 scope2&quot;,
+    &quot;claim1 claim2&quot;) -&gt; &quot;https://internal.example.org&quot;;
+</code></pre></div>
 <p>Here <code>scope1 scope2</code> are the scopes that should be included which requesting authentication from the OpenID provider.
 Any number of scopes can be specified here. The <code>openid</code> scope is added automatically by the filter. The other fields
 which need to be specified are the URL of the provider which in the above example is
 <code>https://accounts.identity-provider.com</code>. The client ID and the client secret. The callback URL which is specified
 while generating the client id and client secret. Then the scopes and finally the claims which should be present along
 with the return id token.</p>
-<div class="codehilite"><pre><span></span><span class="nt">oauthOidcUserInfo</span><span class="o">(</span><span class="s2">&quot;https://oidc-provider.example.com&quot;</span><span class="o">,</span> <span class="s2">&quot;client_id&quot;</span><span class="o">,</span> <span class="s2">&quot;client_secret&quot;</span><span class="o">,</span>
-    <span class="s2">&quot;http://target.example.com/subpath/callback&quot;</span><span class="o">,</span> <span class="s2">&quot;email profile&quot;</span><span class="o">,</span> 
-    <span class="s2">&quot;name email picture&quot;</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="s2">&quot;https://internal.example.org&quot;</span><span class="o">;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>oauthOidcUserInfo(&quot;https://oidc-provider.example.com&quot;, &quot;client_id&quot;, &quot;client_secret&quot;,
+    &quot;http://target.example.com/subpath/callback&quot;, &quot;email profile&quot;, 
+    &quot;name email picture&quot;) -&gt; &quot;https://internal.example.org&quot;;
+</code></pre></div>
 <p>This filter is similar but it verifies that the token has certain user information
 information fields accesible with the token return by the provider. The fields can
 be specified at the end like in the example above where the fields <code>name</code>, <code>email</code>
@@ -1236,7 +1171,7 @@ to the backend. Along with the orginal request to the backend Skipper will inclu
 information which it obtained from the provider. The information is in <code>JSON</code> format
 with the header name <code>Skipper-Oidc-Info</code>. In the case of the claims container the
 header value is in the format.</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;oauth2token&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
     <span class="nt">&quot;claims&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;claim1&quot;</span><span class="p">:</span> <span class="s2">&quot;val1&quot;</span><span class="p">,</span>
@@ -1244,10 +1179,9 @@ header value is in the format.</p>
     <span class="p">},</span>
     <span class="nt">&quot;subject&quot;</span><span class="p">:</span> <span class="s2">&quot;subj&quot;</span>
 <span class="p">}</span>
-</pre></div>
-
+</code></pre></div>
 <p>In the case of a user info filter the payload is in the format:</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;oauth2token&quot;</span><span class="p">:</span> <span class="s2">&quot;xxx&quot;</span><span class="p">,</span>
     <span class="nt">&quot;userInfo&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;sub&quot;</span><span class="p">:</span> <span class="s2">&quot;sub&quot;</span><span class="p">,</span>
@@ -1257,8 +1191,7 @@ header value is in the format.</p>
     <span class="p">},</span>
     <span class="nt">&quot;subject&quot;</span><span class="p">:</span> <span class="s2">&quot;subj&quot;</span>
 <span class="p">}</span>
-</pre></div>
-
+</code></pre></div>
 <p>Skipper encrypts the cookies and also generates a nonce during the OAuth2.0 flow
 for which it needs a secret key. This key is in a file which can be rotated periodically
 because it is reread by Skipper. The path to this file can be passed with the flag
@@ -1266,7 +1199,7 @@ because it is reread by Skipper. The path to this file can be passed with the fl
 <h3 id="authz-and-access-control">AuthZ and access control<a class="headerlink" href="#authz-and-access-control" title="Permanent link">&para;</a></h3>
 <p>Authorization validation and access control is available by means of a subsequent filter <a href="../../reference/filters/#oidcClaimsQuery">oidcClaimsQuery</a>. It inspects the ID token, which exists after a successful <code>oauthOidc*</code> filter step, and validates the defined query with the request path.</p>
 <p>Given following example ID token:</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;someone@example.org&quot;</span><span class="p">,</span>
   <span class="nt">&quot;groups&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="s2">&quot;CD-xyz&quot;</span><span class="p">,</span>
@@ -1274,12 +1207,10 @@ because it is reread by Skipper. The path to this file can be passed with the fl
   <span class="p">],</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Some One&quot;</span>
 <span class="p">}</span>
-</pre></div>
-
+</code></pre></div>
 <p>Access to path <code>/</code> would be granted to everyone in <code>example.org</code>, however path <code>/login</code> only to those being member of <code>group "appX-Tester"</code>:</p>
-<div class="codehilite"><pre><span></span>oauthOidcAnyClaims(...) -&gt; oidcClaimsQuery(&quot;/login:groups.#[==\&quot;appX-Tester\&quot;]&quot;, &quot;/:@_:email%\&quot;*@example.org\&quot;&quot;)
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>oauthOidcAnyClaims(...) -&gt; oidcClaimsQuery(&quot;/login:groups.#[==\&quot;appX-Tester\&quot;]&quot;, &quot;/:@_:email%\&quot;*@example.org\&quot;&quot;)
+</code></pre></div>
 <h2 id="oauth2-authorization-grant-flow">OAuth2 authorization grant flow<a class="headerlink" href="#oauth2-authorization-grant-flow" title="Permanent link">&para;</a></h2>
 <p><a href="https://tools.ietf.org/html/rfc6749#section-1.3">Authorization grant flow</a> is a mechanism
 to coordinate between a user-agent, a client, and an authorization server to obtain an OAuth2 
@@ -1330,33 +1261,34 @@ route : <code>/.well-known/oauth2-callback</code>. </p>
 <p>You can load all of theses secrets from separate files, in which case they get automatically
 reloaded to support secret rotation. You can provide the paths to the files containing each 
 secret as follows:</p>
-<div class="codehilite"><pre><span></span>skipper -oauth2-client-id-file<span class="o">=</span>/path/to/client_id <span class="se">\</span>
+<div class="highlight"><pre><span></span><code>skipper -oauth2-client-id-file<span class="o">=</span>/path/to/client_id <span class="se">\</span>
     -oauth2-client-secret-file<span class="o">=</span>/path/to/client_secret <span class="se">\</span>
     -oauth2-secret-file<span class="o">=</span>/path/to/cookie_encryption_secret <span class="se">\</span>
-    -credentials-paths<span class="o">=</span>/path/to/ <span class="se">\</span>
     -credentials-update-interval<span class="o">=</span>30s
-</pre></div>
-
-<p>You must set the <code>-credentials-paths</code> argument to the directory containing the secrets. You 
-can modify the secret update interval using the <code>-credentials-update-interval</code> argument. In
+</code></pre></div>
+<p>Care must be taken when used in conjunction with <code>-credentials-paths</code> option because files
+from <code>-credentials-paths</code> are available to <code>bearerinjector</code> filter.
+That is <code>-credentials-paths=/path/to</code> in above example will expose grant files to <code>bearerinjector</code> filter.</p>
+<p>You can modify the secret update interval using the <code>-credentials-update-interval</code> argument. In
 example above, the interval is configured to reload the secrets from the files every 30
 seconds.</p>
 <p>If you prefer, you can provide the client ID and secret values directly as arguments to
 Skipper instead of loading them from files. In that case, call Skipper with:</p>
-<div class="codehilite"><pre><span></span>skipper -oauth2-client-id<span class="o">=</span>&lt;CLIENT_ID&gt; -oauth2-client-secret<span class="o">=</span>&lt;CLIENT_SECRET&gt;
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>skipper -oauth2-client-id<span class="o">=</span>&lt;CLIENT_ID&gt; -oauth2-client-secret<span class="o">=</span>&lt;CLIENT_SECRET&gt;
+</code></pre></div>
 <h4 id="configure-the-grant-filters">Configure the grant filters<a class="headerlink" href="#configure-the-grant-filters" title="Permanent link">&para;</a></h4>
 <p>The grant filters need to be enabled and configured with your OAuth2 provider&rsquo;s
 authorization, token, and tokeninfo endpoints. This can be achieved by providing Skipper
 with the following arguments:</p>
-<div class="codehilite"><pre><span></span>skipper -enable-oauth2-grant-flow <span class="se">\</span>
+<div class="highlight"><pre><span></span><code>skipper -enable-oauth2-grant-flow <span class="se">\</span>
     -oauth2-auth-url<span class="o">=</span>&lt;OAUTH2_AUTHORIZE_ENDPOINT&gt; <span class="se">\</span>
     -oauth2-token-url<span class="o">=</span>&lt;OAUTH2_TOKEN_ENDPOINT&gt; <span class="se">\</span>
+    -oauth2-revoke-token-url<span class="o">=</span>&lt;OAUTH2_REVOKE_TOKEN_ENDPOINT&gt; <span class="se">\</span>
     -oauth2-tokeninfo-url<span class="o">=</span>&lt;OAUTH2_TOKENINFO_ENDPOINT&gt; <span class="se">\</span>
     -oauth2-callback-path<span class="o">=</span>/oauth/callback
-</pre></div>
-
+</code></pre></div>
+<p>The <code>-oauth2-revoke-token-url</code> is optional, and must only be supplied if you plan
+on using the <a href="../../reference/filters/#grantLogout">grantLogout</a> filter.</p>
 <p>You can configure the <code>oauthGrant()</code> filter further for your needs. See the
 <a href="../../reference/filters/#oauthGrant">oauthGrant</a> filter reference for more details.</p>
 <h4 id="add-filters-to-your-routes">Add filters to your routes<a class="headerlink" href="#add-filters-to-your-routes" title="Permanent link">&para;</a></h4>
@@ -1365,12 +1297,17 @@ will be refused access and redirected to log in.</p>
 <p>Skipper will automatically add a callback route for you with the <code>grantCallback</code> filter registered 
 on it. The path for this route can be configured with the <code>-oauth2-callback-path</code> parameter.
 If the parameter is not given, it will be <code>/.well-known/oauth2-callback</code></p>
-<div class="codehilite"><pre><span></span><span class="n">foo</span><span class="o">:</span>
-    <span class="n">Path</span><span class="o">(</span><span class="s2">&quot;/foo&quot;</span><span class="o">)</span>
-    <span class="o">-&gt;</span> <span class="n">oauthGrant</span><span class="o">()</span>
-    <span class="o">-&gt;</span> <span class="s2">&quot;http://localhost:9090&quot;</span><span class="o">;</span>
-</pre></div>
+<p>You can optionally add a <code>grantLogout()</code> filter for revoking access and refresh tokens:</p>
+<div class="highlight"><pre><span></span><code>foo:
+    Path(&quot;/foo&quot;)
+    -&gt; oauthGrant()
+    -&gt; &quot;http://localhost:9090&quot;;
 
+logout:
+    Path(&quot;/logout)
+    -&gt; grantLogout()
+    -&gt; &lt;shunt&gt;;
+</code></pre></div>
 <h4 id="optional-authz-and-access-control">(Optional) AuthZ and access control<a class="headerlink" href="#optional-authz-and-access-control" title="Permanent link">&para;</a></h4>
 <p>You can add a <a href="../../reference/filters/#grantClaimsQuery">grantClaimsQuery</a> filter
 after a <a href="../../reference/filters/#oauthGrant">oauthGrant</a> to control access based
@@ -1378,30 +1315,27 @@ on any OAuth2 claim. A claim is any property returned by the tokeninfo endpoint.
 The filter works exactly like the <a href="../../reference/filters/#oidcClaimsQuery">oidcClaimsQuery</a>
 filter (it is actually just an alias for it).</p>
 <p>For example, if your tokeninfo endpoint returns the following JSON:</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">],</span>
     <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span>
 <span class="p">}</span>
-</pre></div>
-
+</code></pre></div>
 <p>you could limit the access to a given route only to users that have the <code>email</code>
 scope by doing the following:</p>
 <ol>
 <li>Append a <code>grantClaimsQuery</code> filter to the <code>oauthGrant</code> filter with the following
    query:
-    <div class="codehilite"><pre><span></span>-&gt; oauthGrant() -&gt; grantClaimsQuery(&quot;/path:scope.#[==\&quot;email\&quot;]&quot;)
-</pre></div></li>
+    <div class="highlight"><pre><span></span><code>-&gt; oauthGrant() -&gt; grantClaimsQuery(&quot;/path:scope.#[==\&quot;email\&quot;]&quot;)
+</code></pre></div></li>
 <li>Provide the name of the claim that corresponds to the OAuth2 subject in the
    tokeninfo payload as an argument to Skipper:
-   <div class="codehilite"><pre><span></span>skipper -oauth2-tokeninfo-subject-key<span class="o">=</span>username
-</pre></div></li>
+   <div class="highlight"><pre><span></span><code>skipper -oauth2-tokeninfo-subject-key<span class="o">=</span>username
+</code></pre></div></li>
 </ol>
 <blockquote>
 <p>The subject is the field that identifies the user and is often called <code>sub</code>, 
 especially in the context of OpenID Connect. In the example above, it is <code>username</code>.</p>
 </blockquote>
-                
-                  
                 
               
               
@@ -1418,34 +1352,34 @@ especially in the context of OpenID Connect. In the example above, it is <code>u
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../common-use-cases/" title="Common Use Cases" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+          <a href="../common-use-cases/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
                 Common Use Cases
-              </span>
+              </div>
             </div>
           </a>
         
         
-          <a href="../ratelimit/" title="Ratelimits" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
+          <a href="../ratelimit/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
                 Ratelimits
-              </span>
+              </div>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -1456,14 +1390,11 @@ especially in the context of OpenID Connect. In the example above, it is <code>u
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
-        powered by
-        <a href="https://www.mkdocs.org">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/">
-          Material for MkDocs</a>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
       </div>
-      
-        
       
     </div>
   </div>
@@ -1471,12 +1402,18 @@ especially in the context of OpenID Connect. In the example above, it is <code>u
       
     </div>
     
-      <script src="../../assets/javascripts/application.5e60981f.js"></script>
+      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
-      <script>app.initialize({version:"1.0.1",url:{base:"../.."}})</script>
-      
-    
-    
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
       
     
   </body>
