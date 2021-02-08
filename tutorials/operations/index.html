@@ -1084,6 +1084,11 @@ service</a>
 to have predictable names. We chose to not use a persistent volume,
 because storing the data in memory is good enough for this use case.</p>
 <h4 id="east-west">East West<a class="headerlink" href="#east-west" title="Permanent link">&para;</a></h4>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>This feature is deprecated. Consider using <a href="#east-west-range">EastWest
+Range</a>.</p>
+</div>
 <p>Skipper supports cluster internal service-to-service communication as
 part of running as an <a href="../../kubernetes/ingress-controller/#run-as-api-gateway-with-east-west-setup">API Gateway with an East-West
 setup</a>.

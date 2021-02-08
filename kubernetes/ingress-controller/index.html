@@ -1867,14 +1867,25 @@ Check the GitHub repository for all details.</p>
 Check the repository if you need more configuration possibilities.</p>
 <h2 id="run-as-api-gateway-with-east-west-setup">Run as API Gateway with East-West setup<a class="headerlink" href="#run-as-api-gateway-with-east-west-setup" title="Permanent link">&para;</a></h2>
 <p>East-West means cluster internal service-to-service communication.
-For this you need to resolve DNS to skipper for an additional domain
-<code>.skipper.cluster.local</code> we introduce and add HTTP routes to route to
-the specified backend from your normal ingress object.</p>
+For this you need to resolve DNS to skipper for one or more additional
+domains of your choice. When Ingress or RouteGroup objects specify such
+domains Skipper will add the configured predicates.</p>
 <h3 id="skipper">Skipper<a class="headerlink" href="#skipper" title="Permanent link">&para;</a></h3>
 <p>To enable the East-West in skipper, you need to run skipper with
-<code>-enable-kubernetes-east-west</code> enabled. Skipper will duplicate all
-routes with a <code>Host()</code> predicate and change it to match the host
-header scheme: <code>&lt;name&gt;.&lt;namespace&gt;.skipper.cluster.local</code>.</p>
+<code>-kubernetes-east-west-range-domains</code> and
+<code>-kubernetes-east-west-range-predicates</code> configuration flags. Check the
+<a href="../../tutorials/operations/#east-west-range">East West Range</a> feature.
+Skipper will analyze all routes from Kubernetes objects and, the
+identified East-West routes will have the predicates specified appended.</p>
+<p>For example, for running skipper with the <code>skipper.cluster.local</code>
+domain, and setting East-West routes to accept just internal traffic,
+use the following config:</p>
+<div class="highlight"><pre><span></span><code>skipper \
+  -kubernetes-east-west-range-domains=&quot;skipper.cluster.local&quot; \
+  -kubernetes-east-west-range-predicates=&#39;ClientIP(&quot;10.2.0.0/16&quot;)&#39;
+</code></pre></div>
+<p>It assumes 10.2.0.0/16 is your PODs&rsquo; CIDR, you have to change it
+accordingly to your environment.</p>
 <p>You need also to have a kubernetes service type ClusterIP and write
 down the IP (p.e. <code>10.3.11.28</code>), which you will need in CoreDNS setup.</p>
 <h3 id="coredns">CoreDNS<a class="headerlink" href="#coredns" title="Permanent link">&para;</a></h3>
@@ -1900,9 +1911,8 @@ down the IP (p.e. <code>10.3.11.28</code>), which you will need in CoreDNS setup
 }
 </code></pre></div></p>
 <h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h3>
-<p>If the setup was done correctly, the following ingress example will
-create an internal route with
-<code>Host(/^demo[.]default[.]skipper[.]cluster[.]local)</code> predicate:</p>
+<p>If the setup is correct, skipper will protect the following ingress
+example with the <code>ClientIP</code> predicate:</p>
 <div class="highlight"><pre><span></span><code>apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -1910,7 +1920,7 @@ metadata:
   namespace: default
 spec:
   rules:
-  - host: demo.example.org
+  - host: demo.skipper.cluster.local
     http:
       paths:
       - backend:
@@ -1918,10 +1928,21 @@ spec:
           servicePort: 80
 </code></pre></div>
 <p>Your clients inside the cluster should call this example with
-<code>demo.default.skipper.cluster.local</code> in their host header. Example
+<code>demo.skipper.cluster.local</code> in their host header. Example
 from inside a container:</p>
-<div class="highlight"><pre><span></span><code>curl demo.default.skipper.cluster.local
+<div class="highlight"><pre><span></span><code>curl demo.skipper.cluster.local
 </code></pre></div>
+<p>Skipper won&rsquo;t accept traffic from any IP outside of the configured
+network CIDR.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on your environment, you might want to allow traffic not
+just from the PODs&rsquo; CIDR, but, also, from your nodes&rsquo; CIDR. When doing
+so, pay attention to do not allow traffic from your LoadBalancer
+and, by consequence, external traffic. You can use different
+combinations of predicates like <code>ClientIP</code> and <code>SourceFromLast</code> to
+achieve the desired protection.</p>
+</div>
 <h2 id="running-with-cluster-ratelimits">Running with Cluster Ratelimits<a class="headerlink" href="#running-with-cluster-ratelimits" title="Permanent link">&para;</a></h2>
 <p>Cluster ratelimits require a communication exchange method to build a
 skipper swarm to have a shared knowledge about the requests passing

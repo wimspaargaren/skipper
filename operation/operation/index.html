@@ -1864,8 +1864,8 @@ by the default, and exposed among the timers via the following keys:</p>
 information and tags to the tracer:</p>
 <div class="highlight"><pre><span></span><code>-opentracing=&lt;vendor&gt; component-name=skipper-ingress ... tag=cluster=mycluster ...
 </code></pre></div>
-<p>The best tested tracer is the lightstep tracer, because we use it in
-our setup. In case you miss something for your chosen tracer, please
+<p>The best tested tracer is the <a href="https://github.com/zalando/skipper/tree/master/tracing/tracers/lightstep/README.md">lightstep tracer</a>,
+because we use it in our setup. In case you miss something for your chosen tracer, please
 open an issue or pull request in our <a href="https://github.com/zalando/skipper">repository</a>.</p>
 <p>Skipper creates up to 5 different
 <a href="https://godoc.org/github.com/opentracing/opentracing-go#Span">spans</a>:
