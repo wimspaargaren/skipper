@@ -1081,6 +1081,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tracingspanname" class="md-nav__link">
+    tracingSpanName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#originmarker" class="md-nav__link">
     originMarker
   </a>
@@ -1097,6 +1104,13 @@
         <li class="md-nav__item">
   <a href="#endpointcreated" class="md-nav__link">
     endpointCreated
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consistenthashkey" class="md-nav__link">
+    consistentHashKey
   </a>
   
 </li>
@@ -2405,6 +2419,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tracingspanname" class="md-nav__link">
+    tracingSpanName
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#originmarker" class="md-nav__link">
     originMarker
   </a>
@@ -2421,6 +2442,13 @@
         <li class="md-nav__item">
   <a href="#endpointcreated" class="md-nav__link">
     endpointCreated
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consistenthashkey" class="md-nav__link">
+    consistentHashKey
   </a>
   
 </li>
@@ -2459,10 +2487,18 @@ Filter can be chained using the arrow operator <code>-&gt;</code>.</p>
 <p>Several filters support template placeholders (<code>${var}</code>) in string parameters.</p>
 <p>Template placeholder is replaced by the value that is looked up in the following sources:</p>
 <ul>
+<li>request method (<code>${request.method}</code>)</li>
+<li>request host (<code>${request.host}</code>)</li>
 <li>request url path (<code>${request.path}</code>)</li>
 <li>request url query (if starts with <code>request.query.</code> prefix, e.g <code>${request.query.q}</code> is replaced by <code>q</code> query parameter value)</li>
 <li>request headers (if starts with <code>request.header.</code> prefix, e.g <code>${request.header.Content-Type}</code> is replaced by <code>Content-Type</code> request header value)</li>
 <li>request cookies (if starts with <code>request.cookie.</code> prefix, e.g <code>${request.cookie.PHPSESSID}</code> is replaced by <code>PHPSESSID</code> request cookie value)</li>
+<li>request IP address<ul>
+<li><code>${request.source}</code> - first IP address from <code>X-Forwarded-For</code> header or request remote IP address if header is absent, similar to <a href="../predicates/#source">Source</a> predicate</li>
+<li><code>${request.sourceFromLast}</code> - last IP address from <code>X-Forwarded-For</code> header or request remote IP address if header is absent, similar to <a href="../predicates/#sourcefromlast">SourceFromLast</a> predicate</li>
+<li><code>${request.clientIP}</code> - request remote IP address similar to <a href="../predicates/#clientip">ClientIP</a> predicate</li>
+</ul>
+</li>
 <li>response headers (if starts with <code>response.header.</code> prefix, e.g <code>${response.header.Location}</code> is replaced by <code>Location</code> response header value)</li>
 <li>filter context path parameters (e.g. <code>${id}</code> is replaced by <code>id</code> path parameter value)</li>
 </ul>
@@ -3247,6 +3283,8 @@ endpoint. Supports token refreshing and stores access and refresh tokens in an e
 cookie. Supports credential rotation for the OAuth2 client ID and secret.</p>
 <p>The filter consumes and drops the grant token request cookie to prevent it from leaking
 to untrusted downstream services.</p>
+<p>The filter will inject the OAuth2 bearer token into the request headers if the flag
+<code>oauth2-access-token-header-name</code> is set.</p>
 <p>The filter must be used in conjunction with the <a href="#grantCallback">grantCallback</a> filter
 where the OAuth2 provider can redirect authenticated users with an authorization code.
 Skipper will make sure to add the <code>grantCallback</code> filter for you to your routes when
@@ -3324,7 +3362,7 @@ instructions.</p>
 <tr>
 <td><code>-oauth2-access-token-header-name</code></td>
 <td>no</td>
-<td>the name of the request header where the user&rsquo;s bearer token should be set. Default: <code>Authorization</code>. Example: <code>-oauth2-access-token-header-name=X-Grant-Authorization</code></td>
+<td>the name of the request header where the user&rsquo;s bearer token should be set. Example: <code>-oauth2-access-token-header-name=X-Grant-Authorization</code></td>
 </tr>
 <tr>
 <td><code>-oauth2-auth-url-parameters</code></td>
@@ -4245,6 +4283,10 @@ If a template placeholder can&rsquo;t be resolved then filter does not set the t
 <p>Example: Set tag from request header
 <div class="highlight"><pre><span></span><code>tracingTag(&quot;http.flow_id&quot;, &quot;${request.header.X-Flow-Id}&quot;)
 </code></pre></div></p>
+<h2 id="tracingspanname">tracingSpanName<a class="headerlink" href="#tracingspanname" title="Permanent link">&para;</a></h2>
+<p>This filter sets the name of the outgoing (client span) in opentracing. The default name is &ldquo;proxy&rdquo;. Example:</p>
+<div class="highlight"><pre><span></span><code>tracingSpanName(&quot;api-operation&quot;)
+</code></pre></div>
 <h2 id="originmarker">originMarker<a class="headerlink" href="#originmarker" title="Permanent link">&para;</a></h2>
 <p>This filter is used to measure the time it took to create a route. Other than that, it&rsquo;s a no-op.
 You can include the same origin marker when you re-create the route. As long as the <code>origin</code> and <code>id</code> are the same, the route creation time will not be measured again.
@@ -4289,6 +4331,23 @@ typically automatically appended, and it&rsquo;s parameters are based on externa
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>endpointCreated(&quot;http://10.0.0.1:8080&quot;, &quot;2020-12-18T15:30:00Z01:00&quot;)
 </code></pre></div>
+<h2 id="consistenthashkey">consistentHashKey<a class="headerlink" href="#consistenthashkey" title="Permanent link">&para;</a></h2>
+<p>This filter sets the request key used by the <a href="../backends/#load-balancer-backend"><code>consistentHash</code></a> algorithm to select the backend endpoint.</p>
+<p>Parameters:</p>
+<ul>
+<li>key (string)</li>
+</ul>
+<p>The key should contain <a href="#template-placeholders">template placeholders</a>, without placeholders the key
+is constant and therefore all requests would be made to the same endpoint.
+The algorithm will use the default key if any of the template placeholders can&rsquo;t be resolved.</p>
+<p>Examples:</p>
+<p><div class="highlight"><pre><span></span><code>pr: Path(&quot;/products/:productId&quot;)
+    -&gt; consistentHashKey(&quot;${productId}&quot;)
+    -&gt; &lt;consistentHash, &quot;http://127.0.0.1:9998&quot;, &quot;http://127.0.0.1:9997&quot;&gt;;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>consistentHashKey(&quot;${request.header.Authorization}&quot;)
+consistentHashKey(&quot;${request.source}&quot;) // same as the default key
+</code></pre></div></p>
                 
               
               

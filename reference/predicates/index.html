@@ -1446,40 +1446,47 @@ JWTPayloadAnyKVRegexp(&quot;iss&quot;, &quot;^https://&quot;)
 <h2 id="interval">Interval<a class="headerlink" href="#interval" title="Permanent link">&para;</a></h2>
 <p>An interval implements custom predicates to match routes only during some period of time.</p>
 <p>There are three predicates: Between, Before and After. All
-predicates can be created using the date represented as a string in
-RFC3339 format (see <a href="https://golang.org/pkg/time/#pkg-constants">https://golang.org/pkg/time/#pkg-constants</a>), int64
-or float64 number. float64 number will be converted into int64 number.</p>
+predicates can be created using the date represented as:
+* a string in RFC3339 format (see <a href="https://golang.org/pkg/time/#pkg-constants">https://golang.org/pkg/time/#pkg-constants</a>)
+* a string in RFC3339 format without numeric timezone offset and a location name corresponding to a file in the IANA Time Zone database
+* an <code>int64</code> or <code>float64</code> number corresponding to the given Unix time in seconds since January 1, 1970 UTC. <code>float64</code> number will be converted into <code>int64</code> number</p>
 <h3 id="after">After<a class="headerlink" href="#after" title="Permanent link">&para;</a></h3>
 <p>Matches if the request is after the specified time</p>
 <p>Parameters:</p>
 <ul>
-<li>After (string) date string</li>
-<li>After (int) unixtime</li>
+<li>After (string) RFC3339 datetime string</li>
+<li>After (string, string) RFC3339 datetime string without timezone offset, location name</li>
+<li>After (int) unixtime in seconds</li>
 </ul>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>After(&quot;2016-01-01T12:00:00+02:00&quot;)
+After(&quot;2021-02-18T00:00:00&quot;, &quot;Europe/Berlin&quot;)
 After(1451642400)
 </code></pre></div>
 <h3 id="before">Before<a class="headerlink" href="#before" title="Permanent link">&para;</a></h3>
 <p>Matches if the request is before the specified time</p>
 <p>Parameters:</p>
 <ul>
-<li>Before (string) date string</li>
-<li>Before (int) unixtime</li>
+<li>Before (string) RFC3339 datetime string</li>
+<li>Before (string, string) RFC3339 datetime string without timezone offset, location name</li>
+<li>Before (int) unixtime in seconds</li>
 </ul>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>Before(&quot;2016-01-01T12:00:00+02:00&quot;)
+Before(&quot;2021-02-18T00:00:00&quot;, &quot;Europe/Berlin&quot;)
 Before(1451642400)
 </code></pre></div>
 <h3 id="between">Between<a class="headerlink" href="#between" title="Permanent link">&para;</a></h3>
 <p>Matches if the request is between the specified timeframe</p>
 <p>Parameters:</p>
 <ul>
-<li>Between (string, string) date string, from - till</li>
-<li>Between (int, int) unixtime, from - till</li>
+<li>Between (string, string) RFC3339 datetime string, from - till</li>
+<li>Between (string, string, string) RFC3339 datetime string without timezone offset, from - till and a location name</li>
+<li>Between (int, int) unixtime in seconds, from - till</li>
 </ul>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>Between(&quot;2016-01-01T12:00:00+02:00&quot;, &quot;2016-02-01T12:00:00+02:00&quot;)
+Between(&quot;2021-02-18T00:00:00&quot;, &quot;2021-02-18T01:00:00&quot;, &quot;Europe/Berlin&quot;)
 Between(1451642400, 1454320800)
 </code></pre></div>
 <h2 id="cron">Cron<a class="headerlink" href="#cron" title="Permanent link">&para;</a></h2>

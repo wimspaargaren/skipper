@@ -1076,7 +1076,7 @@ algorithm set by Skipper at start.</p>
 <ul>
 <li><code>roundRobin</code>: backend is chosen by the round robin algorithm, starting with a random selected backend to spread across all backends from the beginning</li>
 <li><code>random</code>: backend is chosen at random</li>
-<li><code>consistentHash</code>: backend is chosen by a consistent hashing algorithm with the client X-Forwarded-For header with remote IP as the fallback as input to the hash function</li>
+<li><code>consistentHash</code>: backend is chosen by <a href="https://en.wikipedia.org/wiki/Consistent_hashing">consistent hashing</a> algorithm based on the request key. The request key is derived from <code>X-Forwarded-For</code> header or request remote IP address as the fallback. Use <a href="../filters/#consistenthashkey"><code>consistentHashKey</code></a> filter to set the request key.</li>
 <li><code>powerOfRandomNChoices</code>: backend is chosen by powerOfRandomNChoices algorithm with selecting N random endpoints and picking the one with least outstanding requests from them. (<a href="http://www.eecs.harvard.edu/~michaelm/postscripts/handbook2001.pdf">http://www.eecs.harvard.edu/~michaelm/postscripts/handbook2001.pdf</a>)</li>
 <li><strong>TODO</strong>: <a href="https://github.com/zalando/skipper/issues/557">https://github.com/zalando/skipper/issues/557</a></li>
 </ul>
