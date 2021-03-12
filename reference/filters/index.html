@@ -2828,7 +2828,7 @@ length 16 matching the following regex: <code>^[0-9a-zA-Z+-]+$</code></p>
 <p>Standard proxy headers. Appends the client remote IP to the X-Forwarded-For and sets the X-Forwarded-Host
 header.</p>
 <h2 id="xforwardfirst">xforwardFirst<a class="headerlink" href="#xforwardfirst" title="Permanent link">&para;</a></h2>
-<p>Same as <a href="xforward">xforward</a>, but instead of appending the last remote IP, it prepends it to comply with the
+<p>Same as <a href="#xforward">xforward</a>, but instead of appending the last remote IP, it prepends it to comply with the
 approach of certain LB implementations.</p>
 <h2 id="randomcontent">randomContent<a class="headerlink" href="#randomcontent" title="Permanent link">&para;</a></h2>
 <p>Generate response with random text of specified length.</p>
@@ -3653,9 +3653,11 @@ command line flag <code>-enable-ratelimits</code>.</p>
 <ul>
 <li>number of allowed requests per time period (int)</li>
 <li>time period for requests being counted (time.Duration)</li>
+<li>response status code to use for a rate limited request - optional, default: 429</li>
 </ul>
 <div class="highlight"><pre><span></span><code>ratelimit(20, &quot;1m&quot;)
 ratelimit(300, &quot;1h&quot;)
+ratelimit(4000, &quot;1m&quot;, 503)
 </code></pre></div>
 <p>See also the <a href="https://godoc.org/github.com/zalando/skipper/ratelimit">ratelimit docs</a>.</p>
 <h2 id="clusterclientratelimit">clusterClientRatelimit<a class="headerlink" href="#clusterclientratelimit" title="Permanent link">&para;</a></h2>
@@ -3693,9 +3695,11 @@ skipper with command line flags <code>-enable-swarm</code> and
 <li>rate limit group (string)</li>
 <li>number of allowed requests per time period (int)</li>
 <li>time period for requests being counted (time.Duration)</li>
+<li>response status code to use for a rate limited request - optional, default: 429</li>
 </ul>
 <div class="highlight"><pre><span></span><code>clusterRatelimit(&quot;groupB&quot;, 20, &quot;1m&quot;)
 clusterRatelimit(&quot;groupB&quot;, 300, &quot;1h&quot;)
+clusterRatelimit(&quot;groupB&quot;, 4000, &quot;1m&quot;, 503)
 </code></pre></div>
 <p>See also the <a href="https://godoc.org/github.com/zalando/skipper/ratelimit">ratelimit docs</a>.</p>
 <h2 id="lua">lua<a class="headerlink" href="#lua" title="Permanent link">&para;</a></h2>

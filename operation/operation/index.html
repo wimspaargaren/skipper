@@ -2089,8 +2089,8 @@ some fraction of requests instead of timing out all requests. LIFO
 would not time out all requests within the queue, if the backend is
 capable of responding some requests fast enough.</p>
 <h3 id="a-solution">A solution<a class="headerlink" href="#a-solution" title="Permanent link">&para;</a></h3>
-<p>Skipper has two filters <a href="../reference/filters/#lifo"><code>lifo()</code></a> and
-<a href="../reference/filters/#lifogroup"><code>lifoGroup()</code></a>, that can limit
+<p>Skipper has two filters <a href="../../reference/filters/#lifo"><code>lifo()</code></a> and
+<a href="../../reference/filters/#lifogroup"><code>lifoGroup()</code></a>, that can limit
 the number of requests for a route.  A <a href="https://github.com/zalando/skipper/pull/1030#issuecomment-485714338">documented load
 test</a>
 shows the behavior with an enabled <code>lifo(100,100,"10s")</code> filter for
@@ -2105,9 +2105,9 @@ shared their idea in a <a href="https://blogs.dropbox.com/tech/2018/03/meet-band
 blogpost</a>.</p>
 <p>Skipper&rsquo;s scheduler implementation makes sure, that one route will not
 interfere with other routes, if these routes are not in the same
-scheduler group. <a href="../reference/filters/#lifogroup"><code>LifoGroup</code></a> has
+scheduler group. <a href="../../reference/filters/#lifogroup"><code>LifoGroup</code></a> has
 a user chosen scheduler group and
-<a href="../reference/filters/#lifo"><code>lifo()</code></a> will get a per route unique
+<a href="../../reference/filters/#lifo"><code>lifo()</code></a> will get a per route unique
 scheduler group.</p>
 <h2 id="uri-standards-interpretation">URI standards interpretation<a class="headerlink" href="#uri-standards-interpretation" title="Permanent link">&para;</a></h2>
 <p>Considering the following request path: /foo%2Fbar, Skipper can handle
@@ -2119,7 +2119,7 @@ This is possible to achieve centrally, when Skipper is started with
 the -rfc-patch-path flag. It is also possible to allow the default
 behavior and only force the alternative interpretation on a per-route
 basis with the rfcPath() filter. See
-<a href="../reference/filters/#rfcPath"><code>rfcPath()</code></a>.</p>
+<a href="../../reference/filters/#rfcPath"><code>rfcPath()</code></a>.</p>
 <p>If the second interpretation gets considered the right way, and the
 other one a bug, then the default value for this flag may become to
 be on.</p>

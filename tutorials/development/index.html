@@ -736,19 +736,6 @@
     User documentation
   </a>
   
-    <nav class="md-nav" aria-label="User documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#local-preview" class="md-nav__link">
-    local Preview
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -840,19 +827,6 @@
     User documentation
   </a>
   
-    <nav class="md-nav" aria-label="User documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#local-preview" class="md-nav__link">
-    local Preview
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -921,14 +895,7 @@ rendered at <a href="https://opensource.zalando.com/skipper">https://opensource.
 Developer documentation for skipper as library users
 <a href="https://blog.golang.org/godoc-documenting-go-code">godoc format</a> is used and rendered at <a href="https://godoc.org/github.com/zalando/skipper">https://godoc.org/github.com/zalando/skipper</a>.</p>
 <h3 id="user-documentation">User documentation<a class="headerlink" href="#user-documentation" title="Permanent link">&para;</a></h3>
-<h4 id="local-preview">local Preview<a class="headerlink" href="#local-preview" title="Permanent link">&para;</a></h4>
-<p>To see rendered documentation locally you need to replace <code>/skipper</code>
-path with <code>/</code> to see them correctly. This you can easily do with
-skipper in front of <code>mkdocs serve</code>. The following skipper inline route
-will do this for you, assuming that you build skipper with <code>make skipper</code>:</p>
-<div class="highlight"><pre><span></span><code>./bin/skipper -inline-routes &#39;r: * -&gt; modPath(&quot;/skipper&quot;, &quot;&quot;) -&gt; &quot;http://127.0.0.1:8000&quot;&#39;
-</code></pre></div>
-<p>Now you should be able to see the documentation at <a href="http://127.0.0.1:9090">http://127.0.0.1:9090</a>.</p>
+<p>To see rendered documentation locally run <code>mkdocs serve</code> and navigate to <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>.</p>
 <h2 id="filters">Filters<a class="headerlink" href="#filters" title="Permanent link">&para;</a></h2>
 <p>Filters allow to change arbitrary HTTP data in the Request or
 Response. If you need to read and write the http.Body, please make
@@ -1001,7 +968,7 @@ given request.</p>
 <span class="p">}</span>
 </code></pre></div>
 <p>Predicates are quite similar to implement as Filters, so for a more
-complete example, find an example <a href="../reference/development#how-to-develop-a-filter">how to develop a filter</a>.</p>
+complete example, find an example <a href="../../reference/development/#how-to-develop-a-filter">how to develop a filter</a>.</p>
 <h2 id="dataclients">Dataclients<a class="headerlink" href="#dataclients" title="Permanent link">&para;</a></h2>
 <p>Dataclients are the way how to integrate new route
 sources. Dataclients pull information from a source and create routes
