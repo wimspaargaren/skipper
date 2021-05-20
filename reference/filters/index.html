@@ -880,6 +880,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#backendratelimit" class="md-nav__link">
+    backendRatelimit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lua" class="md-nav__link">
     lua
   </a>
@@ -2213,6 +2220,13 @@
         <li class="md-nav__item">
   <a href="#clusterratelimit" class="md-nav__link">
     clusterRatelimit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backendratelimit" class="md-nav__link">
+    backendRatelimit
   </a>
   
 </li>
@@ -3702,6 +3716,52 @@ clusterRatelimit(&quot;groupB&quot;, 300, &quot;1h&quot;)
 clusterRatelimit(&quot;groupB&quot;, 4000, &quot;1m&quot;, 503)
 </code></pre></div>
 <p>See also the <a href="https://godoc.org/github.com/zalando/skipper/ratelimit">ratelimit docs</a>.</p>
+<h2 id="backendratelimit">backendRatelimit<a class="headerlink" href="#backendratelimit" title="Permanent link">&para;</a></h2>
+<p>The filter configures request rate limit for each backend endpoint within rate limit group across all Skipper peers.
+When limit is reached Skipper refuses to forward the request to the backend and
+responds with <code>503 Service Unavailable</code> status to the client, i.e. implements <em>load shedding</em>.</p>
+<p>It is similar to <a href="#clusterclientratelimit">clusterClientRatelimit</a> filter but counts request rate
+using backend endpoint address instead of incoming request IP address or a HTTP header.
+Requires command line flags <code>-enable-swarm</code> and <code>-enable-ratelimits</code>.</p>
+<p>Both <em>rate limiting</em> and <em>load shedding</em> can use the exact same mechanism to protect the backend but the key difference is the semantics:
+* <em>rate limiting</em> should adopt 4XX and inform the client that they are exceeding some quota. It doesn&rsquo;t depend on the current capacity of the backend.
+* <em>load shedding</em> should adopt 5XX and inform the client that the backend is not able to provide the service. It depends on the current capacity of the backend.</p>
+<p>Parameters:</p>
+<ul>
+<li>rate limit group (string)</li>
+<li>number of allowed requests per time period (int)</li>
+<li>timeframe for requests being counted (time.Duration)</li>
+<li>response status code to use for rejected requests - optional, default: 503</li>
+</ul>
+<p>Multiple filter definitions using the same group must use the same number of allowed requests and timeframe values.</p>
+<p>Examples:</p>
+<p><div class="highlight"><pre><span></span><code>foo: Path(&quot;/foo&quot;)
+  -&gt; backendRatelimit(&quot;foobar&quot;, 100, &quot;1s&quot;)
+  -&gt; &lt;&quot;http://backend1&quot;, &quot;http://backend2&quot;&gt;;
+
+bar: Path(&quot;/bar&quot;)
+  -&gt; backendRatelimit(&quot;foobar&quot;, 100, &quot;1s&quot;)
+  -&gt; &lt;&quot;http://backend1&quot;, &quot;http://backend2&quot;&gt;;
+</code></pre></div>
+Configures rate limit of 100 requests per second for each <code>backend1</code> and <code>backend2</code>
+regardless of the request path by using the same group name, number of request and timeframe parameters.</p>
+<p><div class="highlight"><pre><span></span><code>foo: Path(&quot;/foo&quot;)
+  -&gt; backendRatelimit(&quot;foo&quot;, 40, &quot;1s&quot;)
+  -&gt; &lt;&quot;http://backend1&quot;, &quot;http://backend2&quot;&gt;;
+
+bar: Path(&quot;/bar&quot;)
+  -&gt; backendRatelimit(&quot;bar&quot;, 80, &quot;1s&quot;)
+  -&gt; &lt;&quot;http://backend1&quot;, &quot;http://backend2&quot;&gt;;
+</code></pre></div>
+Configures rate limit of 40 requests per second for each <code>backend1</code> and <code>backend2</code>
+for the <code>/foo</code> requests and 80 requests per second for the <code>/bar</code> requests by using different group name per path.
+The total request rate each backend receives can not exceed <code>40+80=120</code> requests per second.</p>
+<p><div class="highlight"><pre><span></span><code>foo: Path(&quot;/baz&quot;)
+  -&gt; backendRatelimit(&quot;baz&quot;, 100, &quot;1s&quot;, 429)
+  -&gt; &lt;&quot;http://backend1&quot;, &quot;http://backend2&quot;&gt;;
+</code></pre></div>
+Configures rate limit of 100 requests per second for each <code>backend1</code> and <code>backend2</code> and responds
+with <code>429 Too Many Requests</code> when limit is reached.</p>
 <h2 id="lua">lua<a class="headerlink" href="#lua" title="Permanent link">&para;</a></h2>
 <p>See <a href="../scripts/">the scripts page</a></p>
 <h2 id="corsorigin">corsOrigin<a class="headerlink" href="#corsorigin" title="Permanent link">&para;</a></h2>
@@ -3798,7 +3858,7 @@ the Authorization token. This can be changed by providing a <code>string</code> 
 token.</p>
 <p><em>N.B.</em> It is important to note that, if the content of the <code>X-Unverified-Audit</code> header does not match the following regex, then
 a default value of <code>invalid-sub</code> will be populated in the header instead:
-    <code>^[a-zA-z0-9_/:?=&amp;%@.#-]*$</code></p>
+    <code>^[a-zA-Z0-9_/:?=&amp;%@.#-]*$</code></p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>unverifiedAuditLog()
 </code></pre></div>

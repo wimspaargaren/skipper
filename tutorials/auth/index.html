@@ -1194,8 +1194,8 @@ header value is in the format.</p>
 </code></pre></div>
 <p>Skipper encrypts the cookies and also generates a nonce during the OAuth2.0 flow
 for which it needs a secret key. This key is in a file which can be rotated periodically
-because it is reread by Skipper. The path to this file can be passed with the flag
-<code>-oidc-secret-file</code> when Skipper is started.</p>
+because it is reread by Skipper. The path to this file must be passed with the flag
+<code>-oidc-secrets-file</code> when Skipper is started.</p>
 <h3 id="authz-and-access-control">AuthZ and access control<a class="headerlink" href="#authz-and-access-control" title="Permanent link">&para;</a></h3>
 <p>Authorization validation and access control is available by means of a subsequent filter <a href="../../reference/filters/#oidcClaimsQuery">oidcClaimsQuery</a>. It inspects the ID token, which exists after a successful <code>oauthOidc*</code> filter step, and validates the defined query with the request path.</p>
 <p>Given following example ID token:</p>

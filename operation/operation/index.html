@@ -1671,9 +1671,13 @@ filters, use the command line option:</p>
 <p>Application metrics for your proxied applications you can enable with the option:</p>
 <div class="codehilite"><pre><span></span><code><span class="err">-serve-host-metrics</span>
 <span class="err">    enables reporting total serve time metrics for each host</span>
+<span class="err">-serve-route-metrics</span>
+<span class="err">    enables reporting total serve time metrics for each route</span>
 </code></pre></div>
 
-<p>This will make sure you will get stats for each &ldquo;Host&rdquo; header as &ldquo;timers&rdquo;:</p>
+<p>This will make sure you will get stats for each &ldquo;Host&rdquo; header or the
+route name as &ldquo;timers&rdquo;. The following is an example for
+<code>-serve-host-metrics</code>:</p>
 <div class="codehilite"><pre><span></span><code><span class="err">&quot;timers&quot;: {</span>
 <span class="err">  &quot;skipper.servehost.app1_example_com.GET.200&quot;: {</span>
 <span class="err">    &quot;15m.rate&quot;: 0.06830666203045982,</span>
@@ -1726,6 +1730,12 @@ filters, use the command line option:</p>
 <span class="err">},</span>
 </code></pre></div>
 
+<p>Note you can reduce the dimension of the metrics by removing the HTTP
+status code and method from it. Use the <code>-serve-method-metric=false</code>
+and/or <code>-serve-status-code-metric=false</code>. Both flags are enabled by
+default. For prometheus metrics flavour, a counter with both the HTTP
+method and status code can be enabled with <code>-serve-host-counter</code> or
+<code>-serve-route-counter</code>, even if these flags are disabled.</p>
 <p>To change the sampling type of how metrics are handled from
 <a href="https://godoc.org/github.com/rcrowley/go-metrics#UniformSample">uniform</a>
 to <a href="https://godoc.org/github.com/rcrowley/go-metrics#ExpDecaySample">exponential decay</a>,
@@ -2016,6 +2026,12 @@ it can count up. Please check the support listener endpoint (default
 9911) to understand the usage:</p>
 <div class="highlight"><pre><span></span><code>% curl localhost:9911/metrics
 </code></pre></div>
+<p>By default, the route and host metrics include the labels for the request
+HTTP response status code and the HTTP method. You can customize it by
+setting <code>-serve-method-metric=false</code> and/or
+<code>-serve-status-code-metric=false</code>. These two flags will enable or
+disable the method and status code labels from your metrics reducing the
+number of metrics generated and memory consumption.</p>
 <h3 id="filters">Filters<a class="headerlink" href="#filters" title="Permanent link">&para;</a></h3>
 <p>Ratelimit filter <code>clusterClientRatelimit</code> implementation using the
 swim based protocol, consumes roughly 15MB per filter for 100.000
