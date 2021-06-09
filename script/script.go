@@ -5,13 +5,13 @@ import (
 	"bufio"
 	"bytes"
 	"errors"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
 	"strings"
-	"sync/atomic"
 	"time"
 
 	log "github.com/sirupsen/logrus"
@@ -27,7 +27,8 @@ import (
 )
 
 const (
-	defaultPoolSize int = 10
+	defaultPoolSize    int = 10
+	maxNumberOfScripts     = 100
 )
 
 type luaScript struct {
@@ -38,7 +39,7 @@ type luaScript struct {
 	// number of filter instances
 	instances int
 
-	memoryAvailableBytes int
+	// memoryAvailableBytes int
 }
 
 // NewLuaScript creates a new filter spec for skipper with default pool size
@@ -58,15 +59,15 @@ func WithPoolSize(bytesAvailable int) filters.Spec {
 	}
 
 	scriptSize := 1024 // assumption (I counted 248B for a request and response filter script, that generates 5B random data)
-	poolSize := memoryLimit / scriptSize
+	poolSize := memoryLimit / (scriptSize * maxNumberOfScripts)
 	if poolSize > 1000 {
 		poolSize = 1000
 	}
 
 	log.Infof("Calculated poolsize: %d", poolSize)
 	return &luaScript{
-		PoolSize:             poolSize,
-		memoryAvailableBytes: memoryLimit,
+		PoolSize: poolSize,
+		// memoryAvailableBytes: memoryLimit,
 	}
 }
 
@@ -93,6 +94,10 @@ func (ls *luaScript) CreateFilter(config []interface{}) (filters.Filter, error) 
 		params = append(params, ps)
 	}
 
+	if ls.instances > maxNumberOfScripts {
+		return nil, fmt.Errorf("too many scripts %d, limit is set to %d", ls.instances, maxNumberOfScripts)
+	}
+
 	s := &script{
 		source:      src,
 		routeParams: params,
@@ -111,7 +116,7 @@ func (s *script) getState() (*lua.LState, error) {
 		if L == nil {
 			return nil, errors.New("pool closed")
 		}
-		atomic.AddInt32(&s.idlePool, -1)
+		//atomic.AddInt32(&s.idlePool, -1)
 		return L, nil
 	default:
 		return s.newState()
@@ -125,7 +130,7 @@ func (s *script) putState(L *lua.LState) {
 	}
 	select {
 	case s.pool <- L:
-		atomic.AddInt32(&s.idlePool, 1)
+		//atomic.AddInt32(&s.idlePool, 1)
 	default: // pool full, close state
 		L.Close()
 	}
@@ -231,6 +236,7 @@ func (s *script) initPool(max int) error {
 	return nil
 }
 
+/*
 // hopefully during the operation we do not run out of states at runtime
 func (s *script) resizePool(max int) error {
 	pool := make(chan *lua.LState, max)
@@ -271,6 +277,7 @@ func (s *script) resizePool(max int) error {
 	s.poolSize = max
 	return nil
 }
+*/
 
 type script struct {
 	idlePool                int32
