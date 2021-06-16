@@ -332,6 +332,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#forwarded-header-predicates" class="md-nav__link">
+    Forwarded header predicates
+  </a>
+  
+    <nav class="md-nav" aria-label="Forwarded header predicates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forwardedhost" class="md-nav__link">
+    ForwardedHost
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forwardedprotocol" class="md-nav__link">
+    ForwardedProtocol
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#weight-priority" class="md-nav__link">
     Weight (priority)
   </a>
@@ -1041,6 +1068,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#forwarded-header-predicates" class="md-nav__link">
+    Forwarded header predicates
+  </a>
+  
+    <nav class="md-nav" aria-label="Forwarded header predicates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#forwardedhost" class="md-nav__link">
+    ForwardedHost
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forwardedprotocol" class="md-nav__link">
+    ForwardedProtocol
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#weight-priority" class="md-nav__link">
     Weight (priority)
   </a>
@@ -1255,8 +1309,8 @@ representation:</p>
 <p>Other higher level argument types must be represented as one of the above types. E.g. it is a convention to
 represent time duration values as strings, parseable by <a href="https://godoc.org/time#ParseDuration">time.Duration</a>).</p>
 <h2 id="the-path-tree">The path tree<a class="headerlink" href="#the-path-tree" title="Permanent link">&para;</a></h2>
-<p>There is an important difference between the evaluation of the <a href="#Path">Path</a> or <a href="#PathSubtree">PathSubtree</a> predicates, and the
-evaluation of all the other predicates (<a href="#PathRegexp">PathRegexp</a> belonging to the second group). Find an explanation in the
+<p>There is an important difference between the evaluation of the <a href="#path">Path</a> or <a href="#pathsubtree">PathSubtree</a> predicates, and the
+evaluation of all the other predicates (<a href="#pathregexp">PathRegexp</a> belonging to the second group). Find an explanation in the
 <a href="../../tutorials/basics/#route-matching">Route matching</a> section explanation section.</p>
 <h3 id="path">Path<a class="headerlink" href="#path" title="Permanent link">&para;</a></h3>
 <p>The path predicate is used to match the path in HTTP request line. It accepts a single argument, that can be a
@@ -1326,6 +1380,30 @@ PathRegexp(&quot;^/foo/(bar|qux)&quot;)
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>Host(/^my-host-header\.example\.org$/)
 Host(/header\.example\.org$/)
+</code></pre></div>
+<h2 id="forwarded-header-predicates">Forwarded header predicates<a class="headerlink" href="#forwarded-header-predicates" title="Permanent link">&para;</a></h2>
+<p>Uses standardized Forwarded header (<a href="https://tools.ietf.org/html/rfc7239">RFC 7239</a>)</p>
+<p>More info about the header: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded">MDN</a></p>
+<h3 id="forwardedhost">ForwardedHost<a class="headerlink" href="#forwardedhost" title="Permanent link">&para;</a></h3>
+<p>Regular expressions that the forwarded host header in the request must match.</p>
+<p>Parameters:</p>
+<ul>
+<li>Host (regex)</li>
+</ul>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code>ForwardedHost(/^my-host-header\.example\.org$/)
+ForwardedHost(/header\.example\.org$/)
+</code></pre></div>
+<h3 id="forwardedprotocol">ForwardedProtocol<a class="headerlink" href="#forwardedprotocol" title="Permanent link">&para;</a></h3>
+<p>Protocol the forwarded header in the request must match.</p>
+<p>Parameters:</p>
+<ul>
+<li>Protocol (string)</li>
+</ul>
+<p>Only &ldquo;http&rdquo; and &ldquo;https&rdquo; values are allowed</p>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code>ForwardedProtocol(&quot;http&quot;)
+ForwardedProtocol(&quot;https&quot;)
 </code></pre></div>
 <h2 id="weight-priority">Weight (priority)<a class="headerlink" href="#weight-priority" title="Permanent link">&para;</a></h2>
 <p>By default, the weight (priority) of a route is determined by the number of defined predicates.</p>
@@ -1548,7 +1626,7 @@ Source(&quot;1.2.3.0/24&quot;)
 Source(&quot;1.2.3.4&quot;, &quot;2.2.2.0/24&quot;)
 </code></pre></div>
 <h3 id="sourcefromlast">SourceFromLast<a class="headerlink" href="#sourcefromlast" title="Permanent link">&para;</a></h3>
-<p>The same as <a href="#Source">Source</a>, but use the last part of the
+<p>The same as <a href="#source">Source</a>, but use the last part of the
 X-Forwarded-For header to match the network. This seems to be only
 used in the popular loadbalancers from AWS, ELB and ALB, because they
 put the client-IP as last part of the X-Forwarded-For headers.</p>

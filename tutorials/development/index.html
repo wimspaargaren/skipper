@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docs" class="md-skip">
+        <a href="#local-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -724,6 +724,33 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#local-setup" class="md-nav__link">
+    Local Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Local Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-skipper-binary" class="md-nav__link">
+    Build Skipper Binary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-skipper-as-proxy-with-2-backends" class="md-nav__link">
+    Run Skipper as Proxy with 2 backends
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#docs" class="md-nav__link">
     Docs
   </a>
@@ -815,6 +842,33 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#local-setup" class="md-nav__link">
+    Local Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Local Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-skipper-binary" class="md-nav__link">
+    Build Skipper Binary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-skipper-as-proxy-with-2-backends" class="md-nav__link">
+    Run Skipper as Proxy with 2 backends
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#docs" class="md-nav__link">
     Docs
   </a>
@@ -888,7 +942,37 @@
                 
                   <h1>Development</h1>
                 
-                <h2 id="docs">Docs<a class="headerlink" href="#docs" title="Permanent link">&para;</a></h2>
+                <h2 id="local-setup">Local Setup<a class="headerlink" href="#local-setup" title="Permanent link">&para;</a></h2>
+<h3 id="build-skipper-binary">Build Skipper Binary<a class="headerlink" href="#build-skipper-binary" title="Permanent link">&para;</a></h3>
+<p>Clone repository and compile with <a href="https://golang.org/dl">Go</a>.</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/zalando/skipper.git
+<span class="nb">cd</span> skipper
+make skipper
+</code></pre></div>
+<p>binary will be <code>./bin/skipper</code></p>
+<h3 id="run-skipper-as-proxy-with-2-backends">Run Skipper as Proxy with 2 backends<a class="headerlink" href="#run-skipper-as-proxy-with-2-backends" title="Permanent link">&para;</a></h3>
+<p>As a small example, we show how you can run one proxy skipper and 2
+backend skippers.</p>
+<p>Start the proxy that listens on port 9999 and serves all requests with a single route, that
+proxies to two backends using the round robin algorithm:
+<div class="highlight"><pre><span></span><code>./bin/skipper -inline-routes=&#39;r1: * -&gt; &lt;roundRobin, &quot;http://127.0.0.1:9001&quot;, &quot;http://127.0.0.1:9002&quot;&gt;&#39; --address :9999
+</code></pre></div></p>
+<p>Start two backends, with similar routes, one responds with &ldquo;1&rdquo; and the
+other with &ldquo;2&rdquo; in the HTTP response body:
+<div class="highlight"><pre><span></span><code>./bin/skipper -inline-routes=&#39;r1: * -&gt; inlineContent(&quot;1&quot;) -&gt; &lt;shunt&gt;&#39; --address :9001 &amp;
+./bin/skipper -inline-routes=&#39;r1: * -&gt; inlineContent(&quot;2&quot;) -&gt; &lt;shunt&gt;&#39; --address :9002
+</code></pre></div></p>
+<p>Test the proxy with curl as a client:
+<div class="highlight"><pre><span></span><code>curl -s http://localhost:9999/foo
+1
+curl -s http://localhost:9999/foo
+2
+curl -s http://localhost:9999/foo
+1
+curl -s http://localhost:9999/foo
+2
+</code></pre></div></p>
+<h2 id="docs">Docs<a class="headerlink" href="#docs" title="Permanent link">&para;</a></h2>
 <p>We have user documentation and developer documentation separated.
 In <code>docs/</code> you find the user documentation in <a href="https://www.mkdocs.org/">mkdocs</a> format and
 rendered at <a href="https://opensource.zalando.com/skipper">https://opensource.zalando.com/skipper</a>.

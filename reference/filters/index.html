@@ -2575,7 +2575,7 @@ If a template placeholder can&rsquo;t be resolved then filter does not set the h
 Path(&quot;/resource/:id&quot;) -&gt; setRequestHeader(&quot;X-Resource-Id&quot;, &quot;${id}&quot;) -&gt; clusterClientRateLimit(&quot;resource&quot;, 10, &quot;1m&quot;, &quot;X-Resource-Id&quot;) -&gt; &quot;https://backend.example.org&quot;;
 </code></pre></div>
 <h2 id="appendrequestheader">appendRequestHeader<a class="headerlink" href="#appendrequestheader" title="Permanent link">&para;</a></h2>
-<p>Same as <a href="#setRequestHeader">setRequestHeader</a>,
+<p>Same as <a href="#setrequestheader">setRequestHeader</a>,
 but appends the provided value to the already existing ones.</p>
 <h2 id="droprequestheader">dropRequestHeader<a class="headerlink" href="#droprequestheader" title="Permanent link">&para;</a></h2>
 <p>Removes a header from the request</p>
@@ -2615,12 +2615,12 @@ the header of the outgoing request with the X-Uid name:</p>
 <div class="highlight"><pre><span></span><code>foo: * -&gt; oauthTokeninfoAllScope(&quot;address_service.all&quot;) -&gt; setContextRequestHeader(&quot;X-Uid&quot;, &quot;auth-user&quot;) -&gt; &quot;https://backend.example.org&quot;;
 </code></pre></div>
 <h2 id="appendcontextrequestheader">appendContextRequestHeader<a class="headerlink" href="#appendcontextrequestheader" title="Permanent link">&para;</a></h2>
-<p>Same as <a href="#setContextRequestHeader">setContextRequestHeader</a>,
+<p>Same as <a href="#setcontextrequestheader">setContextRequestHeader</a>,
 but appends the provided value to the already existing ones.</p>
 <h2 id="setcontextresponseheader">setContextResponseHeader<a class="headerlink" href="#setcontextresponseheader" title="Permanent link">&para;</a></h2>
-<p>Same as <a href="#setContextRequestHeader">setContextRequestHeader</a>, except for responses.</p>
+<p>Same as <a href="#setcontextrequestheader">setContextRequestHeader</a>, except for responses.</p>
 <h2 id="appendcontextresponseheader">appendContextResponseHeader<a class="headerlink" href="#appendcontextresponseheader" title="Permanent link">&para;</a></h2>
-<p>Same as <a href="#appendContextRequestHeader">appendContextRequestHeader</a>, except for responses.</p>
+<p>Same as <a href="#appendcontextrequestheader">appendContextRequestHeader</a>, except for responses.</p>
 <h2 id="copyrequestheader">copyRequestHeader<a class="headerlink" href="#copyrequestheader" title="Permanent link">&para;</a></h2>
 <p>Copies value of a given request header to another header.</p>
 <p>Parameters:</p>
@@ -2632,7 +2632,7 @@ but appends the provided value to the already existing ones.</p>
 <div class="highlight"><pre><span></span><code>foo: * -&gt; copyRequestHeader(&quot;X-Foo&quot;, &quot;X-Bar&quot;) -&gt; &quot;https://backend.example.org&quot;;
 </code></pre></div>
 <h2 id="copyresponseheader">copyResponseHeader<a class="headerlink" href="#copyresponseheader" title="Permanent link">&para;</a></h2>
-<p>Same as <a href="#copyRequestHeader">copyRequestHeader</a>, except for responses.</p>
+<p>Same as <a href="#copyrequestheader">copyRequestHeader</a>, except for responses.</p>
 <h2 id="modpath">modPath<a class="headerlink" href="#modpath" title="Permanent link">&para;</a></h2>
 <p>Replace all matched regex expressions in the path.</p>
 <p>Parameters:</p>
@@ -2673,7 +2673,7 @@ redirect2: * -&gt; redirectTo(301) -&gt; &lt;shunt&gt;;
 </ul>
 <p>see also <a href="../../tutorials/common-use-cases/#redirect-handling">redirect-handling</a></p>
 <h2 id="redirecttolower">redirectToLower<a class="headerlink" href="#redirecttolower" title="Permanent link">&para;</a></h2>
-<p>Same as <a href="#redirectTo">redirectTo</a>, but replaces all strings to lower case.</p>
+<p>Same as <a href="#redirectto">redirectTo</a>, but replaces all strings to lower case.</p>
 <h2 id="static">static<a class="headerlink" href="#static" title="Permanent link">&para;</a></h2>
 <p>Serves static content from the filesystem.</p>
 <p>Parameters:</p>
@@ -3299,11 +3299,11 @@ cookie. Supports credential rotation for the OAuth2 client ID and secret.</p>
 to untrusted downstream services.</p>
 <p>The filter will inject the OAuth2 bearer token into the request headers if the flag
 <code>oauth2-access-token-header-name</code> is set.</p>
-<p>The filter must be used in conjunction with the <a href="#grantCallback">grantCallback</a> filter
+<p>The filter must be used in conjunction with the <a href="#grantcallback">grantCallback</a> filter
 where the OAuth2 provider can redirect authenticated users with an authorization code.
 Skipper will make sure to add the <code>grantCallback</code> filter for you to your routes when
 you pass the <code>-enable-oauth2-grant-flow</code> flag.</p>
-<p>The filter may be used with the <a href="#grantClaimsQuery">grantClaimsQuery</a> filter to perform
+<p>The filter may be used with the <a href="#grantclaimsquery">grantClaimsQuery</a> filter to perform
 authz and access control.</p>
 <p>See the <a href="../../tutorials/auth/#oauth2-authorization-grant-flow">tutorial</a> for step-by-step
 instructions.</p>
@@ -3397,7 +3397,7 @@ instructions.</p>
 </table>
 <h2 id="grantcallback">grantCallback<a class="headerlink" href="#grantcallback" title="Permanent link">&para;</a></h2>
 <p>The filter accepts authorization codes as a result of an OAuth2 authorization code grant
-flow triggered by <a href="#oauthGrant">oauthGrant</a>. It uses the code to request access and
+flow triggered by <a href="#oauthgrant">oauthGrant</a>. It uses the code to request access and
 refresh tokens from the OAuth2 provider&rsquo;s token endpoint.</p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>// The callback route is automatically added when the `-enable-oauth2-grant-flow`
@@ -3427,7 +3427,7 @@ callback:
 </table>
 <h2 id="grantlogout">grantLogout<a class="headerlink" href="#grantlogout" title="Permanent link">&para;</a></h2>
 <p>The filter revokes the refresh and access tokens in the cookie set by
-<a href="#oauthGrant">oauthGrant</a>. It also deletes the cookie by setting the <code>Set-Cookie</code>
+<a href="#oauthgrant">oauthGrant</a>. It also deletes the cookie by setting the <code>Set-Cookie</code>
 response header to an empty value after a successful token revocation.</p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>grantLogout()
@@ -3453,7 +3453,7 @@ response header to an empty value after a successful token revocation.</p>
 <p>The filter allows defining access control rules based on claims in a tokeninfo JSON
 payload.</p>
 <p>This filter is an alias for <code>oidcClaimsQuery</code> and functions identically to it.
-See <a href="#oidcClaimsQuery">oidcClaimsQuery</a> for more information.</p>
+See <a href="#oidcclaimsquery">oidcClaimsQuery</a> for more information.</p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>oauthGrant() -&gt; grantClaimsQuery(&quot;/path:@_:sub%\&quot;userid\&quot;&quot;)
 oauthGrant() -&gt; grantClaimsQuery(&quot;/path:scope.#[==\&quot;email\&quot;]&quot;)

@@ -1197,7 +1197,7 @@ for which it needs a secret key. This key is in a file which can be rotated peri
 because it is reread by Skipper. The path to this file must be passed with the flag
 <code>-oidc-secrets-file</code> when Skipper is started.</p>
 <h3 id="authz-and-access-control">AuthZ and access control<a class="headerlink" href="#authz-and-access-control" title="Permanent link">&para;</a></h3>
-<p>Authorization validation and access control is available by means of a subsequent filter <a href="../../reference/filters/#oidcClaimsQuery">oidcClaimsQuery</a>. It inspects the ID token, which exists after a successful <code>oauthOidc*</code> filter step, and validates the defined query with the request path.</p>
+<p>Authorization validation and access control is available by means of a subsequent filter <a href="../../reference/filters/#oidcclaimsquery">oidcClaimsQuery</a>. It inspects the ID token, which exists after a successful <code>oauthOidc*</code> filter step, and validates the defined query with the request path.</p>
 <p>Given following example ID token:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;someone@example.org&quot;</span><span class="p">,</span>
@@ -1291,9 +1291,9 @@ with the following arguments:</p>
     -oauth2-callback-path<span class="o">=</span>/oauth/callback
 </code></pre></div>
 <p>The <code>-oauth2-revoke-token-url</code> is optional, and must only be supplied if you plan
-on using the <a href="../../reference/filters/#grantLogout">grantLogout</a> filter.</p>
+on using the <a href="../../reference/filters/#grantlogout">grantLogout</a> filter.</p>
 <p>You can configure the <code>oauthGrant()</code> filter further for your needs. See the
-<a href="../../reference/filters/#oauthGrant">oauthGrant</a> filter reference for more details.</p>
+<a href="../../reference/filters/#oauthgrant">oauthGrant</a> filter reference for more details.</p>
 <h4 id="add-filters-to-your-routes">Add filters to your routes<a class="headerlink" href="#add-filters-to-your-routes" title="Permanent link">&para;</a></h4>
 <p>You can protect any number of routes with the <code>oauthGrant()</code> filter. Unauthenticated users
 will be refused access and redirected to log in.</p>
@@ -1312,10 +1312,10 @@ logout:
     -&gt; &lt;shunt&gt;;
 </code></pre></div>
 <h4 id="optional-authz-and-access-control">(Optional) AuthZ and access control<a class="headerlink" href="#optional-authz-and-access-control" title="Permanent link">&para;</a></h4>
-<p>You can add a <a href="../../reference/filters/#grantClaimsQuery">grantClaimsQuery</a> filter
-after a <a href="../../reference/filters/#oauthGrant">oauthGrant</a> to control access based
+<p>You can add a <a href="../../reference/filters/#grantclaimsquery">grantClaimsQuery</a> filter
+after a <a href="../../reference/filters/#oauthgrant">oauthGrant</a> to control access based
 on any OAuth2 claim. A claim is any property returned by the tokeninfo endpoint.
-The filter works exactly like the <a href="../../reference/filters/#oidcClaimsQuery">oidcClaimsQuery</a>
+The filter works exactly like the <a href="../../reference/filters/#oidcclaimsquery">oidcClaimsQuery</a>
 filter (it is actually just an alias for it).</p>
 <p>For example, if your tokeninfo endpoint returns the following JSON:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
