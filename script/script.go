@@ -25,7 +25,7 @@ import (
 	gjson "layeh.com/gopher-json"
 )
 
-const defaultPoolSize int = 1000
+const defaultPoolSize int = 10
 
 func newState() (*lua.LState, error) {
 	L := lua.NewState(lua.Options{
@@ -103,6 +103,7 @@ func NewLuaScript() filters.Spec {
 
 // WithPoolSize creates a new filter spec for skipper with global pool size set
 func WithPoolSize(poolSize int) filters.Spec {
+	log.Infof("creating Lua pool of %d", poolSize)
 	p, err := newStatePool(poolSize)
 	if err != nil {
 		log.Fatalf("Failed to create Lua pool: %v", err)
