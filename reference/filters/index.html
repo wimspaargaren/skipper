@@ -11,8 +11,8 @@
       
         <link rel="canonical" href="https://opensource.zalando.com/skipper/reference/filters/">
       
-      <link rel="shortcut icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.10">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1fe995fd.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
         
           
           
@@ -37,13 +37,15 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
       
     
     
     
     
       
+
+
     
     
   </head>
@@ -55,8 +57,9 @@
     
     
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
-      
   
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -73,26 +76,24 @@
       
     </div>
     
-      
-
-<header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="https://opensource.zalando.com/skipper/" title="Skipper" class="md-header-nav__button md-logo" aria-label="Skipper">
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Skipper" class="md-header__button md-logo" aria-label="Skipper" data-md-component="logo">
       
   <img src="../../favicon.ico" alt="logo">
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
+    <label class="md-header__button md-icon" for="__drawer">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      <div class="md-header-nav__ellipsis">
-        <div class="md-header-nav__topic">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
           <span class="md-ellipsis">
             Skipper
           </span>
         </div>
-        <div class="md-header-nav__topic">
+        <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
               Filters
@@ -102,8 +103,10 @@
       </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
       
 <div class="md-search" data-md-component="search" role="dialog">
@@ -112,11 +115,11 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
@@ -133,12 +136,12 @@
 </div>
     
     
-      <div class="md-header-nav__source">
+      <div class="md-header__source">
         
-<a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source">
+<a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -159,17 +162,15 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
 
 
-
-
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://opensource.zalando.com/skipper/" title="Skipper" class="md-nav__button md-logo" aria-label="Skipper">
+    <a href="../.." title="Skipper" class="md-nav__button md-logo" aria-label="Skipper" data-md-component="logo">
       
   <img src="../../favicon.ico" alt="logo">
 
@@ -179,10 +180,10 @@
   
     <div class="md-nav__source">
       
-<a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source">
+<a href="https://github.com/zalando/skipper/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -195,7 +196,6 @@
       
       
       
-
 
   
   
@@ -212,7 +212,6 @@
       
       
 
-
   
   
     
@@ -222,19 +221,18 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
-      <label class="md-nav__link" for="nav-2">
+      <label class="md-nav__link" for="__nav_2">
         Reference
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Reference" data-md-level="1">
-        <label class="md-nav__title" for="nav-2">
+        <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Reference
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
           
             
   
@@ -245,6 +243,7 @@
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
       
         
       
@@ -262,6 +261,7 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
     
   
   
@@ -269,7 +269,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#template-placeholders" class="md-nav__link">
@@ -568,6 +568,34 @@
         <li class="md-nav__item">
   <a href="#absorbsilent" class="md-nav__link">
     absorbSilent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uniformrequestlatency" class="md-nav__link">
+    uniformRequestLatency
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normalrequestlatency" class="md-nav__link">
+    normalRequestLatency
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uniformresponselatency" class="md-nav__link">
+    uniformResponseLatency
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normalresponselatency" class="md-nav__link">
+    normalResponseLatency
   </a>
   
 </li>
@@ -1118,6 +1146,13 @@
         <li class="md-nav__item">
   <a href="#consistenthashkey" class="md-nav__link">
     consistentHashKey
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consistenthashbalancefactor" class="md-nav__link">
+    consistentHashBalanceFactor
   </a>
   
 </li>
@@ -1234,19 +1269,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-10" type="checkbox" id="nav-2-10" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
       
-      <label class="md-nav__link" for="nav-2-10">
+      <label class="md-nav__link" for="__nav_2_10">
         Data Clients
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Data Clients" data-md-level="2">
-        <label class="md-nav__title" for="nav-2-10">
+        <label class="md-nav__title" for="__nav_2_10">
           <span class="md-nav__icon md-icon"></span>
           Data Clients
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
           
             
   
@@ -1310,19 +1344,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-11" type="checkbox" id="nav-2-11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
       
-      <label class="md-nav__link" for="nav-2-11">
+      <label class="md-nav__link" for="__nav_2_11">
         Operation
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Operation" data-md-level="2">
-        <label class="md-nav__title" for="nav-2-11">
+        <label class="md-nav__title" for="__nav_2_11">
           <span class="md-nav__icon md-icon"></span>
           Operation
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
           
             
   
@@ -1364,7 +1397,6 @@
       
       
 
-
   
   
   
@@ -1372,19 +1404,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
-      <label class="md-nav__link" for="nav-3">
+      <label class="md-nav__link" for="__nav_3">
         Kubernetes
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
-        <label class="md-nav__title" for="nav-3">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Kubernetes
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
           
             
   
@@ -1480,7 +1511,6 @@
       
       
 
-
   
   
   
@@ -1488,19 +1518,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
-      <label class="md-nav__link" for="nav-4">
+      <label class="md-nav__link" for="__nav_4">
         Tutorials
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
-        <label class="md-nav__title" for="nav-4">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Tutorials
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
           
             
   
@@ -1600,11 +1629,12 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1614,7 +1644,7 @@
       <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#template-placeholders" class="md-nav__link">
@@ -1913,6 +1943,34 @@
         <li class="md-nav__item">
   <a href="#absorbsilent" class="md-nav__link">
     absorbSilent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uniformrequestlatency" class="md-nav__link">
+    uniformRequestLatency
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normalrequestlatency" class="md-nav__link">
+    normalRequestLatency
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uniformresponselatency" class="md-nav__link">
+    uniformResponseLatency
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#normalresponselatency" class="md-nav__link">
+    normalResponseLatency
   </a>
   
 </li>
@@ -2467,6 +2525,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#consistenthashbalancefactor" class="md-nav__link">
+    consistentHashBalanceFactor
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2475,7 +2540,7 @@
               </div>
             
           
-          <div class="md-content">
+          <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
@@ -2497,6 +2562,7 @@ Filter can be chained using the arrow operator <code>-&gt;</code>.</p>
 <p>Example route with a match all, 2 filters and a backend:</p>
 <div class="highlight"><pre><span></span><code>all: * -&gt; filter1 -&gt; filter2 -&gt; &quot;http://127.0.0.1:1234/&quot;;
 </code></pre></div>
+
 <h2 id="template-placeholders">Template placeholders<a class="headerlink" href="#template-placeholders" title="Permanent link">&para;</a></h2>
 <p>Several filters support template placeholders (<code>${var}</code>) in string parameters.</p>
 <p>Template placeholder is replaced by the value that is looked up in the following sources:</p>
@@ -2520,6 +2586,7 @@ Filter can be chained using the arrow operator <code>-&gt;</code>.</p>
 <p>Example route that rewrites path using template placeholder:</p>
 <div class="highlight"><pre><span></span><code>u1: Path(&quot;/user/:id&quot;) -&gt; setPath(&quot;/v2/user/${id}&quot;) -&gt; &lt;loopback&gt;;
 </code></pre></div>
+
 <p>Example route that creates header from query parameter:
 <div class="highlight"><pre><span></span><code>r: Path(&quot;/redirect&quot;) &amp;&amp; QueryParam(&quot;to&quot;) -&gt; status(303) -&gt; setResponseHeader(&quot;Location&quot;, &quot;${request.query.to}&quot;) -&gt; &lt;shunt&gt;;
 </code></pre></div></p>
@@ -2548,6 +2615,7 @@ foo3:
   -&gt; backendIsProxy()
   -&gt; &lt;dynamic&gt;;
 </code></pre></div>
+
 <h2 id="modrequestheader">modRequestHeader<a class="headerlink" href="#modrequestheader" title="Permanent link">&para;</a></h2>
 <p>Replace all matched regex expressions in the given header.</p>
 <p>Parameters:</p>
@@ -2559,6 +2627,7 @@ foo3:
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>enforce_www: * -&gt; modRequestHeader(&quot;Host&quot;, &quot;^zalando\.(\w+)$&quot;, &quot;www.zalando.$1&quot;) -&gt; redirectTo(301);
 </code></pre></div>
+
 <h2 id="setrequestheader">setRequestHeader<a class="headerlink" href="#setrequestheader" title="Permanent link">&para;</a></h2>
 <p>Set headers for requests.</p>
 <p>Header value may contain <a href="#template-placeholders">template placeholders</a>.
@@ -2571,9 +2640,11 @@ If a template placeholder can&rsquo;t be resolved then filter does not set the h
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>foo: * -&gt; setRequestHeader(&quot;X-Passed-Skipper&quot;, &quot;true&quot;) -&gt; &quot;https://backend.example.org&quot;;
 </code></pre></div>
+
 <div class="highlight"><pre><span></span><code>// Ratelimit per resource
 Path(&quot;/resource/:id&quot;) -&gt; setRequestHeader(&quot;X-Resource-Id&quot;, &quot;${id}&quot;) -&gt; clusterClientRateLimit(&quot;resource&quot;, 10, &quot;1m&quot;, &quot;X-Resource-Id&quot;) -&gt; &quot;https://backend.example.org&quot;;
 </code></pre></div>
+
 <h2 id="appendrequestheader">appendRequestHeader<a class="headerlink" href="#appendrequestheader" title="Permanent link">&para;</a></h2>
 <p>Same as <a href="#setrequestheader">setRequestHeader</a>,
 but appends the provided value to the already existing ones.</p>
@@ -2586,6 +2657,7 @@ but appends the provided value to the already existing ones.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>foo: * -&gt; dropRequestHeader(&quot;User-Agent&quot;) -&gt; &quot;https://backend.example.org&quot;;
 </code></pre></div>
+
 <h2 id="setresponseheader">setResponseHeader<a class="headerlink" href="#setresponseheader" title="Permanent link">&para;</a></h2>
 <p>Same as <a href="#setrequestheader">setRequestHeader</a>, only for responses</p>
 <p>Example:</p>
@@ -2595,6 +2667,7 @@ but appends the provided value to the already existing ones.</p>
   -&gt; redirectTo(302, &quot;/&quot;)
   -&gt; &lt;shunt&gt;
 </code></pre></div>
+
 <h2 id="appendresponseheader">appendResponseHeader<a class="headerlink" href="#appendresponseheader" title="Permanent link">&para;</a></h2>
 <p>Same as <a href="#appendrequestheader">appendRequestHeader</a>, only for responses</p>
 <h2 id="dropresponseheader">dropResponseHeader<a class="headerlink" href="#dropresponseheader" title="Permanent link">&para;</a></h2>
@@ -2614,6 +2687,7 @@ key in the context, and the setContextRequestHeader() filter in the next step st
 the header of the outgoing request with the X-Uid name:</p>
 <div class="highlight"><pre><span></span><code>foo: * -&gt; oauthTokeninfoAllScope(&quot;address_service.all&quot;) -&gt; setContextRequestHeader(&quot;X-Uid&quot;, &quot;auth-user&quot;) -&gt; &quot;https://backend.example.org&quot;;
 </code></pre></div>
+
 <h2 id="appendcontextrequestheader">appendContextRequestHeader<a class="headerlink" href="#appendcontextrequestheader" title="Permanent link">&para;</a></h2>
 <p>Same as <a href="#setcontextrequestheader">setContextRequestHeader</a>,
 but appends the provided value to the already existing ones.</p>
@@ -2631,6 +2705,7 @@ but appends the provided value to the already existing ones.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>foo: * -&gt; copyRequestHeader(&quot;X-Foo&quot;, &quot;X-Bar&quot;) -&gt; &quot;https://backend.example.org&quot;;
 </code></pre></div>
+
 <h2 id="copyresponseheader">copyResponseHeader<a class="headerlink" href="#copyresponseheader" title="Permanent link">&para;</a></h2>
 <p>Same as <a href="#copyrequestheader">copyRequestHeader</a>, except for responses.</p>
 <h2 id="modpath">modPath<a class="headerlink" href="#modpath" title="Permanent link">&para;</a></h2>
@@ -2646,6 +2721,7 @@ append_bar: Path(&quot;/foo&quot;) -&gt; modPath(&quot;/foo&quot;, &quot;/foo/ba
 new_base: PathSubtree(&quot;/base&quot;) -&gt; modPath(&quot;/base&quot;, &quot;/new/base) -&gt; &quot;https://backend.example.org&quot;;
 rm_api_regex: Path(&quot;/api&quot;) -&gt; modPath(&quot;^/api/(.*)/v2$&quot;, &quot;/$1&quot;) -&gt; &quot;https://backend.example.org&quot;;
 </code></pre></div>
+
 <h2 id="setpath">setPath<a class="headerlink" href="#setpath" title="Permanent link">&para;</a></h2>
 <p>Replace the path of the original request to the replacement.</p>
 <p>Parameters:</p>
@@ -2665,6 +2741,7 @@ If a template placeholder can&rsquo;t be resolved then empty value is used for i
 <div class="highlight"><pre><span></span><code>redirect1: PathRegexp(/^\/foo\/bar/) -&gt; redirectTo(302, &quot;/foo/newBar&quot;) -&gt; &lt;shunt&gt;;
 redirect2: * -&gt; redirectTo(301) -&gt; &lt;shunt&gt;;
 </code></pre></div>
+
 <ul>
 <li>Route redirect1 will do a redirect with status code 302 to https
   with new path <code>/foo/newBar</code> for requests, that match the path <code>/foo/bar</code>.</li>
@@ -2722,6 +2799,7 @@ becomes <code>x-query-param-foo: bar</code></p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>route1: Host(/^all401\.example\.org$/) -&gt; status(401) -&gt; &lt;shunt&gt;;
 </code></pre></div>
+
 <h2 id="compress">compress<a class="headerlink" href="#compress" title="Permanent link">&para;</a></h2>
 <p>The filter, when executed on the response path, checks if the response entity can
 be compressed. To decide, it checks the Content-Encoding, the Cache-Control and
@@ -2736,16 +2814,19 @@ types as filter arguments. When extending the defaults, the first argument needs
 be <code>"..."</code>. E.g. to compress tiff in addition to the defaults:</p>
 <div class="highlight"><pre><span></span><code>* -&gt; compress(&quot;...&quot;, &quot;image/tiff&quot;) -&gt; &quot;https://www.example.org&quot;
 </code></pre></div>
+
 <p>To reset the supported types, e.g. to compress only HTML, the &ldquo;&hellip;&rdquo; argument needs
 to be omitted:</p>
 <div class="highlight"><pre><span></span><code>* -&gt; compress(&quot;text/html&quot;) -&gt; &quot;https://www.example.org&quot;
 </code></pre></div>
+
 <p>It is possible to control the compression level, by setting it as the first filter
 argument, in front of the MIME types. The default compression level is best-speed.
 The possible values are integers between 0 and 9 (inclusive), where 0 means
 no-compression, 1 means best-speed and 9 means best-compression. Example:</p>
 <div class="highlight"><pre><span></span><code>* -&gt; compress(9, &quot;image/tiff&quot;) -&gt; &quot;https://www.example.org&quot;
 </code></pre></div>
+
 <p>The filter also checks the incoming request, if it accepts the supported encodings,
 explicitly stated in the Accept-Encoding header. The filter currently supports <code>gzip</code>
 and <code>deflate</code>. It does not assume that the client accepts any encoding if the
@@ -2766,6 +2847,7 @@ transfer encoding, deletes the Content-Encoding and the Vary headers, if set.</p
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>* -&gt; decompress() -&gt; &quot;https://www.example.org&quot;
 </code></pre></div>
+
 <h2 id="setquery">setQuery<a class="headerlink" href="#setquery" title="Permanent link">&para;</a></h2>
 <p>Set the query string <code>?k=v</code> in the request to the backend to a given value.</p>
 <p>Parameters:</p>
@@ -2778,6 +2860,7 @@ If a template placeholder can&rsquo;t be resolved then empty value is used for i
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>setQuery(&quot;k&quot;, &quot;v&quot;)
 </code></pre></div>
+
 <h2 id="dropquery">dropQuery<a class="headerlink" href="#dropquery" title="Permanent link">&para;</a></h2>
 <p>Delete the query string <code>?k=v</code> in the request to the backend for a
 given key.</p>
@@ -2790,6 +2873,7 @@ If a template placeholder can&rsquo;t be resolved then empty value is used for i
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>dropQuery(&quot;k&quot;)
 </code></pre></div>
+
 <h2 id="inlinecontent">inlineContent<a class="headerlink" href="#inlinecontent" title="Permanent link">&para;</a></h2>
 <p>Returns arbitrary content in the HTTP body.</p>
 <p>Parameters:</p>
@@ -2802,6 +2886,7 @@ If a template placeholder can&rsquo;t be resolved then empty value is used for i
 * -&gt; inlineContent(&quot;[1,2,3]&quot;, &quot;application/json&quot;) -&gt; &lt;shunt&gt;
 * -&gt; status(418) -&gt; inlineContent(&quot;Would you like a cup of tea?&quot;) -&gt; &lt;shunt&gt;
 </code></pre></div>
+
 <p>Content type will be automatically detected when not provided using <a href="https://mimesniff.spec.whatwg.org/#rules-for-identifying-an-unknown-mime-type">https://mimesniff.spec.whatwg.org/#rules-for-identifying-an-unknown-mime-type</a> algorithm.
 Note that content detection algorithm does not contain any rules for recognizing JSON.</p>
 <div class="admonition note">
@@ -2821,6 +2906,7 @@ The rest of the filter chain and backend are ignored and therefore <code>inlineC
 <div class="highlight"><pre><span></span><code>* -&gt; inlineContentIfStatus(404, &quot;&lt;p class=\&quot;problem\&quot;&gt;We don&#39;t have what you&#39;re looking for.&lt;/p&gt;&quot;) -&gt; &quot;https://www.example.org&quot;
 * -&gt; inlineContentIfStatus(401, &quot;{\&quot;error\&quot;: \&quot;unauthorized\&quot;}&quot;, &quot;application/json&quot;) -&gt; &quot;https://www.example.org&quot;
 </code></pre></div>
+
 <p>The content type will be automatically detected when not provided.</p>
 <h2 id="flowid">flowId<a class="headerlink" href="#flowid" title="Permanent link">&para;</a></h2>
 <p>Sets an X-Flow-Id header, if it&rsquo;s not already in the request.
@@ -2838,6 +2924,7 @@ length 16 matching the following regex: <code>^[0-9a-zA-Z+-]+$</code></p>
 <div class="highlight"><pre><span></span><code>* -&gt; flowId() -&gt; &quot;https://some-backend.example.org&quot;;
 * -&gt; flowId(&quot;reuse&quot;) -&gt; &quot;https://some-backend.example.org&quot;;
 </code></pre></div>
+
 <h2 id="xforward">xforward<a class="headerlink" href="#xforward" title="Permanent link">&para;</a></h2>
 <p>Standard proxy headers. Appends the client remote IP to the X-Forwarded-For and sets the X-Forwarded-Host
 header.</p>
@@ -2853,6 +2940,7 @@ approach of certain LB implementations.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>* -&gt; randomContent(42) -&gt; &lt;shunt&gt;;
 </code></pre></div>
+
 <h2 id="repeatcontent">repeatContent<a class="headerlink" href="#repeatcontent" title="Permanent link">&para;</a></h2>
 <p>Generate response of specified size from repeated text.</p>
 <p>Parameters:</p>
@@ -2863,6 +2951,7 @@ approach of certain LB implementations.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>* -&gt; repeatContent(&quot;I will not waste chalk. &quot;, 1000) -&gt; &lt;shunt&gt;;
 </code></pre></div>
+
 <h2 id="backendtimeout">backendTimeout<a class="headerlink" href="#backendtimeout" title="Permanent link">&para;</a></h2>
 <p>Configure backend timeout. Skipper responds with <code>504 Gateway Timeout</code> status if obtaining a connection,
 sending the request, and reading the backend response headers and body takes longer than the configured timeout.
@@ -2875,6 +2964,7 @@ status and truncated response body.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>* -&gt; backendTimeout(&quot;10ms&quot;) -&gt; &quot;https://www.example.org&quot;;
 </code></pre></div>
+
 <h2 id="latency">latency<a class="headerlink" href="#latency" title="Permanent link">&para;</a></h2>
 <p>Enable adding artificial latency</p>
 <p>Parameters:</p>
@@ -2884,6 +2974,7 @@ status and truncated response body.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>* -&gt; latency(120) -&gt; &quot;https://www.example.org&quot;;
 </code></pre></div>
+
 <h2 id="bandwidth">bandwidth<a class="headerlink" href="#bandwidth" title="Permanent link">&para;</a></h2>
 <p>Enable bandwidth throttling.</p>
 <p>Parameters:</p>
@@ -2893,6 +2984,7 @@ status and truncated response body.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>* -&gt; bandwidth(30) -&gt; &quot;https://www.example.org&quot;;
 </code></pre></div>
+
 <h2 id="chunks">chunks<a class="headerlink" href="#chunks" title="Permanent link">&para;</a></h2>
 <p>Enables adding chunking responses with custom chunk size with
 artificial delays in between response chunks. To disable delays, set
@@ -2906,6 +2998,7 @@ the second parameter to &ldquo;0&rdquo;.</p>
 <div class="highlight"><pre><span></span><code>* -&gt; chunks(1024, &quot;120ms&quot;) -&gt; &quot;https://www.example.org&quot;;
 * -&gt; chunks(1024, &quot;0&quot;) -&gt; &quot;https://www.example.org&quot;;
 </code></pre></div>
+
 <h2 id="backendlatency">backendLatency<a class="headerlink" href="#backendlatency" title="Permanent link">&para;</a></h2>
 <p>Same as <a href="#latency">latency filter</a>, but on the request path and not on
 the response path.</p>
@@ -2927,6 +3020,42 @@ It logs with INFO level and a unique ID per request:</p>
 <h2 id="absorbsilent">absorbSilent<a class="headerlink" href="#absorbsilent" title="Permanent link">&para;</a></h2>
 <p>The absorbSilent filter reads and discards the payload of the incoming requests. It only
 logs read errors other than EOF.</p>
+<h2 id="uniformrequestlatency">uniformRequestLatency<a class="headerlink" href="#uniformrequestlatency" title="Permanent link">&para;</a></h2>
+<p>The uniformRequestLatency filter introduces uniformly distributed
+jitter latency within <code>[mean-delta, mean+delta]</code> interval for
+requests. The first parameter is the mean and the second is delta. In
+the example we would sleep for <code>100ms+/-10ms</code>.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>* -&gt; uniformRequestLatency(&quot;100ms, &quot;10ms&quot;) -&gt; &quot;https://www.example.org&quot;;
+</code></pre></div>
+
+<h2 id="normalrequestlatency">normalRequestLatency<a class="headerlink" href="#normalrequestlatency" title="Permanent link">&para;</a></h2>
+<p>The normalRequestLatency filter introduces normally distributed jitter
+latency with configured mean value for requests. The first parameter
+is µ (mean) and the second is σ as in
+<a href="https://en.wikipedia.org/wiki/Normal_distribution">https://en.wikipedia.org/wiki/Normal_distribution</a>.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>* -&gt; normalRequestLatency(&quot;10ms, &quot;5ms&quot;) -&gt; &quot;https://www.example.org&quot;;
+</code></pre></div>
+
+<h2 id="uniformresponselatency">uniformResponseLatency<a class="headerlink" href="#uniformresponselatency" title="Permanent link">&para;</a></h2>
+<p>The uniformResponseLatency filter introduces uniformly distributed
+jitter latency within <code>[mean-delta, mean+delta]</code> interval for
+responses. The first parameter is the mean and the second is delta. In
+the example we would sleep for <code>100ms+/-10ms</code>.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>* -&gt; uniformRequestLatency(&quot;100ms, &quot;10ms&quot;) -&gt; &quot;https://www.example.org&quot;;
+</code></pre></div>
+
+<h2 id="normalresponselatency">normalResponseLatency<a class="headerlink" href="#normalresponselatency" title="Permanent link">&para;</a></h2>
+<p>The normalResponseLatency filter introduces normally distributed
+jitter latency with configured mean value for responses. The first
+parameter is µ (mean) and the second is σ as in
+<a href="https://en.wikipedia.org/wiki/Normal_distribution">https://en.wikipedia.org/wiki/Normal_distribution</a>.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>* -&gt; normalRequestLatency(&quot;10ms, &quot;5ms&quot;) -&gt; &quot;https://www.example.org&quot;;
+</code></pre></div>
+
 <h2 id="logheader">logHeader<a class="headerlink" href="#logheader" title="Permanent link">&para;</a></h2>
 <p>The logHeader filter prints the request line and the header, but not the body, to
 stderr. Note that this filter should be used only in diagnostics setup and with care,
@@ -2945,6 +3074,7 @@ defaults for backwards compatibility to request headers.</p>
 * -&gt; logHeader(&quot;response&quot;) -&gt; &quot;https://www.example.org&quot;;
 * -&gt; logHeader(&quot;request&quot;, &quot;response&quot;) -&gt; &quot;https://www.example.org&quot;;
 </code></pre></div>
+
 <h2 id="tee">tee<a class="headerlink" href="#tee" title="Permanent link">&para;</a></h2>
 <p>Provides a unix-like <code>tee</code> feature for routing.</p>
 <p>Using this filter, the request will be sent to a &ldquo;shadow&rdquo; backend in addition
@@ -2952,6 +3082,7 @@ to the main backend of the route.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>* -&gt; tee(&quot;https://audit-logging.example.org&quot;) -&gt; &quot;https://foo.example.org&quot;;
 </code></pre></div>
+
 <p>This will send an identical request for foo.example.org to
 audit-logging.example.org. Another use case could be using it for benchmarking
 a new backend with some real traffic. This we call &ldquo;shadow traffic&rdquo;.</p>
@@ -2964,6 +3095,7 @@ and a copy of the body stream. The <code>tee</code> response is ignored for this
 <a href="#modpath">modPath</a> filter:</p>
 <div class="highlight"><pre><span></span><code>Path(&quot;/api/v1&quot;) -&gt; tee(&quot;https://api.example.org&quot;, &quot;^/v1&quot;, &quot;/v2&quot; ) -&gt; &quot;http://api.example.org&quot;;
 </code></pre></div>
+
 <p>In the above example, one can test how a new version of an API would behave on
 incoming requests.</p>
 <h2 id="teenf">teenf<a class="headerlink" href="#teenf" title="Permanent link">&para;</a></h2>
@@ -2992,6 +3124,7 @@ is limited similarly as in case of the
 main-split: Traffic(.1) -&gt; teeLoopback(&quot;test-A&quot;) -&gt; &quot;https://main-backend.example.org&quot;;
 shadow: Tee(&quot;test-A&quot;) &amp;&amp; True() -&gt; &quot;https://test-backend.example.org&quot;;
 </code></pre></div>
+
 <p>See also:</p>
 <ul>
 <li><a href="../predicates/#tee">Tee predicate</a></li>
@@ -3003,9 +3136,11 @@ in the response body.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>editorRoute: * -&gt; sed(&quot;foo&quot;, &quot;bar&quot;) -&gt; &quot;https://www.example.org&quot;;
 </code></pre></div>
+
 <p>Example with larger max buffer:</p>
 <div class="highlight"><pre><span></span><code>editorRoute: * -&gt; sed(&quot;foo&quot;, &quot;bar&quot;, 64000000) -&gt; &quot;https://www.example.org&quot;;
 </code></pre></div>
+
 <p>This filter expects a regexp pattern and a replacement string as arguments.
 During the streaming of the response body, every occurence of the pattern will
 be replaced with the replacement string. The editing doesn&rsquo;t happen right when
@@ -3050,16 +3185,19 @@ delimiter, and matches across the chunk boundaries are not considered.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>editorRoute: * -&gt; sedDelim(&quot;foo&quot;, &quot;bar&quot;, &quot;\n&quot;) -&gt; &quot;https://www.example.org&quot;;
 </code></pre></div>
+
 <h2 id="sedrequest">sedRequest<a class="headerlink" href="#sedrequest" title="Permanent link">&para;</a></h2>
 <p>Like <a href="#sed">sed()</a>, but for the request content.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>editorRoute: * -&gt; sedRequest(&quot;foo&quot;, &quot;bar&quot;) -&gt; &quot;https://www.example.org&quot;;
 </code></pre></div>
+
 <h2 id="sedrequestdelim">sedRequestDelim<a class="headerlink" href="#sedrequestdelim" title="Permanent link">&para;</a></h2>
 <p>Like <a href="#seddelim">sedDelim()</a>, but for the request content.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>editorRoute: * -&gt; sedRequestDelim(&quot;foo&quot;, &quot;bar&quot;, &quot;\n&quot;) -&gt; &quot;https://www.example.org&quot;;
 </code></pre></div>
+
 <h2 id="basicauth">basicAuth<a class="headerlink" href="#basicauth" title="Permanent link">&para;</a></h2>
 <p>Enable Basic Authentication</p>
 <p>The filter accepts two parameters, the first mandatory one is the path to the
@@ -3071,6 +3209,7 @@ for Basic authentication password storage, see also
 <div class="highlight"><pre><span></span><code>basicAuth(&quot;/path/to/htpasswd&quot;)
 basicAuth(&quot;/path/to/htpasswd&quot;, &quot;My Website&quot;)
 </code></pre></div>
+
 <h2 id="webhook">webhook<a class="headerlink" href="#webhook" title="Permanent link">&para;</a></h2>
 <p>The <code>webhook</code> filter makes it possible to have your own authentication and
 authorization endpoint as a filter.</p>
@@ -3084,6 +3223,7 @@ authorized, the rest will be unauthorized.</p>
 <div class="highlight"><pre><span></span><code>webhook(&quot;https://custom-webhook.example.org/auth&quot;)
 webhook(&quot;https://custom-webhook.example.org/auth&quot;, &quot;X-Copy-Webhook-Header,X-Copy-Another-Header&quot;)
 </code></pre></div>
+
 <p>The webhook timeout has a default of 2 seconds and can be globally
 changed, if skipper is started with <code>-webhook-timeout=2s</code> flag.</p>
 <h2 id="oauthtokeninfoanyscope">oauthTokeninfoAnyScope<a class="headerlink" href="#oauthtokeninfoanyscope" title="Permanent link">&para;</a></h2>
@@ -3101,6 +3241,7 @@ request to pass.</p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>oauthTokeninfoAnyScope(&quot;s1&quot;, &quot;s2&quot;, &quot;s3&quot;)
 </code></pre></div>
+
 <h2 id="oauthtokeninfoallscope">oauthTokeninfoAllScope<a class="headerlink" href="#oauthtokeninfoallscope" title="Permanent link">&para;</a></h2>
 <p>If skipper is started with <code>-oauth2-tokeninfo-url</code> flag, you can use
 this filter.</p>
@@ -3116,6 +3257,7 @@ request to pass.</p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>oauthTokeninfoAllScope(&quot;s1&quot;, &quot;s2&quot;, &quot;s3&quot;)
 </code></pre></div>
+
 <h2 id="oauthtokeninfoanykv">oauthTokeninfoAnyKV<a class="headerlink" href="#oauthtokeninfoanykv" title="Permanent link">&para;</a></h2>
 <p>If skipper is started with <code>-oauth2-tokeninfo-url</code> flag, you can use
 this filter.</p>
@@ -3133,6 +3275,7 @@ the request to pass.</p>
 <div class="highlight"><pre><span></span><code>oauthTokeninfoAnyKV(&quot;k1&quot;, &quot;v1&quot;, &quot;k2&quot;, &quot;v2&quot;)
 oauthTokeninfoAnyKV(&quot;k1&quot;, &quot;v1&quot;, &quot;k1&quot;, &quot;v2&quot;)
 </code></pre></div>
+
 <h2 id="oauthtokeninfoallkv">oauthTokeninfoAllKV<a class="headerlink" href="#oauthtokeninfoallkv" title="Permanent link">&para;</a></h2>
 <p>If skipper is started with <code>-oauth2-tokeninfo-url</code> flag, you can use
 this filter.</p>
@@ -3149,6 +3292,7 @@ token, it will allow the request to pass.</p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>oauthTokeninfoAllKV(&quot;k1&quot;, &quot;v1&quot;, &quot;k2&quot;, &quot;v2&quot;)
 </code></pre></div>
+
 <h2 id="oauthtokenintrospectionanyclaims">oauthTokenintrospectionAnyClaims<a class="headerlink" href="#oauthtokenintrospectionanyclaims" title="Permanent link">&para;</a></h2>
 <p>The filter accepts variable number of string arguments, which are used
 to validate the incoming token from the <code>Authorization: Bearer
@@ -3162,6 +3306,7 @@ token, it will allow the request to pass.</p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>oauthTokenintrospectionAnyClaims(&quot;c1&quot;, &quot;c2&quot;, &quot;c3&quot;)
 </code></pre></div>
+
 <h2 id="oauthtokenintrospectionallclaims">oauthTokenintrospectionAllClaims<a class="headerlink" href="#oauthtokenintrospectionallclaims" title="Permanent link">&para;</a></h2>
 <p>The filter accepts variable number of string arguments, which are used
 to validate the incoming token from the <code>Authorization: Bearer
@@ -3175,6 +3320,7 @@ token, it will allow the request to pass.</p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>oauthTokenintrospectionAllClaims(&quot;c1&quot;, &quot;c2&quot;, &quot;c3&quot;)
 </code></pre></div>
+
 <h2 id="oauthtokenintrospectionanykv">oauthTokenintrospectionAnyKV<a class="headerlink" href="#oauthtokenintrospectionanykv" title="Permanent link">&para;</a></h2>
 <p>The filter accepts an even number of variable arguments of type
 string, which are used to validate the incoming token from the
@@ -3190,6 +3336,7 @@ it will allow the request to pass.</p>
 <div class="highlight"><pre><span></span><code>oauthTokenintrospectionAnyKV(&quot;k1&quot;, &quot;v1&quot;, &quot;k2&quot;, &quot;v2&quot;)
 oauthTokenintrospectionAnyKV(&quot;k1&quot;, &quot;v1&quot;, &quot;k1&quot;, &quot;v2&quot;)
 </code></pre></div>
+
 <h2 id="oauthtokenintrospectionallkv">oauthTokenintrospectionAllKV<a class="headerlink" href="#oauthtokenintrospectionallkv" title="Permanent link">&para;</a></h2>
 <p>The filter accepts an even number of variable arguments of type
 string, which are used to validate the incoming token from the
@@ -3204,6 +3351,7 @@ it will allow the request to pass.</p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>oauthTokenintrospectionAllKV(&quot;k1&quot;, &quot;v1&quot;, &quot;k2&quot;, &quot;v2&quot;)
 </code></pre></div>
+
 <h2 id="secureoauthtokenintrospectionanyclaims">secureOauthTokenintrospectionAnyClaims<a class="headerlink" href="#secureoauthtokenintrospectionanyclaims" title="Permanent link">&para;</a></h2>
 <p>The filter accepts variable number of string arguments, which are used
 to validate the incoming token from the <code>Authorization: Bearer
@@ -3219,6 +3367,7 @@ token, it will allow the request to pass.</p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>secureOauthTokenintrospectionAnyClaims(&quot;issuerURL&quot;, &quot;client-id&quot;, &quot;client-secret&quot;, &quot;claim1&quot;, &quot;claim2&quot;)
 </code></pre></div>
+
 <p>Read client-id and client-secret from environment variables
 <div class="highlight"><pre><span></span><code>secureOauthTokenintrospectionAnyClaims(&quot;issuerURL&quot;, &quot;&quot;, &quot;&quot;, &quot;claim1&quot;, &quot;claim2&quot;)
 </code></pre></div></p>
@@ -3237,6 +3386,7 @@ token, it will allow the request to pass.</p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>secureOauthTokenintrospectionAllClaims(&quot;issuerURL&quot;, &quot;client-id&quot;, &quot;client-secret&quot;, &quot;claim1&quot;, &quot;claim2&quot;)
 </code></pre></div>
+
 <p>Read client-id and client-secret from environment variables
 <div class="highlight"><pre><span></span><code>secureOauthTokenintrospectionAllClaims(&quot;issuerURL&quot;, &quot;&quot;, &quot;&quot;, &quot;claim1&quot;, &quot;claim2&quot;)
 </code></pre></div></p>
@@ -3256,6 +3406,7 @@ it will allow the request to pass.</p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>secureOauthTokenintrospectionAnyKV(&quot;issuerURL&quot;, &quot;client-id&quot;, &quot;client-secret&quot;, &quot;k1&quot;, &quot;v1&quot;, &quot;k2&quot;, &quot;v2&quot;)
 </code></pre></div>
+
 <p>Read client-id and client-secret from environment variables
 <div class="highlight"><pre><span></span><code>secureOauthTokenintrospectionAnyKV(&quot;issuerURL&quot;, &quot;&quot;, &quot;&quot;, &quot;k1&quot;, &quot;v1&quot;, &quot;k2&quot;, &quot;v2&quot;)
 </code></pre></div></p>
@@ -3275,6 +3426,7 @@ it will allow the request to pass.</p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>secureOauthTokenintrospectionAllKV(&quot;issuerURL&quot;, &quot;client-id&quot;, &quot;client-secret&quot;, &quot;k1&quot;, &quot;v1&quot;, &quot;k2&quot;, &quot;v2&quot;)
 </code></pre></div>
+
 <p>Read client-id and client-secret from environment variables
 <div class="highlight"><pre><span></span><code>secureOauthTokenintrospectionAllKV(&quot;issuerURL&quot;, &quot;&quot;, &quot;&quot;, &quot;k1&quot;, &quot;v1&quot;, &quot;k2&quot;, &quot;v2&quot;)
 </code></pre></div></p>
@@ -3289,6 +3441,7 @@ then it does not have any effect.</p>
 <div class="highlight"><pre><span></span><code>forwardToken(&quot;X-Tokeninfo-Forward&quot;)
 forwardToken(&quot;X-Tokeninfo-Forward&quot;, &quot;access_token&quot;)
 </code></pre></div>
+
 <h2 id="oauthgrant">oauthGrant<a class="headerlink" href="#oauthgrant" title="Permanent link">&para;</a></h2>
 <p>Enables authentication and authorization with an OAuth2 authorization code grant flow as
 specified by <a href="https://tools.ietf.org/html/rfc6749#section-1.3.1">RFC 6749 Section 1.3.1</a>.
@@ -3313,6 +3466,7 @@ instructions.</p>
     -&gt; oauthGrant()
     -&gt; &quot;http://localhost:9090&quot;;
 </code></pre></div>
+
 <p>Skipper arguments:</p>
 <table>
 <thead>
@@ -3408,6 +3562,7 @@ callback:
     -&gt; grantCallback()
     -&gt; &lt;shunt&gt;;
 </code></pre></div>
+
 <p>Skipper arguments:</p>
 <table>
 <thead>
@@ -3432,6 +3587,7 @@ response header to an empty value after a successful token revocation.</p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>grantLogout()
 </code></pre></div>
+
 <p>Skipper arguments:</p>
 <table>
 <thead>
@@ -3458,6 +3614,7 @@ See <a href="#oidcclaimsquery">oidcClaimsQuery</a> for more information.</p>
 <div class="highlight"><pre><span></span><code>oauthGrant() -&gt; grantClaimsQuery(&quot;/path:@_:sub%\&quot;userid\&quot;&quot;)
 oauthGrant() -&gt; grantClaimsQuery(&quot;/path:scope.#[==\&quot;email\&quot;]&quot;)
 </code></pre></div>
+
 <p>Skipper arguments:</p>
 <table>
 <thead>
@@ -3480,6 +3637,7 @@ oauthGrant() -&gt; grantClaimsQuery(&quot;/path:scope.#[==\&quot;email\&quot;]&q
     &quot;http://target.example.com/subpath/callback&quot;, &quot;email profile&quot;, &quot;name email picture&quot;,
     &quot;parameter=value&quot;, &quot;X-Auth-Authorization:claims.email&quot;)
 </code></pre></div>
+
 <p>The filter needs the following parameters:</p>
 <ul>
 <li><strong>OpenID Connect Provider URL</strong> For example Google OpenID Connect is available on <code>https://accounts.google.com</code></li>
@@ -3497,6 +3655,7 @@ oauthGrant() -&gt; grantClaimsQuery(&quot;/path:scope.#[==\&quot;email\&quot;]&q
     &quot;http://target.example.com/subpath/callback&quot;, &quot;email profile&quot;, &quot;name email picture&quot;,
     &quot;parameter=value&quot;, &quot;X-Auth-Authorization:claims.email&quot;)
 </code></pre></div>
+
 <p>The filter needs the following parameters:</p>
 <ul>
 <li><strong>OpenID Connect Provider URL</strong> For example Google OpenID Connect is available on <code>https://accounts.google.com</code></li>
@@ -3514,6 +3673,7 @@ oauthGrant() -&gt; grantClaimsQuery(&quot;/path:scope.#[==\&quot;email\&quot;]&q
     &quot;http://target.example.com/subpath/callback&quot;, &quot;email profile&quot;, &quot;name email picture&quot;,
     &quot;parameter=value&quot;, &quot;X-Auth-Authorization:claims.email&quot;)
 </code></pre></div>
+
 <p>The filter needs the following parameters:</p>
 <ul>
 <li><strong>OpenID Connect Provider URL</strong> For example Google OpenID Connect is available on <code>https://accounts.google.com</code></li>
@@ -3536,9 +3696,11 @@ oauthGrant() -&gt; grantClaimsQuery(&quot;/path:scope.#[==\&quot;email\&quot;]&q
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>requestCookie(&quot;test-session&quot;, &quot;abc&quot;)
 </code></pre></div>
+
 <h2 id="oidcclaimsquery">oidcClaimsQuery<a class="headerlink" href="#oidcclaimsquery" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>oidcClaimsQuery(&quot;&lt;path&gt;:[&lt;query&gt;]&quot;, ...)
 </code></pre></div>
+
 <p>The filter is chained after <code>oauthOidc*</code> authentication as it parses the ID token that has been saved in the internal <code>StateBag</code> for this request. It validates access control of the requested path against the defined query.
 It accepts one or more arguments, thats is a path prefix which is granted access to when the query definition evaluates positive.
 It supports exact matches of keys, key-value pairs, introspecting of arrays or exact and wildcard matching of nested structures.
@@ -3554,14 +3716,17 @@ The query definition can be one or more queries per path, space delimited. The q
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Some One&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
+
 <p>Access to path <code>/</code> would be granted to everyone in <code>example.org</code>, however path <code>/login</code> only to those being member of <code>group "appX-Tester"</code>:</p>
 <div class="highlight"><pre><span></span><code>oauthOidcAnyClaims(...) -&gt; oidcClaimsQuery(&quot;/login:groups.#[==\&quot;appX-Tester\&quot;]&quot;, &quot;/:@_:email%\&quot;*@example.org\&quot;&quot;)
 </code></pre></div>
+
 <p>For above ID token following query definitions would also be positive:</p>
 <div class="highlight"><pre><span></span><code>oidcClaimsQuery(&quot;/:email&quot;)
 oidcClaimsQuery(&quot;/another/path:groups.#[%\&quot;CD-*\&quot;]&quot;)
 oidcClaimsQuery(&quot;/:name%\&quot;*One\&quot;&quot;, &quot;/path:groups.#[%\&quot;*-Test-Users\&quot;] groups.#[==\&quot;Purchasing-Department\&quot;]&quot;)
 </code></pre></div>
+
 <p>As of now there is no negative/deny rule possible. The first matching path is evaluated against the defined query/queries and if positive, permitted.</p>
 <h2 id="responsecookie">responseCookie<a class="headerlink" href="#responsecookie" title="Permanent link">&para;</a></h2>
 <p>Appends cookies to responses in the &ldquo;Set-Cookie&rdquo; header. The response cookie
@@ -3575,6 +3740,7 @@ name and value.</p>
 responseCookie(&quot;test-session&quot;, &quot;abc&quot;, 31536000),
 responseCookie(&quot;test-session&quot;, &quot;abc&quot;, 31536000, &quot;change-only&quot;)
 </code></pre></div>
+
 <h2 id="jscookie">jsCookie<a class="headerlink" href="#jscookie" title="Permanent link">&para;</a></h2>
 <p>The JS cookie behaves exactly as the response cookie, but it does not set the
 <code>HttpOnly</code> directive, so these cookies will be accessible from JS code running
@@ -3582,6 +3748,7 @@ in web browsers.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>jsCookie(&quot;test-session-info&quot;, &quot;abc-debug&quot;, 31536000, &quot;change-only&quot;)
 </code></pre></div>
+
 <h2 id="consecutivebreaker">consecutiveBreaker<a class="headerlink" href="#consecutivebreaker" title="Permanent link">&para;</a></h2>
 <p>This breaker opens when the proxy could not connect to a backend or received
 a &gt;=500 status code at least N times in a row. When open, the proxy returns
@@ -3624,6 +3791,7 @@ backendHealthcheck: Path(&quot;/healthcheck&quot;)
   -&gt; disableBreaker()
   -&gt; &quot;https://foo.backend.net&quot;;
 </code></pre></div>
+
 <p>See also the <a href="https://godoc.org/github.com/zalando/skipper/circuit">circuit breaker docs</a>.</p>
 <p>Can be used as <a href="../egress/">egress</a> feature.</p>
 <h2 id="localratelimit">~~localRatelimit~~<a class="headerlink" href="#localratelimit" title="Permanent link">&para;</a></h2>
@@ -3642,6 +3810,7 @@ N is the number of individual clients put into the same bucket, M the
 maximum number of requests allowed:</p>
 <div class="highlight"><pre><span></span><code>memory = N * M * 15 byte
 </code></pre></div>
+
 <p>Memory usage examples:</p>
 <ul>
 <li>5MB   for M=3  and N=100000</li>
@@ -3658,6 +3827,7 @@ maximum number of requests allowed:</p>
 clientRatelimit(3, &quot;1m&quot;, &quot;Authorization&quot;)
 clientRatelimit(3, &quot;1m&quot;, &quot;X-Foo,Authorization,X-Bar&quot;)
 </code></pre></div>
+
 <p>See also the <a href="https://godoc.org/github.com/zalando/skipper/ratelimit">ratelimit docs</a>.</p>
 <h2 id="ratelimit">ratelimit<a class="headerlink" href="#ratelimit" title="Permanent link">&para;</a></h2>
 <p>Per skipper instance calculated ratelimit, that allows forwarding a
@@ -3673,6 +3843,7 @@ command line flag <code>-enable-ratelimits</code>.</p>
 ratelimit(300, &quot;1h&quot;)
 ratelimit(4000, &quot;1m&quot;, 503)
 </code></pre></div>
+
 <p>See also the <a href="https://godoc.org/github.com/zalando/skipper/ratelimit">ratelimit docs</a>.</p>
 <h2 id="clusterclientratelimit">clusterClientRatelimit<a class="headerlink" href="#clusterclientratelimit" title="Permanent link">&para;</a></h2>
 <p>This ratelimit is calculated across all skipper peers and the same
@@ -3696,6 +3867,7 @@ You need to run skipper with command line flags <code>-enable-swarm</code> and
 clusterClientRatelimit(&quot;groupA&quot;, 10, &quot;1h&quot;, &quot;Authorization&quot;)
 clusterClientRatelimit(&quot;groupA&quot;, 10, &quot;1h&quot;, &quot;X-Forwarded-For,Authorization,User-Agent&quot;)
 </code></pre></div>
+
 <p>See also the <a href="https://godoc.org/github.com/zalando/skipper/ratelimit">ratelimit docs</a>.</p>
 <h2 id="clusterratelimit">clusterRatelimit<a class="headerlink" href="#clusterratelimit" title="Permanent link">&para;</a></h2>
 <p>This ratelimit is calculated across all skipper peers and the same
@@ -3715,6 +3887,7 @@ skipper with command line flags <code>-enable-swarm</code> and
 clusterRatelimit(&quot;groupB&quot;, 300, &quot;1h&quot;)
 clusterRatelimit(&quot;groupB&quot;, 4000, &quot;1m&quot;, 503)
 </code></pre></div>
+
 <p>See also the <a href="https://godoc.org/github.com/zalando/skipper/ratelimit">ratelimit docs</a>.</p>
 <h2 id="backendratelimit">backendRatelimit<a class="headerlink" href="#backendratelimit" title="Permanent link">&para;</a></h2>
 <p>The filter configures request rate limit for each backend endpoint within rate limit group across all Skipper peers.
@@ -3780,6 +3953,7 @@ only set on the response.</p>
 corsOrigin(&quot;https://www.example.org&quot;)
 corsOrigin(&quot;https://www.example.org&quot;, &quot;http://localhost:9001&quot;)
 </code></pre></div>
+
 <h2 id="headertoquery">headerToQuery<a class="headerlink" href="#headertoquery" title="Permanent link">&para;</a></h2>
 <p>Filter which assigns the value of a given header from the incoming Request to a given query param</p>
 <p>Parameters:</p>
@@ -3790,6 +3964,7 @@ corsOrigin(&quot;https://www.example.org&quot;, &quot;http://localhost:9001&quot
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>headerToQuery(&quot;X-Foo-Header&quot;, &quot;foo-query-param&quot;)
 </code></pre></div>
+
 <p>The above filter will set <code>foo-query-param</code> query param respectively to the <code>X-Foo-Header</code> header
 and will override the value if the queryparam exists already</p>
 <h2 id="querytoheader">queryToHeader<a class="headerlink" href="#querytoheader" title="Permanent link">&para;</a></h2>
@@ -3806,6 +3981,7 @@ incoming Request to a given Header with optional format string value.</p>
 <div class="highlight"><pre><span></span><code>queryToHeader(&quot;foo-query-param&quot;, &quot;X-Foo-Header&quot;)
 queryToHeader(&quot;access_token&quot;, &quot;Authorization&quot;, &quot;Bearer %s&quot;)
 </code></pre></div>
+
 <p>The first filter will set <code>X-Foo-Header</code> header respectively to the <code>foo-query-param</code> query param
 and will not override the value if the header exists already.</p>
 <p>The second filter will set <code>Authorization</code> header to the
@@ -3818,6 +3994,7 @@ the access log for specific route while access log, in general, is enabled or vi
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>accessLogDisabled(&quot;false&quot;)
 </code></pre></div>
+
 <h2 id="disableaccesslog">disableAccessLog<a class="headerlink" href="#disableaccesslog" title="Permanent link">&para;</a></h2>
 <p>Filter overrides global Skipper <code>AccessLogDisabled</code> setting and allows to turn-off the access log for specific route
 while access log, in general, is enabled. It is also possible to disable access logs only for a subset of response codes
@@ -3830,6 +4007,7 @@ from backend by providing an optional list of response code prefixes.</p>
 <div class="highlight"><pre><span></span><code>disableAccessLog()
 disableAccessLog(1, 301, 40)
 </code></pre></div>
+
 <p>This disables logs of all requests with status codes <code>1xxs</code>, <code>301</code> and all <code>40xs</code>.</p>
 <h2 id="enableaccesslog">enableAccessLog<a class="headerlink" href="#enableaccesslog" title="Permanent link">&para;</a></h2>
 <p>Filter overrides global Skipper <code>AccessLogDisabled</code> setting and allows to turn-on the access log for specific route
@@ -3843,6 +4021,7 @@ from backend by providing an optional list of response code prefixes.</p>
 <div class="highlight"><pre><span></span><code>enableAccessLog()
 enableAccessLog(1, 301, 20)
 </code></pre></div>
+
 <p>This enables logs of all requests with status codes <code>1xxs</code>, <code>301</code> and all <code>20xs</code>.</p>
 <h2 id="auditlog">auditLog<a class="headerlink" href="#auditlog" title="Permanent link">&para;</a></h2>
 <p>Filter <code>auditLog()</code> logs the request and N bytes of the body into the
@@ -3851,6 +4030,7 @@ log file. N defaults to 1024 and can be overidden with
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>auditLog()
 </code></pre></div>
+
 <h2 id="unverifiedauditlog">unverifiedAuditLog<a class="headerlink" href="#unverifiedauditlog" title="Permanent link">&para;</a></h2>
 <p>Filter <code>unverifiedAuditLog()</code> adds a Header, <code>X-Unverified-Audit</code>, to the request, the content of which, will also
 be written to the log file. By default, the value of the audit header will be equal to the value of the <code>sub</code> key, from
@@ -3862,8 +4042,10 @@ a default value of <code>invalid-sub</code> will be populated in the header inst
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>unverifiedAuditLog()
 </code></pre></div>
+
 <div class="highlight"><pre><span></span><code>unverifiedAuditLog(&quot;azp&quot;)
 </code></pre></div>
+
 <h2 id="setdynamicbackendhostfromheader">setDynamicBackendHostFromHeader<a class="headerlink" href="#setdynamicbackendhostfromheader" title="Permanent link">&para;</a></h2>
 <p>Filter sets the backend host for a route, value is taken from the provided header.
 Can be used only with <code>&lt;dynamic&gt;</code> backend. Meant to be used together with <a href="#setdynamicbackendschemefromheader">setDynamicBackendSchemeFromHeader</a>
@@ -3876,6 +4058,7 @@ or <a href="#setdynamicbackendurl">setDynamicBackendUrl</a> filters, the latter 
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>foo: * -&gt; setDynamicBackendHostFromHeader(&quot;X-Forwarded-Host&quot;) -&gt; &lt;dynamic&gt;;
 </code></pre></div>
+
 <h2 id="setdynamicbackendschemefromheader">setDynamicBackendSchemeFromHeader<a class="headerlink" href="#setdynamicbackendschemefromheader" title="Permanent link">&para;</a></h2>
 <p>Filter sets the backend scheme for a route, value is taken from the provided header.
 Can be used only with <code>&lt;dynamic&gt;</code> backend. Meant to be used together with <a href="#setdynamicbackendhostfromheader">setDynamicBackendHostFromHeader</a>
@@ -3888,6 +4071,7 @@ or <a href="#setdynamicbackendhost">setDynamicBackendHost</a>. If this filter ch
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>foo: * -&gt; setDynamicBackendSchemeFromHeader(&quot;X-Forwarded-Proto&quot;) -&gt; &lt;dynamic&gt;;
 </code></pre></div>
+
 <h2 id="setdynamicbackendurlfromheader">setDynamicBackendUrlFromHeader<a class="headerlink" href="#setdynamicbackendurlfromheader" title="Permanent link">&para;</a></h2>
 <p>Filter sets the backend url for a route, value is taken from the provided header.
 Can be used only with <code>&lt;dynamic&gt;</code> backend.</p>
@@ -3898,6 +4082,7 @@ Can be used only with <code>&lt;dynamic&gt;</code> backend.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>foo: * -&gt; setDynamicBackendUrlFromHeader(&quot;X-Custom-Url&quot;) -&gt; &lt;dynamic&gt;;
 </code></pre></div>
+
 <h2 id="setdynamicbackendhost">setDynamicBackendHost<a class="headerlink" href="#setdynamicbackendhost" title="Permanent link">&para;</a></h2>
 <p>Filter sets the backend host for a route. Can be used only with <code>&lt;dynamic&gt;</code> backend.
 Meant to be used together with <a href="#setdynamicbackendschemefromheader">setDynamicBackendSchemeFromHeader</a>
@@ -3910,6 +4095,7 @@ or <a href="#setdynamicbackendurl">setDynamicBackendUrl</a>, the latter ones wou
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>foo: * -&gt; setDynamicBackendHost(&quot;example.com&quot;) -&gt; &lt;dynamic&gt;;
 </code></pre></div>
+
 <h2 id="setdynamicbackendscheme">setDynamicBackendScheme<a class="headerlink" href="#setdynamicbackendscheme" title="Permanent link">&para;</a></h2>
 <p>Filter sets the backend scheme for a route. Can be used only with <code>&lt;dynamic&gt;</code> backend.
 Meant to be used together with <a href="#setdynamicbackendhostfromheader">setDynamicBackendHostFromHeader</a>
@@ -3922,6 +4108,7 @@ or <a href="#setdynamicbackendhost">setDynamicBackendHost</a>. If this filter ch
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>foo: * -&gt; setDynamicBackendScheme(&quot;https&quot;) -&gt; &lt;dynamic&gt;;
 </code></pre></div>
+
 <h2 id="setdynamicbackendurl">setDynamicBackendUrl<a class="headerlink" href="#setdynamicbackendurl" title="Permanent link">&para;</a></h2>
 <p>Filter sets the backend url for a route. Can be used only with <code>&lt;dynamic&gt;</code> backend.</p>
 <p>Parameters:</p>
@@ -3931,6 +4118,7 @@ or <a href="#setdynamicbackendhost">setDynamicBackendHost</a>. If this filter ch
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>foo: * -&gt; setDynamicBackendUrl(&quot;https://example.com&quot;) -&gt; &lt;dynamic&gt;;
 </code></pre></div>
+
 <h2 id="apiusagemonitoring">apiUsageMonitoring<a class="headerlink" href="#apiusagemonitoring" title="Permanent link">&para;</a></h2>
 <p>The <code>apiUsageMonitoring</code> filter adds API related metrics to the Skipper monitoring. It is by default not activated. Activate
 it by providing the <code>-enable-api-usage-monitoring</code> flag at Skipper startup. In its deactivated state, it is still
@@ -3965,6 +4153,7 @@ flag in order to get those metrics.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>skipper -metrics-flavour prometheus -enable-api-usage-monitoring -api-usage-monitoring-realm-keys<span class="o">=</span><span class="s2">&quot;realm&quot;</span> -api-usage-monitoring-client-keys<span class="o">=</span><span class="s2">&quot;managed-id&quot;</span> api-usage-monitoring-realms-tracking-pattern<span class="o">=</span><span class="s2">&quot;services,users&quot;</span>
 </code></pre></div>
+
 <p>The structure of the metrics is all of those elements, separated by <code>.</code> dots:</p>
 <table>
 <thead>
@@ -4023,6 +4212,7 @@ apiUsageMonitoring.custom.orders-backend.staging.orders-api.GET.foo/orders/{orde
                                                                                        | + Metric Name
                                                                                        + Client
 </code></pre></div>
+
 <p>The available metrics are:</p>
 <table>
 <thead>
@@ -4081,6 +4271,7 @@ apiUsageMonitoring.custom.orders-backend.staging.orders-api.*.*.users.mmusterman
                                                                 |     + Client
                                                                 + Realm
 </code></pre></div>
+
 <p>The available metrics are:</p>
 <table>
 <thead>
@@ -4177,6 +4368,7 @@ metrics are captured, but the creation of the route does not fail.</p>
                 <span class="nt">summary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Only services `orders-service` and `shipment-service` are tracked.</span>
                 <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;(orders</span><span class="err">\</span><span class="s">-service|shipment</span><span class="err">\</span><span class="s">-service)&quot;</span>
 </code></pre></div>
+
 <p>Configuration Example:</p>
 <div class="highlight"><pre><span></span><code>apiUsageMonitoring(`
     {
@@ -4199,21 +4391,27 @@ metrics are captured, but the creation of the route does not fail.</p>
     }
 `)
 </code></pre></div>
+
 <p>Based on the previous configuration, here is an example of a counter metric.</p>
 <div class="highlight"><pre><span></span><code>apiUsageMonitoring.custom.my-app.staging.orders-api.GET.foo/orders/{order-id}.*.*.http_count
 </code></pre></div>
+
 <p>Note that a missing <code>tag</code> in the configuration will be replaced by <code>{no-tag}</code> in the metric:</p>
 <div class="highlight"><pre><span></span><code>apiUsageMonitoring.custom.my-app.{no-tag}.customers-api.GET.foo/customers.*.*.http_count
 </code></pre></div>
+
 <p>Here is the <em>Prometheus</em> query to obtain it.</p>
 <div class="highlight"><pre><span></span><code>sum(rate(skipper_custom_total{key=&quot;apiUsageMonitoring.custom.my-app.staging.orders-api.GET.foo/orders/{order-id}.*.*.http_count&quot;}[60s])) by (key)
 </code></pre></div>
+
 <p>Here is an example of a histogram metric.</p>
 <div class="highlight"><pre><span></span><code>apiUsageMonitoring.custom.my_app.staging.orders-api.POST.foo/orders.latency
 </code></pre></div>
+
 <p>Here is the <em>Prometheus</em> query to obtain it.</p>
 <div class="highlight"><pre><span></span><code>histogram_quantile(0.5, sum(rate(skipper_custom_duration_seconds_bucket{key=&quot;apiUsageMonitoring.custom.my-app.staging.orders-api.POST.foo/orders.*.*.latency&quot;}[60s])) by (le, key))
 </code></pre></div>
+
 <p>NOTE: Non configured paths will be tracked with <code>{unknown}</code> Application ID, Tag, API ID
 and path template.</p>
 <p>However, if all <code>application_id</code>s of your configuration refer to the same application,
@@ -4221,6 +4419,7 @@ the filter assume that also non configured paths will be directed to this applic
 E.g.:</p>
 <div class="highlight"><pre><span></span><code>apiUsageMonitoring.custom.my-app.{unknown}.{unknown}.GET.{no-match}.*.*.http_count
 </code></pre></div>
+
 <h2 id="lifo">lifo<a class="headerlink" href="#lifo" title="Permanent link">&para;</a></h2>
 <p>This Filter changes skipper to handle the route with a bounded last in
 first out queue (LIFO), instead of an unbounded first in first out
@@ -4245,6 +4444,7 @@ codes in case of overrun. All scheduler filters return HTTP status code:</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>lifo(100, 150, &quot;10s&quot;)
 </code></pre></div>
+
 <p>The above configuration will set MaxConcurrency to 100, MaxQueueSize
 to 150 and Timeout to 10 seconds.</p>
 <p>When multiple lifo filters are set in a route, only one of them will be
@@ -4261,6 +4461,7 @@ applied. It is undefined which one.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>lifoGroup(&quot;mygroup&quot;, 100, 150, &quot;10s&quot;)
 </code></pre></div>
+
 <p>The above configuration will set MaxConcurrency to 100, MaxQueueSize
 to 150 and Timeout to 10 seconds for the lifoGroup &ldquo;mygroup&rdquo;, that can
 be shared between multiple routes.</p>
@@ -4279,6 +4480,7 @@ incoming request also has them unescaped.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>Path(&quot;/api/*id) -&gt; rfcPath() -&gt; &quot;http://api-backend&quot;
 </code></pre></div>
+
 <p>In the above case, if the incoming request has something like foo%2Fbar in the id
 position, the api-backend service will also receive it in the format foo%2Fbar, while
 without the rfcPath() filter the outgoing request path will become /api/foo/bar.</p>
@@ -4287,6 +4489,7 @@ backend. Example:</p>
 <div class="highlight"><pre><span></span><code>api: Path(&quot;/api/:id&quot;) -&gt; setPath(&quot;/api/${id}/summary&quot;) -&gt; &quot;http://api-backend&quot;;
 patch: Path(&quot;/api/*id&quot;) -&gt; rfcPath() -&gt; &lt;loopback&gt;;
 </code></pre></div>
+
 <p>In the above case, if the incoming request path is /api/foo%2Fbar, it will match
 the &lsquo;patch&rsquo; route, and then the patched request will match the api route, and
 the api-backend service will receive a request with the path /api/foo%2Fbar/summary.</p>
@@ -4304,6 +4507,7 @@ create a security issue for your application.</p>
 <div class="highlight"><pre><span></span><code>egress1: Method(&quot;POST&quot;) &amp;&amp; Host(&quot;api.example.com&quot;) -&gt; bearerinjector(&quot;/tmp/secrets/write-token&quot;) -&gt; &quot;https://api.example.com/shoes&quot;;
 egress2: Method(&quot;GET&quot;) &amp;&amp; Host(&quot;api.example.com&quot;) -&gt; bearerinjector(&quot;/tmp/secrets/read-token&quot;) -&gt; &quot;https://api.example.com/shoes&quot;;
 </code></pre></div>
+
 <p>To integrate with the <code>bearerinjector</code> filter you need to run skipper
 with <code>-credentials-paths=/tmp/secrets</code> and specify an update interval
 <code>-credentials-update-interval=10s</code>. Files in the credentials path can
@@ -4334,6 +4538,7 @@ key in the context, and the stateBagToTag() filter in the next step stores it in
 the opentracing tag &ldquo;client_id&rdquo;:</p>
 <div class="highlight"><pre><span></span><code>foo: * -&gt; oauthTokeninfoAllScope(&quot;address_service.all&quot;) -&gt; stateBagToTag(&quot;auth-user&quot;, &quot;client_id&quot;) -&gt; &quot;https://backend.example.org&quot;;
 </code></pre></div>
+
 <h2 id="tracingtag">tracingTag<a class="headerlink" href="#tracingtag" title="Permanent link">&para;</a></h2>
 <p>This filter adds an opentracing tag.</p>
 <p>Syntax:
@@ -4351,6 +4556,7 @@ If a template placeholder can&rsquo;t be resolved then filter does not set the t
 <p>This filter sets the name of the outgoing (client span) in opentracing. The default name is &ldquo;proxy&rdquo;. Example:</p>
 <div class="highlight"><pre><span></span><code>tracingSpanName(&quot;api-operation&quot;)
 </code></pre></div>
+
 <h2 id="originmarker">originMarker<a class="headerlink" href="#originmarker" title="Permanent link">&para;</a></h2>
 <p>This filter is used to measure the time it took to create a route. Other than that, it&rsquo;s a no-op.
 You can include the same origin marker when you re-create the route. As long as the <code>origin</code> and <code>id</code> are the same, the route creation time will not be measured again.
@@ -4364,6 +4570,7 @@ If there are multiple origin markers with the same origin, the earliest timestam
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>originMarker(&quot;apiUsageMonitoring&quot;, &quot;deployment1&quot;, &quot;2019-08-30T09:55:51Z&quot;)
 </code></pre></div>
+
 <h2 id="fadein">fadeIn<a class="headerlink" href="#fadein" title="Permanent link">&para;</a></h2>
 <p>When this filter is set, and the route has a load balanced backend, then the newly added endpoints will receive
 the traffic in a gradually increasing way, starting from their detection for the specified duration, after which
@@ -4383,6 +4590,7 @@ the fade-in curve, based on the following equation:</p>
 <div class="highlight"><pre><span></span><code>fadeIn(&quot;3m&quot;)
 fadeIn(&quot;3m&quot;, 1.5)
 </code></pre></div>
+
 <h2 id="endpointcreated">endpointCreated<a class="headerlink" href="#endpointcreated" title="Permanent link">&para;</a></h2>
 <p>This filter marks the creation time of a load balanced endpoint. When used together with the fadeIn
 filter, it prevents missing the detection of a new backend instance with the same hostname. This filter is
@@ -4395,6 +4603,7 @@ typically automatically appended, and it&rsquo;s parameters are based on externa
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code>endpointCreated(&quot;http://10.0.0.1:8080&quot;, &quot;2020-12-18T15:30:00Z01:00&quot;)
 </code></pre></div>
+
 <h2 id="consistenthashkey">consistentHashKey<a class="headerlink" href="#consistenthashkey" title="Permanent link">&para;</a></h2>
 <p>This filter sets the request key used by the <a href="../backends/#load-balancer-backend"><code>consistentHash</code></a> algorithm to select the backend endpoint.</p>
 <p>Parameters:</p>
@@ -4412,6 +4621,23 @@ The algorithm will use the default key if any of the template placeholders can&r
 <div class="highlight"><pre><span></span><code>consistentHashKey(&quot;${request.header.Authorization}&quot;)
 consistentHashKey(&quot;${request.source}&quot;) // same as the default key
 </code></pre></div></p>
+<h2 id="consistenthashbalancefactor">consistentHashBalanceFactor<a class="headerlink" href="#consistenthashbalancefactor" title="Permanent link">&para;</a></h2>
+<p>This filter sets the balance factor used by the <a href="../backends/#load-balancer-backend"><code>consistentHash</code></a> algorithm to prevent a single backend endpoint from being overloaded.
+The number of in-flight requests for an endpoint can be no higher than <code>(average-in-flight-requests * balanceFactor) + 1</code>.
+This is helpful in the case where certain keys are very popular and threaten to overload the endpoint they are mapped to.
+<a href="https://ai.googleblog.com/2017/04/consistent-hashing-with-bounded-loads.html">Further Details</a>.</p>
+<p>Parameters:</p>
+<ul>
+<li>balanceFactor: A float or int, must be &gt;= 1</li>
+</ul>
+<p>Examples:</p>
+<p><div class="highlight"><pre><span></span><code>pr: Path(&quot;/products/:productId&quot;)
+    -&gt; consistentHashKey(&quot;${productId}&quot;)
+    -&gt; consistentHashBalanceFactor(1.25)
+    -&gt; &lt;consistentHash, &quot;http://127.0.0.1:9998&quot;, &quot;http://127.0.0.1:9997&quot;&gt;;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>consistentHashBalanceFactor(3)
+</code></pre></div></p>
                 
               
               
@@ -4422,45 +4648,46 @@ consistentHashKey(&quot;${request.source}&quot;) // same as the default key
             </article>
           </div>
         </div>
+        
       </main>
       
         
 <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
         
-          <a href="../.." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Introduction" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Introduction
             </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Introduction
-              </div>
-            </div>
-          </a>
+          </div>
+        </a>
+      
+      
         
-        
-          <a href="../predicates/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Predicates
-              </div>
+        <a href="../predicates/" class="md-footer__link md-footer__link--next" aria-label="Next: Predicates" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Predicates
             </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -4470,6 +4697,7 @@ consistentHashKey(&quot;${request.source}&quot;) // same as the default key
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs
         </a>
+        
       </div>
       
     </div>
@@ -4477,19 +4705,13 @@ consistentHashKey(&quot;${request.source}&quot;) // same as the default key
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
-      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
-      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
-      
-      <script>
-        app = initialize({
-          base: "../..",
-          features: [],
-          search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    
+      <script src="../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
       
     
   </body>
