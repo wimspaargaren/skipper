@@ -812,6 +812,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#response-serving" class="md-nav__link">
+    Response serving
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1406,6 +1413,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response-serving" class="md-nav__link">
+    Response serving
+  </a>
   
 </li>
       
@@ -2257,6 +2271,12 @@ Showing top 10 nodes out of 303
 --&gt; opens browser with SVG
 </code></pre></div>
 <p><img alt="pprof svg in web browser" src="../../img/skipper_pprof.svg" /></p>
+<h2 id="response-serving">Response serving<a class="headerlink" href="#response-serving" title="Permanent link">&para;</a></h2>
+<p>When serving a response from a backend, Skipper serves first the HTTP
+response headers. After that Skipper streams the response payload and
+uses one 8kB buffer to stream the data through this 8kB buffer. It
+uses Flush() to make sure the 8kB chunk is written to the client.
+Details can be observed by opentracing in the logs of the <a href="#proxy-span">Proxy Span</a>.</p>
                 
               
               
