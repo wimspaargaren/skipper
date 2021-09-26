@@ -33,6 +33,7 @@ import (
 	"github.com/zalando/skipper/filters/fadein"
 	logfilter "github.com/zalando/skipper/filters/log"
 	ratelimitfilters "github.com/zalando/skipper/filters/ratelimit"
+	"github.com/zalando/skipper/h2c"
 	"github.com/zalando/skipper/innkeeper"
 	"github.com/zalando/skipper/loadbalancer"
 	"github.com/zalando/skipper/logging"
@@ -336,6 +337,9 @@ type Options struct {
 	// DisableHTTPKeepalives sets DisableKeepAlives, which forces
 	// a backend to always create a new connection.
 	DisableHTTPKeepalives bool
+
+	// Enables HTTP/2 connections over cleartext TCP with Prior Knowledge
+	EnableH2CPriorKnowledge bool
 
 	// Flag indicating to ignore trailing slashes in paths during route
 	// lookup.
@@ -954,6 +958,10 @@ func (o *Options) tlsConfig() (*tls.Config, error) {
 		return nil, nil
 	}
 
+	if o.EnableH2CPriorKnowledge {
+		return nil, fmt.Errorf("TLS implies no HTTP/2 connections over cleartext TCP")
+	}
+
 	crts := strings.Split(o.CertPathTLS, ",")
 	keys := strings.Split(o.KeyPathTLS, ",")
 
@@ -1066,6 +1074,7 @@ func listenAndServeQuit(
 		sigs = make(chan os.Signal, 1)
 	}
 
+	var h2cHandler h2c.Handler
 	go func() {
 		signal.Notify(sigs, syscall.SIGTERM)
 
@@ -1077,6 +1086,11 @@ func listenAndServeQuit(
 		log.Info("Start shutdown")
 		if err := srv.Shutdown(context.Background()); err != nil {
 			log.Errorf("Failed to graceful shutdown: %v", err)
+		}
+		if h2cHandler != nil {
+			if err := h2cHandler.Shutdown(context.Background()); err != nil {
+				log.Errorf("Failed to graceful shutdown h2c: %v", err)
+			}
 		}
 		close(idleConnsCH)
 	}()
@@ -1090,6 +1104,11 @@ func listenAndServeQuit(
 		}
 	} else {
 		log.Infof("TLS settings not found, defaulting to HTTP")
+
+		if o.EnableH2CPriorKnowledge {
+			log.Infof("Enabling HTTP/2 connections over cleartext TCP")
+			h2cHandler = h2c.Enable(srv, nil)
+		}
 
 		l, err := listen(o, mtr)
 		if err != nil {
