@@ -1396,6 +1396,15 @@ Host(/header\.example\.org$/)
 <h2 id="forwarded-header-predicates">Forwarded header predicates<a class="headerlink" href="#forwarded-header-predicates" title="Permanent link">&para;</a></h2>
 <p>Uses standardized Forwarded header (<a href="https://tools.ietf.org/html/rfc7239">RFC 7239</a>)</p>
 <p>More info about the header: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded">MDN</a></p>
+<p>If multiple proxies chain values in the header, as a comma separated list, the predicates below will only match 
+the last value in the chain for each part of the header.</p>
+<p>Example: Forwarded: host=example.com;proto=https, host=example.org</p>
+<ul>
+<li><code>ForwardedHost(/^example\.com$/)</code> - does not match</li>
+<li><code>ForwardedHost(/^example\.org$/)</code> - matches</li>
+<li><code>ForwardedHost(/^example\.org$/) &amp;&amp; ForwardedProto("https")</code> - matches</li>
+<li><code>ForwardedHost(/^example\.com$/) &amp;&amp; ForwardedProto("https")</code> - does not match</li>
+</ul>
 <h3 id="forwardedhost">ForwardedHost<a class="headerlink" href="#forwardedhost" title="Permanent link">&para;</a></h3>
 <p>Regular expressions that the forwarded host header in the request must match.</p>
 <p>Parameters:</p>

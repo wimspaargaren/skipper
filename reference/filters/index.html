@@ -768,8 +768,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#jwtvalidation" class="md-nav__link">
+    jwtValidation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#forwardtoken" class="md-nav__link">
     forwardToken
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forwardtokenfield" class="md-nav__link">
+    forwardTokenField
   </a>
   
 </li>
@@ -1076,6 +1090,13 @@
         <li class="md-nav__item">
   <a href="#lifogroup" class="md-nav__link">
     lifoGroup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rfchost" class="md-nav__link">
+    rfcHost
   </a>
   
 </li>
@@ -2160,8 +2181,22 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#jwtvalidation" class="md-nav__link">
+    jwtValidation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#forwardtoken" class="md-nav__link">
     forwardToken
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forwardtokenfield" class="md-nav__link">
+    forwardTokenField
   </a>
   
 </li>
@@ -2468,6 +2503,13 @@
         <li class="md-nav__item">
   <a href="#lifogroup" class="md-nav__link">
     lifoGroup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rfchost" class="md-nav__link">
+    rfcHost
   </a>
   
 </li>
@@ -3274,7 +3316,7 @@ to find the configuration and for example supported claims.</p>
 found inside the tokenintrospection (RFC7662) result for the incoming
 token, it will allow the request to pass.</p>
 <p>Examples:</p>
-<div class="highlight"><pre><span></span><code>oauthTokenintrospectionAnyClaims(&quot;c1&quot;, &quot;c2&quot;, &quot;c3&quot;)
+<div class="highlight"><pre><span></span><code>oauthTokenintrospectionAnyClaims(&quot;https://accounts.google.com&quot;, &quot;c1&quot;, &quot;c2&quot;, &quot;c3&quot;)
 </code></pre></div>
 <h2 id="oauthtokenintrospectionallclaims">oauthTokenintrospectionAllClaims<a class="headerlink" href="#oauthtokenintrospectionallclaims" title="Permanent link">&para;</a></h2>
 <p>The filter accepts variable number of string arguments, which are used
@@ -3287,7 +3329,7 @@ to find the configuration and for example supported claims.</p>
 found inside the tokenintrospection (RFC7662) result for the incoming
 token, it will allow the request to pass.</p>
 <p>Examples:</p>
-<div class="highlight"><pre><span></span><code>oauthTokenintrospectionAllClaims(&quot;c1&quot;, &quot;c2&quot;, &quot;c3&quot;)
+<div class="highlight"><pre><span></span><code>oauthTokenintrospectionAllClaims(&quot;https://accounts.google.com&quot;, &quot;c1&quot;, &quot;c2&quot;, &quot;c3&quot;)
 </code></pre></div>
 <h2 id="oauthtokenintrospectionanykv">oauthTokenintrospectionAnyKV<a class="headerlink" href="#oauthtokenintrospectionanykv" title="Permanent link">&para;</a></h2>
 <p>The filter accepts an even number of variable arguments of type
@@ -3301,8 +3343,8 @@ to find the configuration and for example supported claims.</p>
 inside the tokenintrospection (RFC7662) result for the incoming token,
 it will allow the request to pass.</p>
 <p>Examples:</p>
-<div class="highlight"><pre><span></span><code>oauthTokenintrospectionAnyKV(&quot;k1&quot;, &quot;v1&quot;, &quot;k2&quot;, &quot;v2&quot;)
-oauthTokenintrospectionAnyKV(&quot;k1&quot;, &quot;v1&quot;, &quot;k1&quot;, &quot;v2&quot;)
+<div class="highlight"><pre><span></span><code>oauthTokenintrospectionAnyKV(&quot;https://accounts.google.com&quot;, &quot;k1&quot;, &quot;v1&quot;, &quot;k2&quot;, &quot;v2&quot;)
+oauthTokenintrospectionAnyKV(&quot;https://accounts.google.com&quot;, &quot;k1&quot;, &quot;v1&quot;, &quot;k1&quot;, &quot;v2&quot;)
 </code></pre></div>
 <h2 id="oauthtokenintrospectionallkv">oauthTokenintrospectionAllKV<a class="headerlink" href="#oauthtokenintrospectionallkv" title="Permanent link">&para;</a></h2>
 <p>The filter accepts an even number of variable arguments of type
@@ -3316,7 +3358,7 @@ to find the configuration and for example supported claims.</p>
 inside the tokenintrospection (RFC7662) result for the incoming token,
 it will allow the request to pass.</p>
 <p>Examples:</p>
-<div class="highlight"><pre><span></span><code>oauthTokenintrospectionAllKV(&quot;k1&quot;, &quot;v1&quot;, &quot;k2&quot;, &quot;v2&quot;)
+<div class="highlight"><pre><span></span><code>oauthTokenintrospectionAllKV(&quot;https://accounts.google.com&quot;, &quot;k1&quot;, &quot;v1&quot;, &quot;k2&quot;, &quot;v2&quot;)
 </code></pre></div>
 <h2 id="secureoauthtokenintrospectionanyclaims">secureOauthTokenintrospectionAnyClaims<a class="headerlink" href="#secureoauthtokenintrospectionanyclaims" title="Permanent link">&para;</a></h2>
 <p>The filter accepts variable number of string arguments, which are used
@@ -3325,7 +3367,8 @@ to validate the incoming token from the <code>Authorization: Bearer
 for example <code>https://accounts.google.com</code>, that will be used as
 described in <a href="https://tools.ietf.org/html/draft-ietf-oauth-discovery-06#section-5">RFC Draft</a>
 to find the configuration and for example supported claims.</p>
-<p>Use this filter if the Token Introspection endpoint requires authorization to validate and decode the incoming token.
+<p>Second and third arguments are the client-id and client-secret.
+Use this filter if the Token Introspection endpoint requires authorization to validate and decode the incoming token.
 The filter will optionally read client-id and client-secret from environment variables: OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET</p>
 <p>If one of the configured and supported claims from the filter are
 found inside the tokenintrospection (RFC7662) result for the incoming
@@ -3343,7 +3386,8 @@ to validate the incoming token from the <code>Authorization: Bearer
 for example <code>https://accounts.google.com</code>, that will be used as
 described in <a href="https://tools.ietf.org/html/draft-ietf-oauth-discovery-06#section-5">RFC Draft</a>
 to find the configuration and for example supported claims.</p>
-<p>Use this filter if the Token Introspection endpoint requires authorization to validate and decode the incoming token.
+<p>Second and third arguments are the client-id and client-secret.
+Use this filter if the Token Introspection endpoint requires authorization to validate and decode the incoming token.
 The filter will optionally read client-id and client-secret from environment variables: OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET</p>
 <p>If all of the configured and supported claims from the filter are
 found inside the tokenintrospection (RFC7662) result for the incoming
@@ -3362,7 +3406,8 @@ filter is the issuer URL, for example <code>https://accounts.google.com</code>,
 that will be used as described in
 <a href="https://tools.ietf.org/html/draft-ietf-oauth-discovery-06#section-5">RFC Draft</a>
 to find the configuration and for example supported claims.</p>
-<p>Use this filter if the Token Introspection endpoint requires authorization to validate and decode the incoming token.
+<p>Second and third arguments are the client-id and client-secret.
+Use this filter if the Token Introspection endpoint requires authorization to validate and decode the incoming token.
 The filter will optionally read client-id and client-secret from environment variables: OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET</p>
 <p>If one of the configured key value pairs from the filter are found
 inside the tokenintrospection (RFC7662) result for the incoming token,
@@ -3381,7 +3426,8 @@ filter is the issuer URL, for example <code>https://accounts.google.com</code>,
 that will be used as described in
 <a href="https://tools.ietf.org/html/draft-ietf-oauth-discovery-06#section-5">RFC Draft</a>
 to find the configuration and for example supported claims.</p>
-<p>Use this filter if the Token Introspection endpoint requires authorization to validate and decode the incoming token.
+<p>Second and third arguments are the client-id and client-secret.
+Use this filter if the Token Introspection endpoint requires authorization to validate and decode the incoming token.
 The filter will optionally read client-id and client-secret from environment variables: OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET</p>
 <p>If all of the configured key value pairs from the filter are found
 inside the tokenintrospection (RFC7662) result for the incoming token,
@@ -3392,6 +3438,13 @@ it will allow the request to pass.</p>
 <p>Read client-id and client-secret from environment variables
 <div class="highlight"><pre><span></span><code>secureOauthTokenintrospectionAllKV(&quot;issuerURL&quot;, &quot;&quot;, &quot;&quot;, &quot;k1&quot;, &quot;v1&quot;, &quot;k2&quot;, &quot;v2&quot;)
 </code></pre></div></p>
+<h2 id="jwtvalidation">jwtValidation<a class="headerlink" href="#jwtvalidation" title="Permanent link">&para;</a></h2>
+<p>The filter parses bearer jwt token from Authorization header and validates the signature using public keys
+discovered via /.well-known/openid-configuration endpoint. Takes issuer url as single parameter.
+The filter stores token claims into the state bag where they can be used by oidcClaimsQuery() or forwardTokenPart()</p>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code>jwtValidation(&quot;https://login.microsoftonline.com/{tenantId}/v2.0&quot;)
+</code></pre></div>
 <h2 id="forwardtoken">forwardToken<a class="headerlink" href="#forwardtoken" title="Permanent link">&para;</a></h2>
 <p>The filter takes the header name as its first argument and sets header value to the
 token info or token introspection result serialized as a JSON object.
@@ -3401,6 +3454,15 @@ then it does not have any effect.</p>
 <p>Examples:</p>
 <div class="highlight"><pre><span></span><code>forwardToken(&quot;X-Tokeninfo-Forward&quot;)
 forwardToken(&quot;X-Tokeninfo-Forward&quot;, &quot;access_token&quot;, &quot;token_type&quot;)
+</code></pre></div>
+<h2 id="forwardtokenfield">forwardTokenField<a class="headerlink" href="#forwardtokenfield" title="Permanent link">&para;</a></h2>
+<p>The filter takes a header name and a field as its first and second arguments. The corresponding field from the result of token info, token introspection or oidc user info is added as
+corresponding header when the request is passed to the backend.</p>
+<p>If this filter is used when there is no token introspection, token info or oidc user info data
+then it does not have any effect.</p>
+<p>To forward multiple fields filters can be sequenced</p>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code>forwardTokenField(&quot;X-Tokeninfo-Forward-Oid&quot;, &quot;oid&quot;) -&gt; forwardTokenField(&quot;X-Tokeninfo-Forward-Sub&quot;, &quot;sub&quot;)
 </code></pre></div>
 <h2 id="oauthgrant">oauthGrant<a class="headerlink" href="#oauthgrant" title="Permanent link">&para;</a></h2>
 <p>Enables authentication and authorization with an OAuth2 authorization code grant flow as
@@ -3721,7 +3783,8 @@ and allows the same breaker characteristics for low and high rate traffic.</p>
 <p>Parameters:</p>
 <ul>
 <li>number of consecutive failures to open (int)</li>
-<li>sliding window (time string, parseable by <a href="https://godoc.org/time#ParseDuration">time.Duration</a>)</li>
+<li>sliding window (int)</li>
+<li>timeout (time string, parseable by <a href="https://godoc.org/time#ParseDuration">time.Duration</a>) - optional</li>
 <li>half-open requests (int) - optional</li>
 <li>idle-ttl (time string, parseable by <a href="https://godoc.org/time#ParseDuration">time.Duration</a>) - optional</li>
 </ul>
@@ -4385,6 +4448,12 @@ group, a warning will be logged.</p>
 <p>It is possible to use the lifoGroup filter together with the single lifo filter, e.g. if
 a route belongs to a group, but needs to have additional stricter settings then the whole
 group.</p>
+<h2 id="rfchost">rfcHost<a class="headerlink" href="#rfchost" title="Permanent link">&para;</a></h2>
+<p>This filter removes the optional trailing dot in the outgoing host
+header.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>rfcHost()
+</code></pre></div>
 <h2 id="rfcpath">rfcPath<a class="headerlink" href="#rfcpath" title="Permanent link">&para;</a></h2>
 <p>This filter forces an alternative interpretation of the RFC 2616 and RFC 3986 standards,
 where paths containing reserved characters will have these characters unescaped when the
