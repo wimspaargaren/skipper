@@ -826,6 +826,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#converting-routes" class="md-nav__link">
+    Converting Routes
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1445,6 +1452,13 @@
         <li class="md-nav__item">
   <a href="#forwarded-headers" class="md-nav__link">
     Forwarded headers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#converting-routes" class="md-nav__link">
+    Converting Routes
   </a>
   
 </li>
@@ -2314,6 +2328,63 @@ Details can be observed by opentracing in the logs of the <a href="#proxy-span">
   -forwarded-headers-exclude-cidrs value
         disables addition of forwarded headers for the remote host IPs from the comma separated list of CIDRs
 </code></pre></div>
+<h2 id="converting-routes">Converting Routes<a class="headerlink" href="#converting-routes" title="Permanent link">&para;</a></h2>
+<p>For migrations you need often to convert X to Y. This is also true in
+case you want to switch one predicate to another one or one filter to
+another one. In skipper we have <code>-edit-route</code> and <code>-clone-route</code> that
+either modifies matching routes or copy matching routes and change the
+copy.</p>
+<p>Example:</p>
+<p>A route with <code>edit-route</code>
+<div class="highlight"><pre><span></span><code>% skipper -inline-routes=&#39;Path(&quot;/foo&quot;) -&gt; setResponseHeader(&quot;X-Foo&quot;,&quot;bar&quot;) -&gt; inlineContent(&quot;hi&quot;) -&gt; &lt;shunt&gt;&#39; \
+-edit-route=&#39;/inlineContent[(][&quot;](.*)[&quot;][)]/inlineContent(&quot;modified \&quot;$1\&quot; response&quot;)/&#39;
+[APP]INFO[0000] Expose metrics in codahale format
+[APP]INFO[0000] support listener on :9911
+[APP]INFO[0000] route settings, reset, route: : Path(&quot;/foo&quot;) -&gt; setResponseHeader(&quot;X-Foo&quot;, &quot;bar&quot;) -&gt; inlineContent(&quot;hi&quot;) -&gt; &lt;shunt&gt;
+[APP]INFO[0000] proxy listener on :9090
+[APP]INFO[0000] TLS settings not found, defaulting to HTTP
+[APP]INFO[0000] route settings received
+[APP]INFO[0000] route settings applied
+</code></pre></div></p>
+<p>Modified route:
+<div class="highlight"><pre><span></span><code>curl localhost:9911/routes
+Path(&quot;/foo&quot;)
+  -&gt; setResponseHeader(&quot;X-Foo&quot;, &quot;bar&quot;)
+  -&gt; inlineContent(&quot;modified \&quot;hi\&quot; response&quot;)
+  -&gt; &lt;shunt&gt;
+</code></pre></div></p>
+<p>Modified response body:
+<div class="highlight"><pre><span></span><code>% curl -v http://localhost:9090/foo
+*   Trying ::1...
+* Connected to localhost (::1) port 9090 (#0)
+&gt; GET /foo HTTP/1.1
+&gt; Host: localhost:9090
+&gt; User-Agent: curl/7.49.0
+&gt; Accept: */*
+&gt;
+&lt; HTTP/1.1 200 OK
+&lt; Content-Length: 22
+&lt; Content-Type: text/plain; charset=utf-8
+&lt; Server: Skipper
+&lt; X-Foo: bar
+&lt; Date: Thu, 14 Oct 2021 08:41:53 GMT
+&lt;
+* Connection #0 to host localhost left intact
+modified &quot;hi&quot; response
+</code></pre></div></p>
+<p>With <code>edit-route</code> and <code>-clone-route</code> you can modify Predicates and Filters to convert from
+<code>SourceFromLast()</code> to <code>ClientIP</code>, for example if you want to migrate
+AWS cloud load balancer from Application Load Balancer to Network
+Load Balancer, you can use
+<code>-clone-route='/SourceFromLast[(](.*)[)]/ClientIP($1)/'</code> to create
+additional routes for</p>
+<p><div class="highlight"><pre><span></span><code>r: SourceFromLast(&quot;9.0.0.0/8&quot;,&quot;2001:67c:20a0::/48&quot;) -&gt; ...`
+</code></pre></div>
+to change to
+<div class="highlight"><pre><span></span><code>r: SourceFromLast(&quot;9.0.0.0/8&quot;,&quot;2001:67c:20a0::/48&quot;) -&gt; ...`
+clone_r: ClientIP(&quot;9.0.0.0/8&quot;,&quot;2001:67c:20a0::/48&quot;) -&gt; ...`
+</code></pre></div>
+for migration time.</p>
                 
               
               
